@@ -1,6 +1,5 @@
 baseURL = 'https://misaka10987.github.io/'
 languageCode = 'en-us'
-defaultContentLanguage = "zh"
 title = "misaka10987's blog"
 theme = "PaperMod"
 
