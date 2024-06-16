@@ -1,0 +1,9 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+defaultContentLanguage = "zh"
+title = "misaka10987's blog"
+theme = "PaperMod"
+
+[params]
+ShowToc = true
+TocOpen = true
