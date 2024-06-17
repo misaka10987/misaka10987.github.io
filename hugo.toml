@@ -9,6 +9,7 @@ TocOpen = true
 
 ShowShareButtons = true
 ShowReadingTime = true
+ShowWordCount = true
 ShowBreadCrumbs = true
 
 ShowPostNavLinks = true
@@ -17,9 +18,15 @@ ShowCodeCopyButtons = true
 
 comments = true
 
-editPost = { URL = "https://github.com/misaka10987/misaka10987.github.io/content", Text = "Suggest Changes", appendFilePath = true }
+editPost = { URL = "https://github.com/misaka10987/misaka10987.github.io/tree/main/content", Text = "Suggest Changes", appendFilePath = true }
 
 socialIcons = [ { name = "Github", url = "https://github.com/misaka10987" } ]
+
+[params.assets]
+disableHLJS = true
+favicon = "https://avatars.githubusercontent.com/u/136697326"
+favicon16x16 = "https://avatars.githubusercontent.com/u/136697326"
+favicon32x32 = "https://avatars.githubusercontent.com/u/136697326"
 
 [params.profileMode]
 enabled = true
@@ -46,6 +53,14 @@ theme = "preferred_color_scheme"
 lang = "en"
 loading = "lazy"
 crossorigin = "anonymous"
+
+[menu]
+main = [ { identifier = "archive", name = "Archive", url = "/archive", weight = 10 } ]
+
+[markup.highlight]
+codeFences = true
+guessSyntax = true
+style = "monokai"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]

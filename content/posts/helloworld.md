@@ -8,18 +8,26 @@ math = true
 
 Hello, world!
 
-*Hello, world*
+*Hello, world!*
 
 **Hello, world!**
 
-`Hello, world`
+`Hello, world!`
 
 > Hello, world!
 
 - Hello, world!
 
-| Hello | world |
+| HELLO | WORLD |
 | ----- | ----- |
 | hello | world |
+
+```c
+#include<stdio.h>
+main(){
+    printf("Hello, world!\n");
+    return 0;
+}
+```
 
 ${\rm e}^{i\pi}=-1$ 
