@@ -24,15 +24,15 @@ socialIcons = [ { name = "Github", url = "https://github.com/misaka10987" } ]
 
 [params.assets]
 disableHLJS = true
-favicon = "https://avatars.githubusercontent.com/u/136697326"
-favicon16x16 = "https://avatars.githubusercontent.com/u/136697326"
-favicon32x32 = "https://avatars.githubusercontent.com/u/136697326"
+favicon = "/assets/avatar.png"
+favicon16x16 = "/assets/avatar.png"
+favicon32x32 = "/assets/avatar.png"
 
 [params.profileMode]
 enabled = true
 title = "misaka10987's pages"
 subtitle = "Random thoughts."
-imageUrl = "https://avatars.githubusercontent.com/u/136697326" # optional
+imageUrl = "/assets/avatar.png" # optional
 #imageTitle = "<title of image as alt>" # optional
 imageWidth = 250                                                             # custom size
 imageHeight = 250                                                            # custom size
