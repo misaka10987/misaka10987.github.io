@@ -18,5 +18,16 @@ ShowCodeCopyButtons = true
 comments = true
 commentsParams = { repo = "misaka10987/misaka10987.github.io", repoId = "R_kgDOJ1kWxQ", category = "Announcements", categoryId = "DIC_kwDOJ1kWxc4CgJQo", mapping = "specific", term = "giscus", strict = 0, reactionsEnabled = 1, emitMetadata = 0, inputPosition = "top", theme = "preferred_color_scheme", lang = "en", loading = "lazy", crossorigin = "anonymous" }
 
+editPost = { URL = "https://github.com/misaka10987/misaka10987.github.io/content", Text= "Suggest Changes", appendFilePath = true }
+
+[params.profileMode]
+enabled = true
+subtitle = "This is subtitle"
+imageUrl = "https://avatars.githubusercontent.com/u/136697326" # optional
+#imageTitle = "<title of image as alt>" # optional
+imageWidth = 128 # custom size
+imageHeight = 128 # custom size
+buttons = [ { name = "Github", url = "https://github.com/misaka10987" } ]
+
 [outputs]
 home = ["HTML", "RSS", "JSON"]
