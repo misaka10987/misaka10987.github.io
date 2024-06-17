@@ -11,7 +11,7 @@ ShowShareButtons = true
 ShowReadingTime = true
 ShowBreadCrumbs = true
 
-ShowPostNavLinks =
+ShowPostNavLinks = true
 
 ShowCodeCopyButtons = true
 
