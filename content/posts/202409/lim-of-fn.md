@@ -1,6 +1,7 @@
 +++
 title = 'epsilon-delta极限定义的思维过程'
 date = 2024-09-10T07:40:01+08:00
+math = true
 +++
 
 # Attempt 1
