@@ -25,7 +25,6 @@
 </footer>
 {{- end }}
 
-</body>
 
 {{- if (not site.Params.disableScrollToTop) }}
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -147,7 +146,3 @@
     });
 </script>
 {{- end }}
-
-{{ if .Params.katex }}{{ partial "katex.html" . }}{{ end }}
-
-</html>
