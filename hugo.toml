@@ -36,7 +36,7 @@ imageUrl = "/avatar.png" # optional
 #imageTitle = "<title of image as alt>" # optional
 imageWidth = 250                                                             # custom size
 imageHeight = 250                                                            # custom size
-buttons = [{ name = "Blogs", url = "https://misaka10987.github.io/search" }]
+buttons = [{ name = "Search Blog", url = "https://misaka10987.github.io/search" }]
 
 [params.commentsParams]
 repo = "misaka10987/misaka10987.github.io"
