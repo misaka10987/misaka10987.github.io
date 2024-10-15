@@ -21,7 +21,7 @@ $$
 
 ${\rm E}(l\circ f)=l\circ{\rm E}(f)$ 对于线性映射 $l$ .
 
-${\rm E}(XY)=E(X)E(Y)$ 当随机变量 $X$ 与 $Y$ 无关。
+${\rm E}(x\mapsto f(x)g(x))=E(f)E(g)$ 当 $f$ 与 $g$ 无关。
 
 # 方差
 
