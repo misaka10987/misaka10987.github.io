@@ -26,11 +26,11 @@ ${\rm E}(XY)=E(X)E(Y)$ 当随机变量 $X$ 与 $Y$ 无关。
 # 方差
 
 $$
-\begin{aligned}
-{\rm D}&:({\rm Dom}\Rightarrow\R)\Rightarrow\R\\
-&=f\mapsto x\mapsto \int_{\rm Dom}(x-{\rm E}(f))^2{\rm d}x\\
+\begin{align*}
+{\rm D}&:({\rm Dom}\Rightarrow\R)\Rightarrow\R\newline
+&=f\mapsto x\mapsto \int_{\rm Dom}(x-{\rm E}(f))^2{\rm d}x\newline
 &=f\mapsto {\rm E}((x\mapsto x^2)\circ f)-{\rm E}(f)^2
-\end{aligned}
+\end{align*}
 $$
 
 ${\rm D}((x\mapsto x+a)\circ f)={\rm D}(f)$ .
@@ -40,11 +40,11 @@ ${\rm D}((x\mapsto ax)\circ f)=a^2{\rm D}(f)$ .
 # 协方差
 
 $$
-\begin{aligned}
-{\rm cov}&:(\R\Rightarrow\R)\Rightarrow(\R\Rightarrow\R)\Rightarrow\R\\
-&=(f,g)\mapsto{\rm E}(x\mapsto(f(x)-{\rm E}(f))(g(x)-{\rm E}(g)))\\
+\begin{align*}
+{\rm cov}&:(\R\Rightarrow\R)\Rightarrow(\R\Rightarrow\R)\Rightarrow\R\newline
+&=(f,g)\mapsto{\rm E}(x\mapsto(f(x)-{\rm E}(f))(g(x)-{\rm E}(g)))\newline
 &={\rm E}(x\mapsto f(x)g(x))-{\rm E}(f){\rm E}(g)
-\end{aligned}
+\end{align*}
 $$
 
 ${\rm cov}(f,f)={\rm D}(f)$ .
