@@ -32,4 +32,4 @@ main(){
 
 ${\rm e}^{i\pi}=-1$ 
 
-<iframe src="https://lichess.org/analysis?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1" style="width: 100%"></iframe>
+<iframe src="https://lichess.org/analysis?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1" style="width: 100%; aspect-ratio:4/3"></iframe>
