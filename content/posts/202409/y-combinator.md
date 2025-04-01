@@ -18,8 +18,8 @@ Y - 组合子应用于函数：
 $$
 \begin{align}
 Y\space f
-&=(\lambda x.f(x\space x))\space(\lambda x.f(x\space x))\\
-&=f\space((\lambda x.f(x\space x)\space(\lambda x.f(x\space x)))\\
+&=(\lambda x.f(x\space x))\space(\lambda x.f(x\space x))\newline
+&=f\space((\lambda x.f(x\space x)\space(\lambda x.f(x\space x)))\newline
 &=f(Y\space f)
 \end{align}
 $$
