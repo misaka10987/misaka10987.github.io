@@ -11,14 +11,22 @@
 identifier = "github"
 name = "GitHub"
 url = "https://github.com/misaka10987"
-
-[social.params]
-icon = "brand-github"
+params.icon = "brand-github"
 
 [[social]]
 identifier = "qq"
 name = "QQ"
 url = "http://2208129531.qzone.qq.com"
+params.icon = "brand-qq"
 
-[social.params]
-icon = "brand-qq"
+[[social]]
+identifier = "lichess"
+name = "lichess.org"
+url = "https://lichess.org/@/misaka10987"
+params.icon = "chess-knight"
+
+[[social]]
+identifier = "zhihu"
+name = "知乎"
+url = "https://www.zhihu.com/people/misaka10987"
+params.icon = "brand-zhihu"
