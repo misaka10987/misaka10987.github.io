@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>misaka10987's blog</title><link>https://misaka10987.github.io/</link><description>Recent content on misaka10987's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 14 Oct 2024 20:43:36 +0800</lastBuildDate><atom:link href="https://misaka10987.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://misaka10987.github.io/p/hello-world/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://misaka10987.github.io/p/hello-world/</guid><description>&lt;img src="https://misaka10987.github.io/p/hello-world/cover.jpg" alt="Featured image of post Hello World" />&lt;p>Welcome to Hugo theme Stack. This is your first post. Edit or delete it, then start writing!&lt;/p>
+&lt;p>For more information about this theme, check the documentation: &lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
+>https://stack.jimmycai.com/&lt;/a>&lt;/p>
+&lt;p>Want a site like this? Check out &lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack-starter" target="_blank" rel="noopener"
+>hugo-theme-stack-stater&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Photo by &lt;a class="link" href="https://unsplash.com/@pawel_czerwinski" target="_blank" rel="noopener"
+>Pawel Czerwinski&lt;/a> on &lt;a class="link" href="https://unsplash.com/" target="_blank" rel="noopener"
+>Unsplash&lt;/a>&lt;/p>&lt;/blockquote></description></item><item><title>Distribution Cheetsheet</title><link>https://misaka10987.github.io/p/distribution-cheetsheet/</link><pubDate>Mon, 14 Oct 2024 20:43:36 +0800</pubDate><guid>https://misaka10987.github.io/p/distribution-cheetsheet/</guid><description>&lt;h2 id="分布">分布
+&lt;/h2>&lt;p>分布是一个高阶函数。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>二项分布：$B:\Z\Rightarrow\R\Rightarrow(\Z\Rightarrow\R)=(n,p)\mapsto x\mapsto{n\choose x}p^x(1-p)^{n-x}$ ;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>超几何分布：$H:\Z\Rightarrow\Z\Rightarrow\Z\Rightarrow(\Z\Rightarrow\R)=(n,K,N)\mapsto x\mapsto\frac{{K\choose x}{N-K\choose n-x}}{N\choose n}$ ;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>正态分布：$N:\R\Rightarrow\R\Rightarrow(\R\Rightarrow\R)=(\mu,\sigma)\mapsto x\mapsto\frac{1}{\sigma\sqrt{2\pi}}\exp(-\frac{(x-\mu)^2}{2\sigma^2})$ .&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="期望">期望
+&lt;/h2>$$
+{\rm E}:({\rm Dom}\Rightarrow\R)\Rightarrow\R=f\mapsto x\mapsto\int_{\rm Dom}xf(x){\rm d}x
+$$&lt;p>${\rm E}(l\circ f)=l\circ{\rm E}(f)$ 对于线性映射 $l$ .&lt;/p>
+&lt;p>${\rm E}(x\mapsto f(x)g(x))=E(f)E(g)$ 当 $f$ 与 $g$ 无关。&lt;/p>
+&lt;h2 id="方差">方差
+&lt;/h2>$$
+\begin{align*}
+{\rm D}&amp;:({\rm Dom}\Rightarrow\R)\Rightarrow\R\newline
+&amp;=f\mapsto x\mapsto \int_{\rm Dom}(x-{\rm E}(f))^2{\rm d}x\newline
+&amp;=f\mapsto {\rm E}((x\mapsto x^2)\circ f)-{\rm E}(f)^2
+\end{align*}
+$$&lt;p>${\rm D}((x\mapsto x+a)\circ f)={\rm D}(f)$ .&lt;/p>
+&lt;p>${\rm D}((x\mapsto ax)\circ f)=a^2{\rm D}(f)$ .&lt;/p>
+&lt;h2 id="协方差">协方差
+&lt;/h2>$$
+\begin{align*}
+{\rm cov}&amp;:(\R\Rightarrow\R)\Rightarrow(\R\Rightarrow\R)\Rightarrow\R\newline
+&amp;=(f,g)\mapsto{\rm E}(x\mapsto(f(x)-{\rm E}(f))(g(x)-{\rm E}(g)))\newline
+&amp;={\rm E}(x\mapsto f(x)g(x))-{\rm E}(f){\rm E}(g)
+\end{align*}
+$$&lt;p>${\rm cov}(f,f)={\rm D}(f)$ .&lt;/p>
+&lt;p>${\rm cov}(f,g)={\rm cov}(g,f)$ .&lt;/p>
+&lt;p>${\rm cov}((x\mapsto ax)\circ f,(x\mapsto bx)\circ g)=ab{\rm cov}(f,g)$ .&lt;/p>
+&lt;h2 id="常用公式">常用公式
+&lt;/h2>&lt;p>${\rm E}(B(n,p))=np$ .&lt;/p>
+&lt;p>${\rm D}(B(n,p))=np(1-p)$ .&lt;/p>
+&lt;p>${\rm E}(H(n,K,N))=\frac{Kn}N$ .&lt;/p>
+&lt;p>${\rm D}(H(n,K,N))=\frac{n(N-n)K(N-K)}{N^2(N-1)}$ .&lt;/p>
+&lt;p>${\rm D}(x\mapsto af(x)+bg(x))=a^2{\rm D}(f)+b^2{\rm D}(g)+2ab{\rm cov}(f,g)$ .&lt;/p>
+&lt;p>${\rm D}(\sum_nf_n)=\sum_{i=0}^n{\rm D}(f_i)+2\sum_{j=0}^i{\rm cov}(f_i,f_j)$ .&lt;/p>
+&lt;p>${\rm cov}(\sum_nf_n,\sum_mg_m)=\sum_n\sum_m{\rm cov}(f_n,g_m)$ .&lt;/p></description></item><item><title>歪诗一首</title><link>https://misaka10987.github.io/p/%E6%AD%AA%E8%AF%97%E4%B8%80%E9%A6%96/</link><pubDate>Sun, 13 Oct 2024 19:20:03 +0800</pubDate><guid>https://misaka10987.github.io/p/%E6%AD%AA%E8%AF%97%E4%B8%80%E9%A6%96/</guid><description>&lt;p>近日读网络小说《赛博英雄传》有感作。&lt;/p>
+&lt;hr>
+&lt;h1 id="沁园春">沁园春
+&lt;/h1>&lt;p>人死神留，万代千秋，本性难移。&lt;/p>
+&lt;p>纵水泥为肉，钢筋作骨，捉鳖揽月，不改其一。&lt;/p>
+&lt;p>僭主高踞，营私建党，每罄南山未可极。&lt;/p>
+&lt;p>无妨便，即易筋换血，尽算天机。&lt;/p>
+&lt;p>方得自在毫厘。智人种，当绝禽兽习。&lt;/p>
+&lt;p>教暴秦夺魄，懦夫增气，中天不济，万世风激。&lt;/p>
+&lt;p>旧法尘封，铅华尽洗，我以六龙回日低。&lt;/p>
+&lt;p>循苦旅，抵群星所在，寰宇雄奇。&lt;/p></description></item><item><title>通量和散度</title><link>https://misaka10987.github.io/p/%E9%80%9A%E9%87%8F%E5%92%8C%E6%95%A3%E5%BA%A6/</link><pubDate>Sun, 13 Oct 2024 16:34:18 +0800</pubDate><guid>https://misaka10987.github.io/p/%E9%80%9A%E9%87%8F%E5%92%8C%E6%95%A3%E5%BA%A6/</guid><description>&lt;h2 id="通量">通量
+&lt;/h2>&lt;p>通量 (Flux) 用以描述一个向量场“穿过”曲面的部分的大小。&lt;/p>
+&lt;p>向量场 $\bold A$ 在曲面 $\Sigma$ 上的通量 $\Phi_{\bold A}(\Sigma)$ 定义为：&lt;/p>
+$$
+\Phi_{\bold A}(\Sigma)=\iint_\Sigma\bold A\cdot\bold n{\rm d}S
+$$&lt;p>其中 $\bold n$ 为曲面在每一点上的&lt;strong>单位法向量&lt;/strong>。一点上的单位法向量是自这一点垂直曲面向外的单位向量。&lt;/p>
+&lt;p>上述形式的通量是标量。&lt;/p>
+&lt;h3 id="混乱邪恶">混乱邪恶
+&lt;/h3>&lt;p>在一些情境下，通量还可以指向量场在曲面上&lt;strong>某一点&lt;/strong>的&lt;strong>向量&lt;/strong>在其&lt;strong>单位法向量&lt;/strong>上的投影。&lt;/p>
+&lt;p>&lt;em>相当于上文中 $\bold A\cdot\bold n$ .&lt;/em>&lt;/p>
+&lt;p>我们不采用这种说法。在需要时，用「通量密度」代替。&lt;/p>
+&lt;h2 id="散度">散度
+&lt;/h2>&lt;p>散度 (Divergence) 用以描述向量场中的某一点附近的向量“趋向”或“远离”该点的趋势。标量。&lt;/p>
+&lt;p>向量场 $\bold A$ 在点 $x$ 的散度 ${\rm div}\bold A(x)$ 定义为：&lt;/p>
+$$
+{\rm div}\bold A(x)=\lim_{\delta V\rightarrow\{x\}}\frac{\Phi_\bold A(\Sigma)}{|\delta V|}
+$$&lt;p>其中 $\Sigma$ 是包含点 $x$ 的一个封闭曲面， $\delta V$ 为该曲面内的微小体元， $|\delta V|$ 为此微小体元的体积。上述定义可直观理解为以 $x$ 为球心的无穷小球上的通量。&lt;/p>
+&lt;p>向量场 $\bold A$ 的散度场记作 $\nabla\cdot\bold A$ .&lt;/p>
+&lt;h2 id="散度定理">散度定理
+&lt;/h2>&lt;p>散度定理（或高斯散度定理）指出：&lt;/p>
+&lt;blockquote>
+&lt;p>曲面上的通量等于散度在曲面内体积上的积分。&lt;/p>&lt;/blockquote>
+&lt;p>即对于曲面 $\Sigma$ , 围起的体积为 $\Omega$ 时：&lt;/p>
+$$
+\iiint_\Omega{\rm div}\bold A(x){\rm d}v=\Phi_\bold A(\Sigma)
+$$&lt;p>可以如是直观理解：向量从体积中的所有点“涌出”的的相加，就是向量在整个体积内“产生”的量，也就是通过曲面“外溢”的量。&lt;/p>
+&lt;p>「散度是通量的体密度。」&lt;/p></description></item><item><title>Y-组合子及其推导过程</title><link>https://misaka10987.github.io/p/y-%E7%BB%84%E5%90%88%E5%AD%90%E5%8F%8A%E5%85%B6%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B/</link><pubDate>Sat, 21 Sep 2024 16:05:15 +0800</pubDate><guid>https://misaka10987.github.io/p/y-%E7%BB%84%E5%90%88%E5%AD%90%E5%8F%8A%E5%85%B6%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B/</guid><description>&lt;p>在传统方法下，我们很难在无类型 $\lambda$ - 演算这样的&lt;strong>匿名&lt;/strong>上下文中进行函数的递归。&lt;/p>
+&lt;p>为解决此问题，我们希望有一个函数用以“得到函数自身”，即为 Y - 组合子。&lt;/p>
+&lt;p>Y - 组合子使用 $\lambda$ - 演算定义为：&lt;/p>
+$$
+Y=\lambda f.(\lambda x.f(x\space x))\space(\lambda x.f(x\space x))
+$$&lt;p>Y - 组合子应用于函数：&lt;/p>
+$$
+\begin{align}
+Y\space f
+&amp;=(\lambda x.f(x\space x))\space(\lambda x.f(x\space x))\newline
+&amp;=f\space((\lambda x.f(x\space x)\space(\lambda x.f(x\space x)))\newline
+&amp;=f(Y\space f)
+\end{align}
+$$&lt;p>即进行两次 $\beta$ - 规约并将 (1) 代入 (3)。最终我们得到：&lt;/p>
+$$
+Y\space f=f\space(Y\space f)
+$$&lt;p>Y - 组合子或称不动点组合子，因其将函数映射到其不动点上。&lt;/p>
+&lt;blockquote>
+&lt;p>若 $f\space x=x$ ，则称 $x$ 是 $f$ 的一个不动点。&lt;/p>&lt;/blockquote>
+&lt;h2 id="推导">推导
+&lt;/h2>&lt;p>Y - 组合子的推导过程实质上就是解不动点方程 $Y\space f=f\space(Y\space f)$ 的过程。&lt;/p>
+&lt;p>考虑不断迭代该不动点方程：&lt;/p>
+$$
+Y\space f=f\space(Y\space f)=f\space f\space(Y\space f)=f\space f\space f\space...
+$$&lt;p>将这个无限长的序列称作 $g$ ，则有 $g = f\space g$.&lt;/p>
+&lt;p>由于序列无限长，不妨将其截半，设 $g=g&amp;rsquo;\space g&amp;rsquo;$. 这是因为我们希望可以得一个带有函数的参数的表达式在方程中，以便于解得函数。&lt;/p>
+&lt;p>则有&lt;/p>
+$$
+g'\space g'=f(g'\space g')
+$$&lt;p>如此构成了一个合法的函数定义：&lt;/p>
+$$
+g'=\lambda x.f(x\space x)
+$$&lt;p>代入原方程即可得：&lt;/p>
+$$
+Y\space f=g=g'\space g'=(\lambda x.f(x\space x))\space(\lambda x.f(x\space x))\\
+Y=\lambda f.(\lambda x.f(x\space x))\space(\lambda x.f(x\space x))
+$$&lt;p>这样就得到了 $Y$ 的定义。&lt;/p></description></item><item><title>epsilon-delta极限定义的思维过程</title><link>https://misaka10987.github.io/p/epsilon-delta%E6%9E%81%E9%99%90%E5%AE%9A%E4%B9%89%E7%9A%84%E6%80%9D%E7%BB%B4%E8%BF%87%E7%A8%8B/</link><pubDate>Tue, 10 Sep 2024 07:40:01 +0800</pubDate><guid>https://misaka10987.github.io/p/epsilon-delta%E6%9E%81%E9%99%90%E5%AE%9A%E4%B9%89%E7%9A%84%E6%80%9D%E7%BB%B4%E8%BF%87%E7%A8%8B/</guid><description>&lt;h2 id="attempt-1">Attempt 1
+&lt;/h2>&lt;p>“极限就是越来越近。”&lt;/p>
+&lt;p>定义 $\lim_{x\rightarrow a^-}f(x)=L$ iff:&lt;/p>
+&lt;p>$\forall \Delta_x&amp;rsquo;\le\Delta_x$, $|f(a-\Delta_x&amp;rsquo;)-L|\le|f(a-\Delta_x)-L|$.&lt;/p>
+&lt;p>依样定义右极限，并定义左右极限相等时极限存在。&lt;/p>
+&lt;p>容易发现根据上述定义，$\lim_{x\rightarrow+\infin}\frac{1}{x}$ 鉴于在 $\R^+$ 上单调减，其极限可以是任意非正实数。&lt;/p>
+&lt;p>这不是我们所期待的。我们希望上述极限定义为 $0$ 。&lt;/p>
+&lt;h2 id="attempt-2">Attempt 2
+&lt;/h2>&lt;p>“极限是越来越近，且可以无限接近。”&lt;/p>
+&lt;p>定义 $\lim_{x\rightarrow a^-}f(x)=L$ iff:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>$\forall \Delta_x&amp;rsquo;\le\Delta_x$ , $|f(a-\Delta_x&amp;rsquo;)-L|\le|f(a-\Delta_x)-L|$; and&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$\forall \Delta_y\in\R^+$, $\exist\Delta_x$ s.t. $|f(a-\Delta_x)-L|\le\Delta_y$.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>上述定义成功排除了多余的极限值。但是，可以发现，鉴于其对函数整个定义域上的单调性作要求，这似乎严格地排除了过多函数，使得定义不甚实用。&lt;/p>
+&lt;p>我们希望得到能使类似于 $\lim_{x\rightarrow0}\cos x=1$ 的极限定义（而非现在的未定义）。&lt;/p>
+&lt;h2 id="attempt-3">Attempt 3
+&lt;/h2>&lt;p>“在 $a$ 上的极限是在一个包含 $a$ 的范围内越来越近，且可以无限接近。”&lt;/p>
+&lt;p>定义 $\lim_{x\rightarrow a^-}f(x)=L$ iff $\exist\Delta_0\in\R^+$ s.t.:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>$\forall0\lt\Delta_x&amp;rsquo;\le\Delta_x&amp;lt;\Delta_0$ , $|f(a-\Delta_x&amp;rsquo;)-L|\le|f(a-\Delta_x)-L|$; and&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$\forall \Delta_y\in\R^+$, $\exist\Delta_x\le\Delta_0$ s.t. $|f(a-\Delta_x)-L|\le\Delta_y$.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>上述定义允许更多函数的极限被定义。&lt;/p>
+&lt;p>这似乎是完备的。但是，知晓数列极限的定义，依然能容易地给出定义的不足之处：此定义对于不断振荡——不单调，但在接近确定值的函数未能给出定义。例如，我们希望像 $\lim_{x\rightarrow0}x\sin\frac{1}{x}$ 这样的极限被定义为 $0$ ，而非未定义。&lt;/p>
+&lt;h2 id="attempt-4">Attempt 4
+&lt;/h2>&lt;p>“在 $a$ 上的极限是在一个包含 $a$ 的范围内可以无限接近，且对于某个值，总存在一个更小的值使得在更小的值以后的所有函数值都要更近。”&lt;/p>
+&lt;p>定义 $\lim_{x\rightarrow a^-}f(x)=L$ , iff $\exist \Delta_0\in\R^+$ s.t.:&lt;/p>
+&lt;p>let $g(x)=|f(a-x)-L|$ ;&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>$\forall \Delta y\in\mathbb{R}^+$ , $\exist \Delta x\le\Delta_0$ s.t. $g(\Delta x)\le\Delta y$ ; and&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$\forall \Delta_1\le\Delta_0$ , $\exist\Delta x\le\Delta_1$ s.t. $\forall\Delta&amp;rsquo;x\le\Delta x$ , $g(\Delta&amp;rsquo;x)\le g(\Delta_1)$ .&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>这个定义很完美！&lt;/p>
+&lt;h2 id="简化版本">简化版本
+&lt;/h2>&lt;p>我们对 Attempt 4 作出一些简化，便可以得到极限的 $\epsilon$ - $\delta$ 定义：&lt;/p>
+&lt;p>$\lim_{x\rightarrow a}f(x)=L$ iff $\forall\epsilon\in\R^+$, $\exist\delta$ s.t. $\forall|x-a|&amp;lt;\delta$, $|f(x)-L|&amp;lt;\epsilon$.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>很显然此定义满足 Attempt 4 的第一条；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>对于 Attempt 4 的第二条，由于规定了差小于 $\delta$ 的所有值，因此函数确实在越来越近；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>此定义不会排除 Attempt 3 类似的函数，这是由于 $\delta$ 可以任意小。&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>`serde_derive` amazingly smart</title><link>https://misaka10987.github.io/p/serde_derive-amazingly-smart/</link><pubDate>Mon, 22 Jul 2024 10:53:33 +0800</pubDate><guid>https://misaka10987.github.io/p/serde_derive-amazingly-smart/</guid><description>&lt;p>Within context like this:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#[derive(Serialize, Deserialize)]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cp">#[serde(transparent)]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="nc">Id&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>: &lt;span class="nc">Register&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>: &lt;span class="kp">&amp;amp;&lt;/span>&lt;span class="nb">&amp;#39;static&lt;/span> &lt;span class="kt">str&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">_phantom&lt;/span>: &lt;span class="nc">PhantomData&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">T&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>serde_derive&lt;/code> intelligently recognizes that there is no need to serialize &lt;code>_phantom&lt;/code> and the &lt;code>#[serde(transparent)]&lt;/code> flag simply works.&lt;/p></description></item><item><title>Markdown Syntax Guide</title><link>https://misaka10987.github.io/p/markdown-syntax-guide/</link><pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate><guid>https://misaka10987.github.io/p/markdown-syntax-guide/</guid><description>&lt;p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p>
+&lt;h2 id="headings">Headings
+&lt;/h2>&lt;p>The following HTML &lt;code>&amp;lt;h1&amp;gt;&lt;/code>—&lt;code>&amp;lt;h6&amp;gt;&lt;/code> elements represent six levels of section headings. &lt;code>&amp;lt;h1&amp;gt;&lt;/code> is the highest section level while &lt;code>&amp;lt;h6&amp;gt;&lt;/code> is the lowest.&lt;/p>
+&lt;h1 id="h1">H1
+&lt;/h1>&lt;h2 id="h2">H2
+&lt;/h2>&lt;h3 id="h3">H3
+&lt;/h3>&lt;h4 id="h4">H4
+&lt;/h4>&lt;h5 id="h5">H5
+&lt;/h5>&lt;h6 id="h6">H6
+&lt;/h6>&lt;h2 id="paragraph">Paragraph
+&lt;/h2>&lt;p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.&lt;/p>
+&lt;p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.&lt;/p>
+&lt;h2 id="blockquotes">Blockquotes
+&lt;/h2>&lt;p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a &lt;code>footer&lt;/code> or &lt;code>cite&lt;/code> element, and optionally with in-line changes such as annotations and abbreviations.&lt;/p>
+&lt;h3 id="blockquote-without-attribution">Blockquote without attribution
+&lt;/h3>&lt;blockquote>
+&lt;p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+&lt;strong>Note&lt;/strong> that you can use &lt;em>Markdown syntax&lt;/em> within a blockquote.&lt;/p>&lt;/blockquote>
+&lt;h3 id="blockquote-with-attribution">Blockquote with attribution
+&lt;/h3>&lt;blockquote>
+&lt;p>Don&amp;rsquo;t communicate by sharing memory, share memory by communicating.&lt;br>
+— &lt;cite>Rob Pike&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/cite>&lt;/p>&lt;/blockquote>
+&lt;h2 id="tables">Tables
+&lt;/h2>&lt;p>Tables aren&amp;rsquo;t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Name&lt;/th>
+&lt;th>Age&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Bob&lt;/td>
+&lt;td>27&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alice&lt;/td>
+&lt;td>23&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="inline-markdown-within-tables">Inline Markdown within tables
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Italics&lt;/th>
+&lt;th>Bold&lt;/th>
+&lt;th>Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;em>italics&lt;/em>&lt;/td>
+&lt;td>&lt;strong>bold&lt;/strong>&lt;/td>
+&lt;td>&lt;code>code&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>A&lt;/th>
+&lt;th>B&lt;/th>
+&lt;th>C&lt;/th>
+&lt;th>D&lt;/th>
+&lt;th>E&lt;/th>
+&lt;th>F&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/td>
+&lt;td>Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.&lt;/td>
+&lt;td>Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus&lt;/td>
+&lt;td>Proin sit amet velit nec enim imperdiet vehicula.&lt;/td>
+&lt;td>Ut bibendum vestibulum quam, eu egestas turpis gravida nec&lt;/td>
+&lt;td>Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="code-blocks">Code Blocks
+&lt;/h2>&lt;h3 id="code-block-with-backticks">Code block with backticks
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Example HTML5 Document&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Test&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="code-block-indented-with-four-spaces">Code block indented with four spaces
+&lt;/h3>&lt;pre>&lt;code>&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;h3 id="diff-code-block">Diff code block
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-diff" data-lang="diff">&lt;span class="line">&lt;span class="cl">[dependencies.bevy]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git = &amp;#34;https://github.com/bevyengine/bevy&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rev = &amp;#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gd">- features = [&amp;#34;dynamic&amp;#34;]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gd">&lt;/span>&lt;span class="gi">+ features = [&amp;#34;jpeg&amp;#34;, &amp;#34;dynamic&amp;#34;]
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="one-line-code-block">One line code block
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>A paragraph&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="list-types">List Types
+&lt;/h2>&lt;h3 id="ordered-list">Ordered List
+&lt;/h3>&lt;ol>
+&lt;li>First item&lt;/li>
+&lt;li>Second item&lt;/li>
+&lt;li>Third item&lt;/li>
+&lt;/ol>
+&lt;h3 id="unordered-list">Unordered List
+&lt;/h3>&lt;ul>
+&lt;li>List item&lt;/li>
+&lt;li>Another item&lt;/li>
+&lt;li>And another item&lt;/li>
+&lt;/ul>
+&lt;h3 id="nested-list">Nested list
+&lt;/h3>&lt;ul>
+&lt;li>Fruit
+&lt;ul>
+&lt;li>Apple&lt;/li>
+&lt;li>Orange&lt;/li>
+&lt;li>Banana&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Dairy
+&lt;ul>
+&lt;li>Milk&lt;/li>
+&lt;li>Cheese&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="other-elements--abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark
+&lt;/h2>&lt;p>&lt;abbr title="Graphics Interchange Format">GIF&lt;/abbr> is a bitmap image format.&lt;/p>
+&lt;p>H&lt;sub>2&lt;/sub>O&lt;/p>
+&lt;p>X&lt;sup>n&lt;/sup> + Y&lt;sup>n&lt;/sup> = Z&lt;sup>n&lt;/sup>&lt;/p>
+&lt;p>Press &lt;kbd>CTRL&lt;/kbd> + &lt;kbd>ALT&lt;/kbd> + &lt;kbd>Delete&lt;/kbd> to end the session.&lt;/p>
+&lt;p>Most &lt;mark>salamanders&lt;/mark> are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>The above quote is excerpted from Rob Pike&amp;rsquo;s &lt;a class="link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c" target="_blank" rel="noopener"
+>talk&lt;/a> during Gopherfest, November 18, 2015.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Image gallery</title><link>https://misaka10987.github.io/p/image-gallery/</link><pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate><guid>https://misaka10987.github.io/p/image-gallery/</guid><description>&lt;img src="https://misaka10987.github.io/p/image-gallery/2.jpg" alt="Featured image of post Image gallery" />&lt;p>Hugo theme Stack supports the creation of interactive image galleries using Markdown. It&amp;rsquo;s powered by &lt;a class="link" href="https://photoswipe.com/" target="_blank" rel="noopener"
+>PhotoSwipe&lt;/a> and its syntax was inspired by &lt;a class="link" href="https://typlog.com/" target="_blank" rel="noopener"
+>Typlog&lt;/a>.&lt;/p>
+&lt;p>To use this feature, the image must be in the same directory as the Markdown file, as it uses Hugo&amp;rsquo;s page bundle feature to read the dimensions of the image. &lt;strong>External images are not supported.&lt;/strong>&lt;/p>
+&lt;h2 id="syntax">Syntax
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">![&lt;span class="nt">Image 1&lt;/span>](&lt;span class="na">1.jpg&lt;/span>) ![&lt;span class="nt">Image 2&lt;/span>](&lt;span class="na">2.jpg&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="result">Result
+&lt;/h2>&lt;p>&lt;img src="https://misaka10987.github.io/p/image-gallery/1.jpg"
+width="2000"
+height="1400"
+srcset="https://misaka10987.github.io/p/image-gallery/1_hu_811b671457ffff1f.jpg 480w, https://misaka10987.github.io/p/image-gallery/1_hu_c74af69dd7c1dcda.jpg 1024w"
+loading="lazy"
+alt="Image 1"
+class="gallery-image"
+data-flex-grow="142"
+data-flex-basis="342px"
+> &lt;img src="https://misaka10987.github.io/p/image-gallery/2.jpg"
+width="1500"
+height="2250"
+srcset="https://misaka10987.github.io/p/image-gallery/2_hu_42f6436cb1637265.jpg 480w, https://misaka10987.github.io/p/image-gallery/2_hu_27862a49608da0d9.jpg 1024w"
+loading="lazy"
+alt="Image 2"
+class="gallery-image"
+data-flex-grow="66"
+data-flex-basis="160px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>Photo by &lt;a class="link" href="https://unsplash.com/@mymind" target="_blank" rel="noopener"
+>mymind&lt;/a> and &lt;a class="link" href="https://unsplash.com/@lukechesser" target="_blank" rel="noopener"
+>Luke Chesser&lt;/a> on &lt;a class="link" href="https://unsplash.com/" target="_blank" rel="noopener"
+>Unsplash&lt;/a>&lt;/p>&lt;/blockquote></description></item><item><title>Shortcodes</title><link>https://misaka10987.github.io/p/shortcodes/</link><pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate><guid>https://misaka10987.github.io/p/shortcodes/</guid><description>&lt;img src="https://misaka10987.github.io/p/shortcodes/cover.jpg" alt="Featured image of post Shortcodes" />&lt;p>For more details, check out the &lt;a class="link" href="https://stack.jimmycai.com/writing/shortcodes" target="_blank" rel="noopener"
+>documentation&lt;/a>.&lt;/p>
+&lt;h2 id="bilibili-video">Bilibili video
+&lt;/h2>
+&lt;div class="video-wrapper">
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1d4411N7zD"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="tencent-video">Tencent video
+&lt;/h2>
+&lt;div class="video-wrapper">
+&lt;iframe src="https://v.qq.com/txp/iframe/player.html?vid=g0014r3khdw&amp;auto=0"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="youtube-video">YouTube video
+&lt;/h2>&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/0qwALOOvUik"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="generic-video-file">Generic video file
+&lt;/h2>&lt;div class="video-wrapper">
+&lt;video
+controls
+src="https://www.w3schools.com/tags/movie.mp4"
+>
+&lt;p>
+Your browser doesn't support HTML5 video. Here is a
+&lt;a href="https://www.w3schools.com/tags/movie.mp4">link to the video&lt;/a> instead.
+&lt;/p>
+&lt;/video>
+&lt;/div>
+&lt;h2 id="gist">Gist
+&lt;/h2>&lt;script src="https://gist.github.com/CaiJimmy/e2751a943de10b2a5b3a8a6c2120cb86.js">&lt;/script>
+&lt;h2 id="gitlab">GitLab
+&lt;/h2>&lt;script
+type="application/javascript"
+src="https://gitlab.com/-/snippets/2589724.js"
+>&lt;/script>
+&lt;h2 id="quote">Quote
+&lt;/h2>&lt;blockquote>
+&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p>&lt;span class="cite">&lt;span>― &lt;/span>&lt;span>A famous person, &lt;/span>&lt;a href="https://en.wikipedia.org/wiki/Book">&lt;cite>The book they wrote&lt;/cite>&lt;/a>&lt;/span>&lt;/blockquote>
+&lt;hr>
+&lt;blockquote>
+&lt;p>Photo by &lt;a class="link" href="https://unsplash.com/@codioful" target="_blank" rel="noopener"
+>Codioful&lt;/a> on &lt;a class="link" href="https://unsplash.com/photos/WDSN62Qdxuk" target="_blank" rel="noopener"
+>Unsplash&lt;/a>&lt;/p>&lt;/blockquote></description></item><item><title>Math Typesetting</title><link>https://misaka10987.github.io/p/math-typesetting/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>https://misaka10987.github.io/p/math-typesetting/</guid><description>&lt;p>Stack has built-in support for math typesetting using &lt;a class="link" href="https://katex.org/" target="_blank" rel="noopener"
+>KaTeX&lt;/a>.&lt;/p>
+&lt;p>&lt;strong>It&amp;rsquo;s not enabled by default side-wide,&lt;/strong> but you can enable it for individual posts by adding &lt;code>math: true&lt;/code> to the front matter. Or you can enable it side-wide by adding &lt;code>math = true&lt;/code> to the &lt;code>params.article&lt;/code> section in &lt;code>config.toml&lt;/code>.&lt;/p>
+&lt;h2 id="inline-math">Inline math
+&lt;/h2>&lt;p>This is an inline mathematical expression: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">$\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="block-math">Block math
+&lt;/h2>$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">$$
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$$
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>$$
+f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+$$&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">$$
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$$
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Archives</title><link>https://misaka10987.github.io/archives/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://misaka10987.github.io/archives/</guid><description/></item><item><title>Links</title><link>https://misaka10987.github.io/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misaka10987.github.io/links/</guid><description>&lt;p>To use this feature, add &lt;code>links&lt;/code> section to frontmatter.&lt;/p>
+&lt;p>This page&amp;rsquo;s frontmatter:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GitHub&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GitHub is the world&amp;#39;s largest software development platform.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">website&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://github.com&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TypeScript&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">website&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://www.typescriptlang.org&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ts-logo-128.jpg&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>image&lt;/code> field accepts both local and external images.&lt;/p></description></item><item><title>Search</title><link>https://misaka10987.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://misaka10987.github.io/search/</guid><description/></item></channel></rss>
