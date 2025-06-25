@@ -1,7 +1,7 @@
 # Change baseurl before deploy
 baseurl = "https://misaka10987.github.io"
 languageCode = "en-us"
-title = "misaka10987's blog"
+title = "Thus spoke misaka10987"
 
 # Theme i18n support
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn, zh-tw, es, de, nl, it, th, el, uk, ar
