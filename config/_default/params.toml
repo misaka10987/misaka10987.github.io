@@ -149,3 +149,6 @@ clientSecret = ""
 [comments.cusdis]
 host = ""
 id = ""
+
+[live2d]
+enable = false
