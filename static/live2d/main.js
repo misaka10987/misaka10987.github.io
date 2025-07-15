@@ -20,9 +20,4 @@ initWidget({
   drag: false,
 })
 
-// walkaround: live2d 遮挡了深色模式切换按钮
-document.querySelector('#live2d').addEventListener('click', () => {
-  document.querySelector('#dark-mode-toggle').click()
-})
-
 console.debug('Loading Live2D')
