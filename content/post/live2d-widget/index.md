@@ -12,6 +12,15 @@ hidden = false
 # draft = true
 +++
 
+UPDATE: 由于很多细节不够完善，我暂时禁用了 Live2D.
+
+`params.toml`
+
+```toml
+[live2d]
+enable = false
+```
+
 # 给 Hugo 网站添加 Live2D 看板娘
 
 完成效果参考本站左下角。Live2D 基于 [Cubism](https://www.live2d.com/en/) 模型，通过 [Live2D Widget](https://github.com/stevenjoezhang/live2d-widget) 在网页端渲染。此处的胡桃模型由 [@根瘤菌rkzj](https://space.bilibili.com/23315579) 创作。
