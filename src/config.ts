@@ -56,7 +56,7 @@ export const navBarConfig: NavBarConfig = {
 }
 
 export const profileConfig: ProfileConfig = {
-  avatar: 'assets/images/avatar.jpg', // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+  avatar: 'https://misaka10987-avatar.pages.dev/avatar-square-1000.jpg', // Relative to the /src directory. Relative to the /public directory if it starts with '/'
   name: 'misaka10987',
   bio: 'And the universe loves you.',
   links: [
@@ -72,10 +72,46 @@ export const profileConfig: ProfileConfig = {
     //   icon: 'fa6-brands:steam',
     //   url: 'https://store.steampowered.com',
     // },
+
+    // [[social]]
+    // identifier = "lichess"
+    // name = "lichess.org"
+    // url = "https://lichess.org/@/misaka10987"
+    // params.icon = "chess-knight"
+    {
+      name: 'EMail',
+      icon: 'material-symbols:contact-mail',
+      url: 'mailto:misaka10987@outlook.com',
+    },
+    {
+      name: 'QQ',
+      icon: 'fa6-brands:qq',
+      url: 'https://github.com/misaka10987',
+    },
+    {
+      name: '微信',
+      icon: 'fa6-brands:weixin',
+      url: '/wechat.jpg',
+    },
     {
       name: 'GitHub',
       icon: 'fa6-brands:github',
       url: 'https://github.com/misaka10987',
+    },
+    {
+      name: 'Reddit',
+      icon: 'fa6-brands:reddit',
+      url: 'https://www.reddit.com/user/misaka10987/',
+    },
+    {
+      name: '知乎',
+      icon: 'fa6-brands:zhihu',
+      url: 'https://www.zhihu.com/people/misaka10987',
+    },
+    {
+      name: 'lichess.org',
+      icon: 'material-symbols:chess',
+      url: 'https://lichess.org/@/misaka10987',
     },
   ],
 }
