@@ -71,6 +71,19 @@ pourInto(bottle, boiled)
 
 如果我们想把 `boil` 改成非阻塞的，那么直接使用上面的代码不能够保证在我们「把水倒进热水壶」时「水已经被烧好了」。轮询 `boil` 的完成情况会愚蠢地退化为同步情况。既然我们并不能知道 `boil` 是否完成，我们可以让知道的角色—— `boil` 的实现来判断。但 `boil` 的实现并不能知道我们接下来要做什么。或许你想到了解决方案：给它一个回调在完成后执行。
 
+```typescript
+const boil = <T>(next: (_: string) => T) => {
+  // do something
+  const result = 'boiled'
+  return next('boiled')
+}
+
+boil((boiled) => {
+  const bottle = new Bottle()
+  pourInto(bottle, boiled)
+})
+```
+
 很好！对于用户来说，使用 `boil` 的体验与异步编程一样。我们并不用关心 `boil` 的具体实现，而假装这个函数是异步的（事实上，由于 JavaScript 是单线程的，你完全不会想要手动轮询，而我们使用的异步函数本质上由 JavaScript 运行时的事件循环统一轮询）。从始至终我们没有使用 `Promise` , 只用回调就解决了问题。
 
 ### 回调地狱
