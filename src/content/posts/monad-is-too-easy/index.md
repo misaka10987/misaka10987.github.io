@@ -1,15 +1,15 @@
 +++
-title = "MITE: 单子实在是太简单了 (Monad Is Too Easy)"
+title = "单子实在是太简单了"
 published = 2025-09-01
 description = '使用 TypeScript 的简明单子解释'
-image = ''
+image = 'cover.jpg'
 tags = ['Monad', 'TypeScript', 'Cat Theory']
 category = 'XITE'
 draft = false
 lang = ''
 +++
 
-# MITE: 单子实在是太简单了 (Monad Is Too Easy)
+# 单子实在是太简单了
 
 你或许在复数场合下的讨论中见到一些 Haskell 用户使用这样讨嫌的话语：
 
