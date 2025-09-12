@@ -11,13 +11,13 @@ today=$(date +%Y-%m-%d)
 
 frontmatter=$(cat <<EOF
 +++
-title = $title
+title = '$title'
 published = $today
 description = ''
 image = ''
 tags = []
 category = ''
-draft = false
+draft = true
 lang = ''
 +++
 EOF
