@@ -2,7 +2,7 @@
 title = '厄尔尼诺-南方涛动实在是太简单了'
 published = 2025-09-16
 description = ''
-image = ''
+image = 'cover.jpg'
 tags = ['Earth', 'AP ES']
 category = 'XITE'
 draft = false
