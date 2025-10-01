@@ -11,6 +11,10 @@ lang = ''
 
 # Ad: 华师大二附中国际课程班高三数学
 
-[链接](/site-efzgkb-g12-math) 
+> [!IMPORTANT]
+> 
+> 本项目被迁移至 [Cloudflare](https://efzgkb-g12-math.pages.dev/) , 原有 [Github Pages](https://misaka10987.github.io/site-efzgkb-g12-math) 链接作废。
+
+[链接](https://efzgkb-g12-math.pages.dev/) 
 
 实时更新各类课程资料。
