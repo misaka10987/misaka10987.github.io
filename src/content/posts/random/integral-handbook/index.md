@@ -165,7 +165,7 @@ $$
 
 $$
 \int \frac{1}{\sqrt{x^2 + a^2}}
-= \operatorname{asinh} \frac{x}{\left| a \right|}
+= \operatorname{arsinh} \frac{x}{\left| a \right|}
 $$
 
 反双曲余弦推广，如果积分有定义
