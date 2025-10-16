@@ -1,8 +1,8 @@
 +++
 title = '双曲角实在是太简单了'
 published = 2025-10-16
-description = '双曲角、双曲函数、Minkowski 空间'
-image = ''
+description = '双曲角，双曲函数，Minkowski 空间'
+image = 'cover.jpg'
 tags = ['Analysis']
 category = 'XITE'
 draft = false
@@ -35,8 +35,8 @@ lang = ''
 > 
 > $$
 > \cos \theta = 
-\frac {\left< \mathbf u, \mathbf v \right>}
-{\lVert \mathbf u \rVert \cdot \lVert \mathbf v \rVert}
+> \frac {\left< \mathbf u, \mathbf v \right>}
+> {\lVert \mathbf u \rVert \cdot \lVert \mathbf v \rVert}
 > $$
 > 
 > 其中范数定义为
@@ -142,7 +142,7 @@ $$
 
 $$
 \begin{align*}
-\int_0^\theta \frac{1}{2} x \,\mathrm d y - y \,\mathrm d x \\
+\int_0^\theta \frac{1}{2} (x \,\mathrm d y - y \,\mathrm d x) \\
 & = \frac{1}{2} \int_0^\theta
 \cosh \phi \,\mathrm d \sinh \phi - \sinh \phi \,\mathrm d \cosh \phi \\
 & = \frac{1}{2} \int_0^\theta
