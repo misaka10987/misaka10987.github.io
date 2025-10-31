@@ -110,7 +110,7 @@ export const profileConfig: ProfileConfig = {
     },
     {
       name: 'lichess.org',
-      icon: 'material-symbols:chess',
+      icon: 'material-symbols:chess-knight-outline',
       url: 'https://lichess.org/@/misaka10987',
     },
   ],
