@@ -2,7 +2,7 @@
 title = '代数视角下的秩零度定理'
 published = 2025-11-06
 description = ''
-image = ''
+image = 'cover.jpg'
 tags = ['Linear Alg']
 category = ''
 draft = false
