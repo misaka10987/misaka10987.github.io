@@ -20,7 +20,7 @@
         "@iconify-json/fa6-solid": "^1.2.4",
         "@iconify-json/material-symbols": "^1.2.65",
         "@iconify/svelte": "^4.2.0",
-        "@swup/astro": "^1.7.0",
+        "@swup/astro": "^1.8.0",
         "@tailwindcss/typography": "^0.5.19",
         "astro": "5.12.8",
         "astro-expressive-code": "^0.41.7",
@@ -624,7 +624,7 @@
 
     "@swup/a11y-plugin": ["@swup/a11y-plugin@5.0.0", "https://npmreg.proxy.ustclug.org/@swup/a11y-plugin/-/a11y-plugin-5.0.0.tgz", { "dependencies": { "@swup/plugin": "4.0.0", "focus-options-polyfill": "1.6.0" }, "peerDependencies": { "swup": "4.8.2" } }, "sha512-t0pVWAVea+Imjj05n9QMPfqZhw9i5rx7BV/l3Ejeic+X3Qs0VZwVvEJIcdqireCVJgAJGZAPlmgbiuaj5UHJaQ=="],
 
-    "@swup/astro": ["@swup/astro@1.7.0", "https://npmreg.proxy.ustclug.org/@swup/astro/-/astro-1.7.0.tgz", { "dependencies": { "@swup/a11y-plugin": "5.0.0", "@swup/body-class-plugin": "3.3.0", "@swup/debug-plugin": "4.1.0", "@swup/fade-theme": "2.0.2", "@swup/forms-plugin": "3.6.0", "@swup/fragment-plugin": "1.1.2", "@swup/head-plugin": "2.3.1", "@swup/overlay-theme": "2.0.2", "@swup/parallel-plugin": "0.4.0", "@swup/preload-plugin": "3.2.11", "@swup/progress-plugin": "3.2.0", "@swup/route-name-plugin": "4.1.0", "@swup/scripts-plugin": "2.1.0", "@swup/scroll-plugin": "3.3.2", "@swup/slide-theme": "2.0.2", "swup": "4.8.2", "swup-morph-plugin": "1.3.0" } }, "sha512-OxZskzeYkEZ4+McbwJKyD018sHNlrKQLdtHzlmNjivrzQY/dB7ncnWqDs3d4IkA7Y+ydNjpwBqpR/asjDhTiag=="],
+    "@swup/astro": ["@swup/astro@1.8.0", "", { "dependencies": { "@swup/a11y-plugin": "^5.0.0", "@swup/body-class-plugin": "^3.0.0", "@swup/debug-plugin": "^4.0.0", "@swup/fade-theme": "^2.0.0", "@swup/forms-plugin": "^3.0.0", "@swup/fragment-plugin": "^1.1.2", "@swup/head-plugin": "^2.0.0", "@swup/overlay-theme": "^2.0.0", "@swup/parallel-plugin": "^0.4.0", "@swup/preload-plugin": "^3.0.0", "@swup/progress-plugin": "^3.0.0", "@swup/route-name-plugin": "^4.0.0", "@swup/scripts-plugin": "^2.0.0", "@swup/scroll-plugin": "^3.0.0", "@swup/slide-theme": "^2.0.0", "swup": "^4.0.0", "swup-morph-plugin": "^1.0.0" } }, "sha512-FI8/jNXgyUoWpnOgdB3MOUobRtRzedKBE8+qbBH5c8CE4q9Ni/GHPGrXK/0xG+g1ZiIQuTF3OXRvTLNVouiBig=="],
 
     "@swup/body-class-plugin": ["@swup/body-class-plugin@3.3.0", "https://npmreg.proxy.ustclug.org/@swup/body-class-plugin/-/body-class-plugin-3.3.0.tgz", { "dependencies": { "@swup/plugin": "4.0.0" }, "peerDependencies": { "swup": "4.8.2" } }, "sha512-4h/6mAgDd0+ml8Gc2kX8tikIR0HZZLF+WTnfm0JTVrGDw74bgEBenbsaWFfIS+gn4RWKZdWBUOfaZ+Im5J7Gvw=="],
 
