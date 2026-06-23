@@ -2,9 +2,8 @@
   description = "misaka10987's blog";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-unstable&shallow=1";
-    # nixpkgs-stable.url = "git+https://mirror.nju.edu.cn/git/nixpkgs.git/?ref=nixos-25.11&shallow=1";
+    system.url = "path:/etc/nixos";
+    nixpkgs.follows = "system/nixpkgs";
   };
 
   outputs =
