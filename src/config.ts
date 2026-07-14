@@ -80,7 +80,7 @@ export const profileConfig: ProfileConfig = {
     // params.icon = "chess-knight"
     {
       name: 'EMail',
-      icon: 'material-symbols:contact-mail',
+      icon: 'material-symbols:mail-outline',
       url: 'mailto:misaka10987@outlook.com',
     },
     {
