@@ -17,7 +17,9 @@
       "@i18n/*": ["./src/i18n/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@/*": ["./src/*"]
-    }
+    },
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   },
   "include": ["./src/**/*"]
 }
