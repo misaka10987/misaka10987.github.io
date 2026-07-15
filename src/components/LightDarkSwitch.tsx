@@ -7,7 +7,7 @@ import {
   setTheme,
 } from '@utils/setting-utils.ts'
 import type { LIGHT_DARK_MODE } from '@/types/config.ts'
-import { createSignal } from 'solid-js'
+import { createSignal, onMount } from 'solid-js'
 import { Icon } from '@iconify-icon/solid'
 
 const seq = [LIGHT_MODE, DARK_MODE, AUTO_MODE] as LIGHT_DARK_MODE[]
@@ -36,6 +36,25 @@ const hidePanel = () => {
 }
 
 export default () => {
+  onMount(() => {
+    setMode(getStoredTheme())
+    const darkModePreference = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const changeThemeWhenSchemeChanged: Parameters<
+      typeof darkModePreference.addEventListener<'change'>
+    >[1] = (_e) => {
+      applyThemeToDocument(mode())
+    }
+
+    darkModePreference.addEventListener('change', changeThemeWhenSchemeChanged)
+    return () => {
+      darkModePreference.removeEventListener(
+        'change',
+        changeThemeWhenSchemeChanged,
+      )
+    }
+  })
+
   return (
     <div
       class="relative z-50"
