@@ -26,9 +26,6 @@
     .float-panel-closed {
         @apply -translate-y-1 opacity-0 pointer-events-none
     }
-    .search-panel mark {
-        @apply bg-transparent text-[var(--primary)]
-    }
 
     .btn-card {
         @apply transition flex items-center justify-center bg-[var(--card-bg)] hover:bg-[var(--btn-card-bg-hover)]

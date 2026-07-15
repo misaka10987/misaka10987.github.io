@@ -174,7 +174,7 @@ export default () => {
       {/* <!-- search panel --> */}
       <div
         id="search-panel"
-        class="float-panel float-panel-closed search-panel max-h-[calc(100vh-100px)] overflow-y-auto absolute md:w-[30rem] top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2"
+        class="float-panel float-panel-closed max-h-[calc(100vh-100px)] overflow-y-auto absolute md:w-[30rem] top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2 [&_mark]:bg-transparent [&_mark]:text-[var(--primary)]"
       >
         {/* <!-- search bar inside panel for phone/tablet --> */}
         <div
