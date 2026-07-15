@@ -58,7 +58,10 @@ export default defineConfig({
       },
     }),
     expressiveCode({
-      themes: [expressiveCodeConfig.theme, expressiveCodeConfig.theme],
+      themes: [
+        expressiveCodeConfig.theme as any,
+        expressiveCodeConfig.theme as any,
+      ],
       plugins: [
         pluginCollapsibleSections(),
         pluginLineNumbers(),
@@ -93,9 +96,9 @@ export default defineConfig({
           terminalTitlebarBorderBottomColor: 'none',
         },
         textMarkers: {
-          delHue: 0,
-          insHue: 180,
-          markHue: 250,
+          delHue: '0',
+          insHue: '180',
+          markHue: '250',
         },
       },
       frames: {
@@ -114,7 +117,7 @@ export default defineConfig({
       remarkGithubAdmonitionsToDirectives,
       remarkDirective,
       remarkSectionize,
-      parseDirectiveNode,
+      parseDirectiveNode as any,
     ],
     rehypePlugins: [
       rehypeKatex,
@@ -124,16 +127,17 @@ export default defineConfig({
         {
           components: {
             github: GithubCardComponent,
-            note: (x, y) => AdmonitionComponent(x, y, 'note'),
-            tip: (x, y) => AdmonitionComponent(x, y, 'tip'),
-            important: (x, y) => AdmonitionComponent(x, y, 'important'),
-            caution: (x, y) => AdmonitionComponent(x, y, 'caution'),
-            warning: (x, y) => AdmonitionComponent(x, y, 'warning'),
+            note: (x: any, y: any) => AdmonitionComponent(x, y, 'note'),
+            tip: (x: any, y: any) => AdmonitionComponent(x, y, 'tip'),
+            important: (x: any, y: any) =>
+              AdmonitionComponent(x, y, 'important'),
+            caution: (x: any, y: any) => AdmonitionComponent(x, y, 'caution'),
+            warning: (x: any, y: any) => AdmonitionComponent(x, y, 'warning'),
             // the `remarkGithubAdmonitionsToDirectives` plugin generates
             // `:::info` directives for `> [!IMPORTANT]` and `:::danger`s for `> [!CAUTION]`
             // make it happy
-            info: (x, y) => AdmonitionComponent(x, y, 'important'),
-            danger: (x, y) => AdmonitionComponent(x, y, 'caution'),
+            info: (x: any, y: any) => AdmonitionComponent(x, y, 'important'),
+            danger: (x: any, y: any) => AdmonitionComponent(x, y, 'caution'),
           },
         },
       ],
