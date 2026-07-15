@@ -5,12 +5,6 @@ import { url } from '@utils/url-utils.ts'
 import { createEffect, createSignal, onMount } from 'solid-js'
 import type { SearchResult } from '@/global'
 
-const [keywordDesktop, setKeywordDesktop] = createSignal('')
-const [keywordMobile, setKeywordMobile] = createSignal('')
-const [result, setResult] = createSignal<SearchResult[]>([])
-const [pagefindLoaded, setPagefindLoaded] = createSignal(false)
-const [initialized, setInitialized] = createSignal(false)
-
 const fakeResult = [
   {
     url: url('/'),
@@ -45,54 +39,60 @@ const setPanelVisibility = (show: boolean, isDesktop: boolean): void => {
   }
 }
 
-const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
-  if (!keyword) {
-    setPanelVisibility(false, isDesktop)
-    setResult([])
-    return
-  }
+export default () => {
+  const [keywordDesktop, setKeywordDesktop] = createSignal('')
+  const [keywordMobile, setKeywordMobile] = createSignal('')
+  const [result, setResult] = createSignal<SearchResult[]>([])
+  const [pagefindLoaded, setPagefindLoaded] = createSignal(false)
+  const [initialized, setInitialized] = createSignal(false)
 
-  if (!initialized) {
-    return
-  }
-
-  try {
-    let searchResults: SearchResult[] = []
-
-    if (import.meta.env.PROD && pagefindLoaded() && window.pagefind) {
-      const response = await window.pagefind.search(keyword)
-      searchResults = await Promise.all(
-        response.results.map((item) => item.data()),
-      )
-    } else if (import.meta.env.DEV) {
-      searchResults = fakeResult
-    } else {
-      searchResults = []
-      console.error('Pagefind is not available in production environment.')
+  const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
+    if (!keyword) {
+      setPanelVisibility(false, isDesktop)
+      setResult([])
+      return
     }
 
-    setResult(searchResults)
-    setPanelVisibility(result().length > 0, isDesktop)
-  } catch (error) {
-    console.error('Search error:', error)
-    setResult([])
-    setPanelVisibility(false, isDesktop)
-  }
-}
+    if (!initialized) {
+      return
+    }
 
-createEffect(async () => {
-  if (initialized() && keywordDesktop()) {
-    await search(keywordDesktop(), true)
-  }
-})
+    try {
+      let searchResults: SearchResult[] = []
 
-createEffect(async () => {
-  if (initialized() && keywordMobile()) {
-    await search(keywordMobile(), false)
-  }
-})
+      if (import.meta.env.PROD && pagefindLoaded() && window.pagefind) {
+        const response = await window.pagefind.search(keyword)
+        searchResults = await Promise.all(
+          response.results.map((item) => item.data()),
+        )
+      } else if (import.meta.env.DEV) {
+        searchResults = fakeResult
+      } else {
+        searchResults = []
+        console.error('Pagefind is not available in production environment.')
+      }
 
-export default () => {
+      setResult(searchResults)
+      setPanelVisibility(result().length > 0, isDesktop)
+    } catch (error) {
+      console.error('Search error:', error)
+      setResult([])
+      setPanelVisibility(false, isDesktop)
+    }
+  }
+
+  createEffect(async () => {
+    if (initialized() && keywordDesktop()) {
+      await search(keywordDesktop(), true)
+    }
+  })
+
+  createEffect(async () => {
+    if (initialized() && keywordMobile()) {
+      await search(keywordMobile(), false)
+    }
+  })
+
   onMount(() => {
     const initializeSearch = () => {
       setInitialized(true)
