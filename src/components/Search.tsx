@@ -4,7 +4,7 @@ import { Icon } from '@iconify-icon/solid'
 import { url } from '@utils/url-utils.ts'
 import { createEffect, createSignal, onMount } from 'solid-js'
 import type { SearchResult } from '@/global'
-import { createFloatPanel } from './FloatPanel'
+import { createFloatPanel } from './float-panel'
 
 const fakeResult = [
   {
@@ -171,7 +171,7 @@ export default () => {
         <Icon icon="material-symbols:search" class="text-[1.25rem]"></Icon>
       </button>
 
-      <Panel class="max-h-[calc(100vh-100px)] overflow-y-auto absolute md:w-[30rem] top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2 [&_mark]:bg-transparent [&_mark]:text-[var(--primary)]">
+      <Panel class="overflow-hidden bg-[var(--float-panel-bg)] transition dark:shadow-none max-h-[calc(100vh-100px)] overflow-y-auto absolute md:w-[30rem] top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2 [&_mark]:bg-transparent [&_mark]:text-[var(--primary)]">
         {/* <!-- search bar inside panel for phone/tablet --> */}
         <div
           id="search-bar-inside"

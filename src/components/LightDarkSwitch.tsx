@@ -10,33 +10,28 @@ import type { LIGHT_DARK_MODE } from '@/types/config.ts'
 import { createSignal, onMount } from 'solid-js'
 import { Icon } from '@iconify-icon/solid'
 import clsx from 'clsx'
+import { createFloatPanel } from './float-panel'
 
 const seq = [LIGHT_MODE, DARK_MODE, AUTO_MODE] as LIGHT_DARK_MODE[]
 
-const [mode, setMode] = createSignal<LIGHT_DARK_MODE>(AUTO_MODE)
-
-const switchScheme = (newMode: LIGHT_DARK_MODE) => {
-  setMode(newMode)
-  setTheme(newMode)
-}
-
-const toggleScheme = () => {
-  const idx = seq.findIndex((x) => x == mode())
-
-  switchScheme(seq[(idx + 1) % seq.length])
-}
-
-const showPanel = () => {
-  const panel = document.querySelector('#light-dark-panel')
-  panel?.classList.remove('float-panel-closed')
-}
-
-const hidePanel = () => {
-  const panel = document.querySelector('#light-dark-panel')
-  panel?.classList.add('float-panel-closed')
-}
-
 export default () => {
+  const toggleId = crypto.randomUUID()
+
+  const [mode, setMode] = createSignal<LIGHT_DARK_MODE>(AUTO_MODE)
+
+  const switchScheme = (newMode: LIGHT_DARK_MODE) => {
+    setMode(newMode)
+    setTheme(newMode)
+  }
+
+  const toggleScheme = () => {
+    const idx = seq.findIndex((x) => x == mode())
+
+    switchScheme(seq[(idx + 1) % seq.length])
+  }
+
+  const [Panel, panelActive, setPanelActive] = createFloatPanel([toggleId])
+
   onMount(() => {
     setMode(getStoredTheme())
     const darkModePreference = window.matchMedia('(prefers-color-scheme: dark)')
@@ -61,15 +56,15 @@ export default () => {
       class="relative z-50"
       role="menu"
       tabindex="-1"
-      onmouseleave={hidePanel}
+      id={toggleId}
+      onmouseleave={() => setPanelActive(false)}
     >
       <button
         aria-label="Light/Dark Mode"
         role="menuitem"
         class="relative btn-plain scale-animation rounded-lg h-11 w-11 active:scale-90"
-        id="scheme-switch"
         onclick={toggleScheme}
-        onmouseenter={showPanel}
+        onmouseenter={() => setPanelActive(true)}
       >
         <div
           class={clsx(
@@ -106,10 +101,7 @@ export default () => {
         </div>
       </button>
 
-      <div
-        id="light-dark-panel"
-        class="hidden lg:block absolute transition float-panel-closed top-11 -right-2 pt-5"
-      >
+      <Panel class="lg:block absolute transition top-11 -right-2 pt-5">
         <div class="card-base float-panel p-2">
           <button
             class={clsx(
@@ -151,7 +143,14 @@ export default () => {
             {i18n(I18nKey.systemMode)}
           </button>
         </div>
-      </div>
+      </Panel>
+
+      {/* <div
+        id="light-dark-panel"
+        class="hidden lg:block absolute transition float-panel-closed top-11 -right-2 pt-5"
+      >
+        
+      </div> */}
     </div>
   )
 }

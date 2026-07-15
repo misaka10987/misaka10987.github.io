@@ -1,4 +1,4 @@
-#display-setting input[type='range'] {
+.display-setting-panel input[type='range'] {
   -webkit-appearance: none;
   appearance: none;
   height: 1.5rem;
@@ -7,7 +7,7 @@
 }
 
 /* Input Thumb */
-#display-setting input[type='range']::-webkit-slider-thumb {
+.display-setting-panel input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   height: 1rem;
@@ -17,15 +17,15 @@
   box-shadow: none;
 }
 
-#display-setting input[type='range']::-webkit-slider-thumb:hover {
+.display-setting-panel input[type='range']::-webkit-slider-thumb:hover {
   background: rgba(255, 255, 255, 0.8);
 }
 
-#display-setting input[type='range']::-webkit-slider-thumb:active {
+.display-setting-panel input[type='range']::-webkit-slider-thumb:active {
   background: rgba(255, 255, 255, 0.6);
 }
 
-#display-setting input[type='range']::-moz-range-thumb {
+.display-setting-panel input[type='range']::-moz-range-thumb {
   appearance: none;
   height: 1rem;
   width: 0.5rem;
@@ -35,15 +35,15 @@
   box-shadow: none;
 }
 
-#display-setting input[type='range']::-moz-range-thumb:hover {
+.display-setting-panel input[type='range']::-moz-range-thumb:hover {
   background: rgba(255, 255, 255, 0.8);
 }
 
-#display-setting input[type='range']::-moz-range-thumb:active {
+.display-setting-panel input[type='range']::-moz-range-thumb:active {
   background: rgba(255, 255, 255, 0.6);
 }
 
-#display-setting input[type='range']::-ms-thumb {
+.display-setting-panel input[type='range']::-ms-thumb {
   -webkit-appearance: none;
   appearance: none;
   height: 1rem;
@@ -53,10 +53,10 @@
   box-shadow: none;
 }
 
-#display-setting input[type='range']::-ms-thumb:hover {
+.display-setting-panel input[type='range']::-ms-thumb:hover {
   background: rgba(255, 255, 255, 0.8);
 }
 
-#display-setting input[type='range']::-ms-thumb:active {
+.display-setting-panel input[type='range']::-ms-thumb:active {
   background: rgba(255, 255, 255, 0.6);
 }

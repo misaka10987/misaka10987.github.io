@@ -46,7 +46,6 @@ export const createFloatPanel = (
         <div
           id={id}
           class={clsx(
-            'top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] transition shadow-xl dark:shadow-none',
             !active() && '-translate-y-1 opacity-0 pointer-events-none',
             local.class,
           )}
