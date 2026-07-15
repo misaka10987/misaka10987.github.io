@@ -4,6 +4,7 @@ import { Icon } from '@iconify-icon/solid'
 import { url } from '@utils/url-utils.ts'
 import { createEffect, createSignal, onMount } from 'solid-js'
 import type { SearchResult } from '@/global'
+import { createFloatPanel } from './FloatPanel'
 
 const fakeResult = [
   {
@@ -23,28 +24,27 @@ const fakeResult = [
   },
 ]
 
-const togglePanel = () => {
-  const panel = document.getElementById('search-panel')
-  panel?.classList.toggle('float-panel-closed')
-}
-
-const setPanelVisibility = (show: boolean, isDesktop: boolean): void => {
-  const panel = document.getElementById('search-panel')
-  if (!panel || !isDesktop) return
-
-  if (show) {
-    panel.classList.remove('float-panel-closed')
-  } else {
-    panel.classList.add('float-panel-closed')
-  }
-}
-
 export default () => {
   const [keywordDesktop, setKeywordDesktop] = createSignal('')
   const [keywordMobile, setKeywordMobile] = createSignal('')
   const [result, setResult] = createSignal<SearchResult[]>([])
   const [pagefindLoaded, setPagefindLoaded] = createSignal(false)
   const [initialized, setInitialized] = createSignal(false)
+
+  const [Panel, panelActive, setPanelActive] = createFloatPanel([
+    'search-panel',
+    'search-bar',
+    'search-switch',
+  ])
+
+  const setPanelVisibility = (show: boolean, isDesktop: boolean): void => {
+    if (!isDesktop) return
+    setPanelActive(show)
+  }
+
+  const togglePanel = () => {
+    setPanelActive(!panelActive())
+  }
 
   const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
     if (!keyword) {
@@ -171,11 +171,7 @@ export default () => {
         <Icon icon="material-symbols:search" class="text-[1.25rem]"></Icon>
       </button>
 
-      {/* <!-- search panel --> */}
-      <div
-        id="search-panel"
-        class="float-panel float-panel-closed max-h-[calc(100vh-100px)] overflow-y-auto absolute md:w-[30rem] top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2 [&_mark]:bg-transparent [&_mark]:text-[var(--primary)]"
-      >
+      <Panel class="max-h-[calc(100vh-100px)] overflow-y-auto absolute md:w-[30rem] top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2 [&_mark]:bg-transparent [&_mark]:text-[var(--primary)]">
         {/* <!-- search bar inside panel for phone/tablet --> */}
         <div
           id="search-bar-inside"
@@ -215,7 +211,7 @@ export default () => {
             </div>
           </a>
         ))}
-      </div>
+      </Panel>
     </>
   )
 }
