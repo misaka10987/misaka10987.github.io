@@ -9,6 +9,7 @@ import {
 import type { LIGHT_DARK_MODE } from '@/types/config.ts'
 import { createSignal, onMount } from 'solid-js'
 import { Icon } from '@iconify-icon/solid'
+import clsx from 'clsx'
 
 const seq = [LIGHT_MODE, DARK_MODE, AUTO_MODE] as LIGHT_DARK_MODE[]
 
@@ -71,8 +72,10 @@ export default () => {
         onmouseenter={showPanel}
       >
         <div
-          class="absolute flex justify-center"
-          class:opacity-0={mode() !== LIGHT_MODE}
+          class={clsx(
+            'absolute flex justify-center',
+            mode() !== LIGHT_MODE && 'opacity-0',
+          )}
         >
           <Icon
             icon="material-symbols:wb-sunny-outline-rounded"
@@ -80,8 +83,10 @@ export default () => {
           ></Icon>
         </div>
         <div
-          class="absolute flex justify-center"
-          class:opacity-0={mode() !== DARK_MODE}
+          class={clsx(
+            'absolute flex justify-center',
+            mode() !== DARK_MODE && 'opacity-0',
+          )}
         >
           <Icon
             icon="material-symbols:dark-mode-outline-rounded"
@@ -89,8 +94,10 @@ export default () => {
           ></Icon>
         </div>
         <div
-          class="absolute flex justify-center"
-          class:opacity-0={mode() !== AUTO_MODE}
+          class={clsx(
+            'absolute flex justify-center',
+            mode() !== AUTO_MODE && 'opacity-0',
+          )}
         >
           <Icon
             icon="material-symbols:radio-button-partial-outline"
@@ -105,8 +112,10 @@ export default () => {
       >
         <div class="card-base float-panel p-2">
           <button
-            class="flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5"
-            class:current-theme-btn={mode() === LIGHT_MODE}
+            class={clsx(
+              'flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5',
+              mode() === LIGHT_MODE && 'current-theme-btn',
+            )}
             onclick={() => switchScheme(LIGHT_MODE)}
           >
             <Icon
@@ -116,8 +125,10 @@ export default () => {
             {i18n(I18nKey.lightMode)}
           </button>
           <button
-            class="flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5"
-            class:current-theme-btn={mode() === DARK_MODE}
+            class={clsx(
+              'flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5',
+              mode() === DARK_MODE && 'current-theme-btn',
+            )}
             onclick={() => switchScheme(DARK_MODE)}
           >
             <Icon
@@ -127,8 +138,10 @@ export default () => {
             {i18n(I18nKey.darkMode)}
           </button>
           <button
-            class="flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95"
-            class:current-theme-btn={mode() === AUTO_MODE}
+            class={clsx(
+              'flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95',
+              mode() === AUTO_MODE && 'current-theme-btn',
+            )}
             onclick={() => switchScheme(AUTO_MODE)}
           >
             <Icon
