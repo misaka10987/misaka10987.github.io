@@ -30,7 +30,7 @@ export default () => {
     switchScheme(seq[(idx + 1) % seq.length])
   }
 
-  const [Panel, panelActive, setPanelActive] = createFloatPanel([toggleId])
+  const [Panel, _panelActive, setPanelActive] = createFloatPanel([toggleId])
 
   onMount(() => {
     setMode(getStoredTheme())
@@ -102,7 +102,7 @@ export default () => {
       </button>
 
       <Panel class="lg:block absolute transition top-11 -right-2 pt-5">
-        <div class="card-base float-panel p-2">
+        <div class="card-base top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] transition shadow-xl dark:shadow-none p-2">
           <button
             class={clsx(
               'flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5',
@@ -144,13 +144,6 @@ export default () => {
           </button>
         </div>
       </Panel>
-
-      {/* <div
-        id="light-dark-panel"
-        class="hidden lg:block absolute transition float-panel-closed top-11 -right-2 pt-5"
-      >
-        
-      </div> */}
     </div>
   )
 }
