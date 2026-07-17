@@ -86,22 +86,6 @@
   background-color: var(--selection-bg);
 }
 
-.dash-line {
-  position: relative;
-}
-
-.dash-line::before {
-  content: '';
-  position: absolute;
-  width: 10%;
-  height: 100%;
-  left: calc(50% - 1px);
-  border-left: 2px dashed var(--line-color);
-  pointer-events: none;
-  transition: all 0.3s;
-  transform: translateY(-50%);
-}
-
 .collapsed {
   height: var(--collapsedHeight);
 }

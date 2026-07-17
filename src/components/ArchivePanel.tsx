@@ -124,7 +124,7 @@ export default (props: {
                     </div>
 
                     {/* <!-- dot and line --> */}
-                    <div class="w-[15%] md:w-[10%] relative dash-line h-full flex items-center">
+                    <div class="w-[15%] md:w-[10%] relative h-full flex items-center before:content-[''] before:absolute before:w-[10%] before:h-full before:left-[calc(50%-1px)] before:[border-left:2px_dashed_var(--line-color)] before:pointer-events-none before:[transition:all_0.3s] before:-translate-y-1/2">
                       <div
                         class="transition-all mx-auto w-1 h-1 rounded group-hover:h-5
                        bg-[oklch(0.5_0.05_var(--hue))] group-hover:bg-[var(--primary)]
