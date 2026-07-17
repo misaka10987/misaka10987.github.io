@@ -6,6 +6,7 @@ import clsx from 'clsx'
 import { createEffect, createSignal, type JSX } from 'solid-js'
 import './display-setting.css'
 import { createFloatPanel } from '@components/float-panel'
+import Button from '@components/Button'
 
 export default () => {
   const toggleId = crypto.randomUUID()
@@ -27,17 +28,19 @@ export default () => {
 
   return (
     <>
-      <button
+      <Button
+        variant="plain"
+        scale-animation
         id={toggleId}
         aria-label="Display Settings"
-        class="btn-plain scale-animation rounded-lg h-11 w-11 active:scale-90"
+        class="rounded-lg h-11 w-11 active:scale-90"
         onclick={() => setPanelActive(!panelActive())}
       >
         <Icon
           icon="material-symbols:palette-outline"
           class="text-[1.25rem]"
         ></Icon>
-      </button>
+      </Button>
 
       <Panel class="top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] shadow-xl dark:shadow-none absolute transition-all w-80 right-4 px-4 py-4 display-setting-panel">
         <div class="flex flex-row gap-2 mb-3 items-center justify-between">
@@ -47,10 +50,11 @@ export default () => {
             before:absolute before:-left-3 before:top-[0.33rem]"
           >
             {i18n(I18nKey.themeColor)}
-            <button
+            <Button
+              variant="regular"
               aria-label="Reset to Default"
               class={clsx(
-                'btn-regular w-7 h-7 rounded-md active:scale-90',
+                'w-7 h-7 rounded-md active:scale-90',
                 currHue() === defaultHue && 'opacity-0 pointer-events-none',
               )}
               on:click={resetHue}
@@ -61,7 +65,7 @@ export default () => {
                   class="text-[0.875rem]"
                 ></Icon>
               </div>
-            </button>
+            </Button>
           </div>
           <div class="flex gap-1">
             <div

@@ -4,6 +4,7 @@ import { profileConfig } from '../../config'
 import { url } from '../../utils/url-utils'
 import ImageWrapper from '../misc/ImageWrapper.astro'
 import Card from '@components/Card'
+import Button from '@components/Button'
 
 const config = profileConfig
 ---
@@ -47,29 +48,33 @@ const config = profileConfig
       {
         config.links.length > 1 &&
           config.links.map((item) => (
-            <a
+            <Button
+              as="a"
+              variant="regular"
               rel="me"
               aria-label={item.name}
               href={item.url}
               target="_blank"
-              class="btn-regular rounded-lg h-10 w-10 active:scale-90"
+              class="rounded-lg h-10 w-10 active:scale-90"
             >
               <Icon name={item.icon} class="text-[1.5rem]" />
-            </a>
+            </Button>
           ))
       }
       {
         config.links.length == 1 && (
-          <a
+          <Button
+            as="a"
+            variant="regular"
             rel="me"
             aria-label={config.links[0].name}
             href={config.links[0].url}
             target="_blank"
-            class="btn-regular rounded-lg h-10 gap-2 px-3 font-bold active:scale-95"
+            class="rounded-lg h-10 gap-2 px-3 font-bold active:scale-95"
           >
             <Icon name={config.links[0].icon} class="text-[1.5rem]" />
             {config.links[0].name}
-          </a>
+          </Button>
         )
       }
     </div>

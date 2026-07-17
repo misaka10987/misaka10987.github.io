@@ -5,6 +5,7 @@ import { url } from '@utils/url-utils.ts'
 import { createEffect, createSignal, onMount } from 'solid-js'
 import type { SearchResult } from '@/global'
 import { createFloatPanel } from './float-panel'
+import Button from './Button'
 
 const fakeResult = [
   {
@@ -162,14 +163,16 @@ export default () => {
       </div>
 
       {/* <!-- toggle btn for phone/tablet view --> */}
-      <button
+      <Button
+        variant="plain"
+        scale-animation
         onclick={togglePanel}
         aria-label="Search Panel"
         id="search-switch"
-        class="btn-plain scale-animation lg:!hidden rounded-lg w-11 h-11 active:scale-90"
+        class="lg:!hidden rounded-lg w-11 h-11 active:scale-90"
       >
         <Icon icon="material-symbols:search" class="text-[1.25rem]"></Icon>
-      </button>
+      </Button>
 
       <Panel class="overflow-hidden bg-[var(--float-panel-bg)] transition dark:shadow-none max-h-[calc(100vh-100px)] overflow-y-auto absolute md:w-[30rem] top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2 [&_mark]:bg-transparent [&_mark]:text-[var(--primary)]">
         {/* <!-- search bar inside panel for phone/tablet --> */}

@@ -9,6 +9,7 @@ import ImageWrapper from './misc/ImageWrapper.astro'
 import PostMetadata from './PostMeta.astro'
 import Card from './Card'
 import clsx from 'clsx'
+import Button from './Button'
 
 interface Props {
   class?: string
@@ -159,19 +160,18 @@ const { remarkPluginFrontmatter } = await entry.render()
 
   {
     !hasCover && (
-      <a
+      <Button
+        as="a"
+        variant="regular"
         href={url}
         aria-label={title}
-        class="!hidden md:!flex btn-regular w-[3.25rem]
-         absolute right-3 top-3 bottom-3 rounded-xl bg-[var(--enter-btn-bg)]
-         hover:bg-[var(--enter-btn-bg-hover)] active:bg-[var(--enter-btn-bg-active)] active:scale-95
-        "
+        class="!hidden md:!flex w-[3.25rem] absolute right-3 top-3 bottom-3 rounded-xl bg-[var(--enter-btn-bg)] hover:bg-[var(--enter-btn-bg-hover)] active:bg-[var(--enter-btn-bg-active)] active:scale-95"
       >
         <Icon
           name="material-symbols:chevron-right-rounded"
           class="transition text-[var(--primary)] text-4xl mx-auto"
         />
-      </a>
+      </Button>
     )
   }
 </Card>

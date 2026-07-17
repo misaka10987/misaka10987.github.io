@@ -12,6 +12,7 @@ import { Icon } from '@iconify-icon/solid'
 import clsx from 'clsx'
 import { createFloatPanel } from './float-panel'
 import Card from './Card'
+import Button from './Button'
 
 const seq = [LIGHT_MODE, DARK_MODE, AUTO_MODE] as LIGHT_DARK_MODE[]
 
@@ -60,10 +61,12 @@ export default () => {
       id={toggleId}
       onmouseleave={() => setPanelActive(false)}
     >
-      <button
+      <Button
+        variant="plain"
+        scale-animation
         aria-label="Light/Dark Mode"
         role="menuitem"
-        class="relative btn-plain scale-animation rounded-lg h-11 w-11 active:scale-90"
+        class="relative rounded-lg h-11 w-11 active:scale-90"
         onclick={toggleScheme}
         onmouseenter={() => setPanelActive(true)}
       >
@@ -100,14 +103,17 @@ export default () => {
             class="text-[1.25rem]"
           ></Icon>
         </div>
-      </button>
+      </Button>
 
       <Panel class="lg:block absolute transition top-11 -right-2 pt-5">
         <Card class="top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] transition shadow-xl dark:shadow-none p-2">
-          <button
+          <Button
+            variant="plain"
+            scale-animation
             class={clsx(
-              'flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5',
-              mode() === LIGHT_MODE && 'current-theme-btn',
+              'flex transition whitespace-nowrap items-center !justify-start w-full rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5',
+              mode() === LIGHT_MODE &&
+                'before:scale-100 before:opacity-100 before:bg-[var(--btn-plain-bg-hover)] text-[var(--primary)]',
             )}
             onclick={() => switchScheme(LIGHT_MODE)}
           >
@@ -116,11 +122,14 @@ export default () => {
               class="text-[1.25rem] mr-3"
             ></Icon>
             {i18n(I18nKey.lightMode)}
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="plain"
+            scale-animation
             class={clsx(
-              'flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5',
-              mode() === DARK_MODE && 'current-theme-btn',
+              'flex transition whitespace-nowrap items-center !justify-start w-full rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5',
+              mode() === DARK_MODE &&
+                'before:scale-100 before:opacity-100 before:bg-[var(--btn-plain-bg-hover)] text-[var(--primary)]',
             )}
             onclick={() => switchScheme(DARK_MODE)}
           >
@@ -129,11 +138,14 @@ export default () => {
               class="text-[1.25rem] mr-3"
             ></Icon>
             {i18n(I18nKey.darkMode)}
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="plain"
+            scale-animation
             class={clsx(
-              'flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95',
-              mode() === AUTO_MODE && 'current-theme-btn',
+              'flex transition whitespace-nowrap items-center !justify-start w-full rounded-lg h-9 px-3 font-medium active:scale-95',
+              mode() === AUTO_MODE &&
+                'before:scale-100 before:opacity-100 before:bg-[var(--btn-plain-bg-hover)] text-[var(--primary)]',
             )}
             onclick={() => switchScheme(AUTO_MODE)}
           >
@@ -142,7 +154,7 @@ export default () => {
               class="text-[1.25rem] mr-3"
             ></Icon>
             {i18n(I18nKey.systemMode)}
-          </button>
+          </Button>
         </Card>
       </Panel>
     </div>

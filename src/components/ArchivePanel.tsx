@@ -4,6 +4,7 @@ import I18nKey from '../i18n/i18nKey'
 import { i18n } from '../i18n/translation'
 import { getPostUrlBySlug } from '../utils/url-utils'
 import Card from './Card'
+import Button from './Button'
 
 interface Post {
   slug: string
@@ -109,10 +110,12 @@ export default (props: {
 
             {group.posts.map((post) => (
               <>
-                <a
+                <Button
+                  as="a"
+                  variant="plain"
                   href={getPostUrlBySlug(post.slug)}
                   aria-label={post.data.title}
-                  class="group btn-plain !block h-10 w-full rounded-lg hover:text-[initial]"
+                  class="group !block h-10 w-full rounded-lg hover:text-[initial]"
                 >
                   <div class="flex flex-row justify-start items-center h-full">
                     {/* <!-- date --> */}
@@ -149,7 +152,7 @@ export default (props: {
                       {formatTag(post.data.tags)}
                     </div>
                   </div>
-                </a>
+                </Button>
               </>
             ))}
           </div>

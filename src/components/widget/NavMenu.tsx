@@ -2,6 +2,7 @@ import { createFloatPanel } from '@components/float-panel'
 import { type NavBarLink } from '../../types/config'
 import { url } from '../../utils/url-utils'
 import { Icon } from '@iconify-icon/solid'
+import Button from '@components/Button'
 
 interface Props {
   links: NavBarLink[]
@@ -15,10 +16,12 @@ export default ({ links }: Props) => {
 
   return (
     <>
-      <button
+      <Button
+        variant="plain"
+        scale-animation
         aria-label="Menu"
         name="Nav Menu"
-        class="btn-plain scale-animation rounded-lg w-11 h-11 active:scale-90 md:!hidden"
+        class="rounded-lg w-11 h-11 active:scale-90 md:!hidden"
         id="nav-menu-switch"
         onclick={() => setPanelActive(!panelActive())}
       >
@@ -26,7 +29,7 @@ export default ({ links }: Props) => {
           icon="material-symbols:menu-rounded"
           class="text-[1.25rem]"
         ></Icon>
-      </button>
+      </Button>
       <Panel class="top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] shadow-xl dark:shadow-none transition-all fixed right-4 px-2 py-2">
         {links.map((link) => (
           <a
