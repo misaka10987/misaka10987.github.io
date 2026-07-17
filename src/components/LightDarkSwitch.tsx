@@ -11,6 +11,7 @@ import { createSignal, onMount } from 'solid-js'
 import { Icon } from '@iconify-icon/solid'
 import clsx from 'clsx'
 import { createFloatPanel } from './float-panel'
+import Card from './Card'
 
 const seq = [LIGHT_MODE, DARK_MODE, AUTO_MODE] as LIGHT_DARK_MODE[]
 
@@ -102,7 +103,7 @@ export default () => {
       </button>
 
       <Panel class="lg:block absolute transition top-11 -right-2 pt-5">
-        <div class="card-base top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] transition shadow-xl dark:shadow-none p-2">
+        <Card class="top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] transition shadow-xl dark:shadow-none p-2">
           <button
             class={clsx(
               'flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5',
@@ -142,7 +143,7 @@ export default () => {
             ></Icon>
             {i18n(I18nKey.systemMode)}
           </button>
-        </div>
+        </Card>
       </Panel>
     </div>
   )
