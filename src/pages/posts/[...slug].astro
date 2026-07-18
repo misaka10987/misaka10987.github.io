@@ -16,6 +16,7 @@ import { formatDateToYYYYMMDD } from '../../utils/date-utils'
 import Card from '@components/Card'
 import clsx from 'clsx'
 import { getButtonClass } from '@components/Button'
+import { render } from 'astro:content'
 
 export async function getStaticPaths() {
   const blogEntries = await getSortedPosts()
@@ -26,9 +27,9 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { Content, headings } = await entry.render()
+const { Content, headings } = await render(entry)
 
-const { remarkPluginFrontmatter } = await entry.render()
+const { remarkPluginFrontmatter } = await render(entry)
 
 const jsonLd = {
   '@context': 'https://schema.org',
