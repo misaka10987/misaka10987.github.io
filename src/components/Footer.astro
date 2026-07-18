@@ -17,22 +17,23 @@ const currentYear = new Date().getFullYear()
 >
   <div class="transition text-50 text-sm text-center">
     &copy; <span id="copyright-year">{currentYear}</span>
-    {profileConfig.name}. All Rights Reserved. /
+    {' '}{profileConfig.name}. All Rights Reserved. /{' '}
     <Link
       class="transition text-[var(--primary)] font-medium"
       href={url('rss.xml')}>RSS</Link
-    > /
+    > /{' '}
     <Link
       class="transition text-[var(--primary)] font-medium"
       target="_blank"
       href={url('sitemap-index.xml')}>Sitemap</Link
-    ><br />
-    Powered by
+    >
+    <br />
+    Powered by{' '}
     <Link
       class="transition text-[var(--primary)] font-medium"
       target="_blank"
       href="https://astro.build">Astro</Link
-    > &
+    > &{' '}
     <Link
       class="transition text-[var(--primary)] font-medium"
       target="_blank"
