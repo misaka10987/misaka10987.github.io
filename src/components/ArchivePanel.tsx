@@ -2,12 +2,12 @@ import { createSignal, onMount } from 'solid-js'
 
 import I18nKey from '../i18n/i18nKey'
 import { i18n } from '../i18n/translation'
-import { getPostUrlBySlug } from '../utils/url-utils'
+import { getPostUrl } from '../utils/url-utils'
 import Card from './Card'
 import Button from './Button'
 
 interface Post {
-  slug: string
+  id: string
   data: {
     title: string
     tags: string[]
@@ -113,7 +113,7 @@ export default (props: {
                 <Button
                   as="a"
                   variant="plain"
-                  href={getPostUrlBySlug(post.slug)}
+                  href={getPostUrl(post.id)}
                   aria-label={post.data.title}
                   class="group !block h-10 w-full rounded-lg hover:text-[initial]"
                 >

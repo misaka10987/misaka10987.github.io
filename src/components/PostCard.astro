@@ -4,7 +4,6 @@ import path from 'node:path'
 import { Icon } from 'astro-icon/components'
 import I18nKey from '../i18n/i18nKey'
 import { i18n } from '../i18n/translation'
-import { getDir } from '../utils/url-utils'
 import ImageWrapper from './misc/ImageWrapper.astro'
 import PostMetadata from './PostMeta.astro'
 import Card from './Card'
@@ -150,7 +149,7 @@ const { remarkPluginFrontmatter } = await render(entry)
         </div>
         <ImageWrapper
           src={image}
-          basePath={path.join('content/posts/', getDir(entry.id))}
+          basePath={path.relative('src', path.dirname(entry.filePath ?? ''))}
           alt="Cover Image of the Post"
           class="w-full h-full"
         />

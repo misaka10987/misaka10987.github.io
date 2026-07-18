@@ -6,7 +6,7 @@ import I18nKey from '@i18n/i18nKey'
 import { i18n } from '@i18n/translation'
 import MainGridLayout from '@layouts/MainGridLayout.astro'
 import { getSortedPosts } from '@utils/content-utils'
-import { getDir, getPostUrlBySlug } from '@utils/url-utils'
+import { getPostUrl } from '@/utils/url-utils'
 import { Icon } from 'astro-icon/components'
 import { licenseConfig } from '@/config'
 import ImageWrapper from '../../components/misc/ImageWrapper.astro'
@@ -21,7 +21,7 @@ import { render } from 'astro:content'
 export async function getStaticPaths() {
   const blogEntries = await getSortedPosts()
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { id: entry.id },
     props: { entry },
   }))
 }
@@ -145,7 +145,7 @@ const jsonLd = {
           <ImageWrapper
             id="post-cover"
             src={entry.data.image}
-            basePath={path.join('content/posts/', getDir(entry.id))}
+            basePath={path.relative('src', path.dirname(entry.filePath ?? ''))}
             class="mb-8 rounded-xl banner-container onload-animation"
           />
         )
@@ -159,7 +159,6 @@ const jsonLd = {
         licenseConfig.enable && (
           <License
             title={entry.data.title}
-            slug={entry.slug}
             pubDate={entry.data.published}
             class="mb-6 rounded-xl license-container onload-animation"
           />
@@ -172,14 +171,14 @@ const jsonLd = {
     class="flex flex-col md:flex-row justify-between mb-4 gap-4 overflow-hidden w-full"
   >
     <a
-      href={entry.data.nextSlug ? getPostUrlBySlug(entry.data.nextSlug) : '#'}
+      href={entry.data.nextId ? getPostUrl(entry.data.nextId) : '#'}
       class:list={[
         'w-full font-bold overflow-hidden active:scale-95',
-        { 'pointer-events-none': !entry.data.nextSlug },
+        { 'pointer-events-none': !entry.data.nextId },
       ]}
     >
       {
-        entry.data.nextSlug && (
+        entry.data.nextId && (
           <div
             class={clsx(
               getButtonClass({ variant: 'card' }),
@@ -199,14 +198,14 @@ const jsonLd = {
     </a>
 
     <a
-      href={entry.data.prevSlug ? getPostUrlBySlug(entry.data.prevSlug) : '#'}
+      href={entry.data.prevId ? getPostUrl(entry.data.prevId) : '#'}
       class:list={[
         'w-full font-bold overflow-hidden active:scale-95',
-        { 'pointer-events-none': !entry.data.prevSlug },
+        { 'pointer-events-none': !entry.data.prevId },
       ]}
     >
       {
-        entry.data.prevSlug && (
+        entry.data.prevId && (
           <div
             class={clsx(
               getButtonClass({ variant: 'card' }),
