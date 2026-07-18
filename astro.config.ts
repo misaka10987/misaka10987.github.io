@@ -22,7 +22,7 @@ import { parseDirectiveNode } from './src/plugins/remark-directive-rehype.js'
 import { remarkExcerpt } from './src/plugins/remark-excerpt.js'
 import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs'
 import { pluginCustomCopyButton } from './src/plugins/expressive-code/custom-copy-button.js'
-
+import { unified } from '@astrojs/markdown-remark'
 import solidJs from '@astrojs/solid-js'
 
 // https://astro.build/config
@@ -108,61 +108,63 @@ export default defineConfig({
     solidJs(),
   ],
   markdown: {
-    remarkPlugins: [
-      remarkMath,
-      remarkReadingTime,
-      remarkExcerpt,
-      remarkGithubAdmonitionsToDirectives,
-      remarkDirective,
-      remarkSectionize,
-      parseDirectiveNode as any,
-    ],
-    rehypePlugins: [
-      rehypeKatex,
-      rehypeSlug,
-      [
-        rehypeComponents,
-        {
-          components: {
-            github: GithubCardComponent,
-            note: (x: any, y: any) => AdmonitionComponent(x, y, 'note'),
-            tip: (x: any, y: any) => AdmonitionComponent(x, y, 'tip'),
-            important: (x: any, y: any) =>
-              AdmonitionComponent(x, y, 'important'),
-            caution: (x: any, y: any) => AdmonitionComponent(x, y, 'caution'),
-            warning: (x: any, y: any) => AdmonitionComponent(x, y, 'warning'),
-            // the `remarkGithubAdmonitionsToDirectives` plugin generates
-            // `:::info` directives for `> [!IMPORTANT]` and `:::danger`s for `> [!CAUTION]`
-            // make it happy
-            info: (x: any, y: any) => AdmonitionComponent(x, y, 'important'),
-            danger: (x: any, y: any) => AdmonitionComponent(x, y, 'caution'),
-          },
-        },
+    processor: unified({
+      remarkPlugins: [
+        remarkMath,
+        remarkReadingTime,
+        remarkExcerpt,
+        remarkGithubAdmonitionsToDirectives,
+        remarkDirective,
+        remarkSectionize,
+        parseDirectiveNode as any,
       ],
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'append',
-          properties: {
-            className: ['anchor'],
-          },
-          content: {
-            type: 'element',
-            tagName: 'span',
-            properties: {
-              className: ['anchor-icon'],
-              'data-pagefind-ignore': true,
+      rehypePlugins: [
+        rehypeKatex,
+        rehypeSlug,
+        [
+          rehypeComponents,
+          {
+            components: {
+              github: GithubCardComponent,
+              note: (x: any, y: any) => AdmonitionComponent(x, y, 'note'),
+              tip: (x: any, y: any) => AdmonitionComponent(x, y, 'tip'),
+              important: (x: any, y: any) =>
+                AdmonitionComponent(x, y, 'important'),
+              caution: (x: any, y: any) => AdmonitionComponent(x, y, 'caution'),
+              warning: (x: any, y: any) => AdmonitionComponent(x, y, 'warning'),
+              // the `remarkGithubAdmonitionsToDirectives` plugin generates
+              // `:::info` directives for `> [!IMPORTANT]` and `:::danger`s for `> [!CAUTION]`
+              // make it happy
+              info: (x: any, y: any) => AdmonitionComponent(x, y, 'important'),
+              danger: (x: any, y: any) => AdmonitionComponent(x, y, 'caution'),
             },
-            children: [
-              {
-                type: 'text',
-                value: '#',
-              },
-            ],
           },
-        },
+        ],
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'append',
+            properties: {
+              className: ['anchor'],
+            },
+            content: {
+              type: 'element',
+              tagName: 'span',
+              properties: {
+                className: ['anchor-icon'],
+                'data-pagefind-ignore': true,
+              },
+              children: [
+                {
+                  type: 'text',
+                  value: '#',
+                },
+              ],
+            },
+          },
+        ],
       ],
-    ],
+    }),
   },
   vite: {
     build: {
