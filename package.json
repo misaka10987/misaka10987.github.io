@@ -33,7 +33,7 @@
     "@iconify-json/material-symbols": "^1.2.65",
     "@swup/astro": "^1.7.0",
     "@tailwindcss/typography": "^0.5.19",
-    "astro": "7.1.1",
+    "astro": "7.1.5",
     "astro-expressive-code": "^0.41.7",
     "astro-icon": "^1.1.5",
     "clsx": "^2.1.1",
