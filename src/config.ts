@@ -8,8 +8,8 @@ import type {
 import { LinkPreset } from './types/config'
 
 export const siteConfig: SiteConfig = {
-  title: 'Thus spoke misaka10987',
-  subtitle: 'Blog',
+  title: 'Daydream',
+  subtitle: 'misaka10987',
   lang: 'en', // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
   themeColor: {
     hue: 200, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
@@ -67,17 +67,6 @@ export const profileConfig: ProfileConfig = {
     //   // `pnpm add @iconify-json/<icon-set-name>`
     //   url: 'https://twitter.com',
     // },
-    // {
-    //   name: 'Steam',
-    //   icon: 'fa6-brands:steam',
-    //   url: 'https://store.steampowered.com',
-    // },
-
-    // [[social]]
-    // identifier = "lichess"
-    // name = "lichess.org"
-    // url = "https://lichess.org/@/misaka10987"
-    // params.icon = "chess-knight"
     {
       name: 'EMail',
       icon: 'material-symbols:mail-outline',
@@ -112,6 +101,16 @@ export const profileConfig: ProfileConfig = {
       name: 'lichess.org',
       icon: 'material-symbols:chess-knight-outline',
       url: 'https://lichess.org/@/misaka10987',
+    },
+    {
+      name: 'Steam',
+      icon: 'fa6-brands:steam',
+      url: 'https://steamcommunity.com/id/misaka10987/',
+    },
+    {
+      name: 'Diplicity',
+      icon: 'boxicons:globe-europe',
+      url: 'https://www.diplicity.com/player/2985',
     },
   ],
 }
