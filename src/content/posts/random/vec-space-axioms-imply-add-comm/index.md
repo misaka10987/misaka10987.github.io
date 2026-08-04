@@ -5,7 +5,7 @@ description = ""
 image = "cover.jpg"
 tags = ["Linear Alg"]
 category = ""
-draft = true
+draft = false
 lang = ""
 +++
 
