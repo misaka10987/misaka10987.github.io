@@ -16,7 +16,7 @@ btrfs subvolume create /@srv
 
 但是，在我们尝试挂载新创建的子卷时，会得到如下错误：
 
-```shell-session
+```shellsession
 # mount -o subvol=@srv /dev/nvme0n1p2 /srv
 mount: /srv: fsconfig() failed: 没有那个文件或目录.
        dmesg(1) may have more information after failed mount system call.
@@ -24,7 +24,7 @@ mount: /srv: fsconfig() failed: 没有那个文件或目录.
 
 这看似很奇怪，因为如果我们尝试列出子卷：
 
-```shell-session
+```shellsession
 # btrfs subvolume list /
 ID 256 gen 85363 top level 5 path @
 ID 257 gen 85363 top level 5 path @home
@@ -40,7 +40,7 @@ ID 271 gen 85142 top level 5 path @srv
 
 问题的原因在于，此时我们系统的根目录 `/` 并不是 BTRFS 文件系统的根目录 `/` , 而是其下的子卷 `@` 的挂载点（这是 Arch Linux 默认安装下的行为）。
 
-```shell-session
+```shellsession
 # mount -t btrfs /dev/nvme0n1p2 /tmp/rootfs
 # ls /tmp/rootfs
 '@'/  '@home'/  '@log'/  '@pkg'/  '@.snapshots'/
@@ -51,7 +51,7 @@ ID 271 gen 85142 top level 5 path @srv
 
 因此，在我们创建子卷 `/@srv` 时，看似在「根目录」`/` 下创建的子卷，实际上位于 `/@/@srv` . 这也是我们无法通过 `@srv` 访问的原因。
 
-```shell-session
+```shellsession
 # btrfs subvolume show /@srv | head -n 2
 @/@srv
 	Name: 			@srv
