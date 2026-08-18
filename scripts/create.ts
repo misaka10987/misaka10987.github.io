@@ -36,7 +36,7 @@ const main = async () => {
 
   const frontmatter = {
     title: post,
-    published: today,
+    published: new TOML.TomlDate(today),
     description: '',
     image: '',
     tags: [],
