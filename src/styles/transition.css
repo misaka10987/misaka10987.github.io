@@ -40,9 +40,7 @@ html.is-animating .transition-swup-fade {
 #content-wrapper {
   animation-delay: var(--content-delay);
 }
-.footer {
-  animation-delay: 250ms;
-}
+
 #banner-credit {
   animation-delay: 400ms;
 }
