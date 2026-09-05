@@ -20,6 +20,26 @@
   transform: translateY(-0.0625rem);
 }
 
+.custom-md blockquote.admonition.bdm-note::before {
+  background: var(--admonitions-color-note);
+}
+
+.custom-md blockquote.admonition.bdm-tip::before {
+  background: var(--admonitions-color-tip);
+}
+
+.custom-md blockquote.admonition.bdm-important::before {
+  background: var(--admonitions-color-important);
+}
+
+.custom-md blockquote.admonition.bdm-warning::before {
+  background: var(--admonitions-color-warning);
+}
+
+.custom-md blockquote.admonition.bdm-caution::before {
+  background: var(--admonitions-color-caution);
+}
+
 .custom-md blockquote.admonition.bdm-tip .bdm-title {
   color: var(--admonitions-color-tip);
 }
