@@ -27,8 +27,9 @@ const config = profileConfig
     </div>
     <ImageWrapper
       src={config.avatar || ''}
+      srcset={config.avatarSet}
       alt="Profile Image of the Author"
-      class="mx-auto lg:w-full h-full lg:mt-0"
+      class="mx-auto lg:w-full h-full lg:mt-0 aspect-square"
     />
   </a>
   <div class="px-2">

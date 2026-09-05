@@ -4,6 +4,7 @@ import path from 'node:path'
 interface Props {
   id?: string
   src: string
+  srcset?: Record<string, number>
   class?: string
   alt?: string
   position?: string
@@ -13,7 +14,7 @@ interface Props {
 import { Image } from 'astro:assets'
 import { url } from '../../utils/url-utils'
 
-const { id, src, alt, position = 'center', basePath } = Astro.props
+const { id, src, alt, position = 'center', basePath, srcset } = Astro.props
 const className = Astro.props.class
 
 const isLocal = !(
@@ -48,6 +49,16 @@ if (isLocal) {
 
 const imageClass = 'w-full h-full object-cover'
 const imageStyle = `object-position: ${position}`
+
+if (isLocal && srcset) {
+  console.warn(
+    'Sizes of local images are handled automatically by Astro, `srcset` does nothing',
+  )
+}
+
+const srcsetAttr = Object.entries(srcset ?? {})
+  .map(([src, width]) => `${isPublic ? url(src) : src} ${width}w`)
+  .join(',')
 ---
 
 <div id={id} class:list={[className, 'overflow-hidden relative']}>
@@ -73,6 +84,9 @@ const imageStyle = `object-position: ${position}`
         alt={alt || ''}
         class={imageClass}
         style={imageStyle}
+        loading={srcset ? 'lazy' : undefined}
+        srcset={srcset ? srcsetAttr : undefined}
+        sizes={srcset ? 'auto' : undefined}
       />
     )
   }

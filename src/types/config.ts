@@ -62,6 +62,7 @@ export type NavBarConfig = {
 
 export type ProfileConfig = {
 	avatar?: string;
+	avatarSet?: Record<string, number>
 	name: string;
 	bio?: string;
 	links: {

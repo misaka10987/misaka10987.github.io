@@ -55,8 +55,16 @@ export const navBarConfig: NavBarConfig = {
   ],
 }
 
+const getAvatar = (size: number) =>
+  `https://misaka10987-avatar.pages.dev/dist/avatar-square-${size}.webp`
+
 export const profileConfig: ProfileConfig = {
   avatar: 'https://misaka10987-avatar.pages.dev/dist/avatar-square-1000.webp', // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+  avatarSet: {
+    [getAvatar(250)]: 250,
+    [getAvatar(500)]: 500,
+    [getAvatar(1000)]: 1000,
+  },
   name: 'misaka10987',
   bio: 'Ex falso',
   links: [
