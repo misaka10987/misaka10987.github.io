@@ -27,6 +27,9 @@ import solidJs from '@astrojs/solid-js'
 
 // https://astro.build/config
 export default defineConfig({
+  image : {
+    layout : 'constrained'
+  },
   site: 'https://misaka10987.github.io',
   base: '/',
   trailingSlash: 'always',
