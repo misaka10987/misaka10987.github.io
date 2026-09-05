@@ -39,7 +39,7 @@
     "astro-icon": "^1.1.5",
     "clsx": "^2.1.1",
     "hastscript": "^9.0.1",
-    "katex": "^0.16.45",
+    "katex": "^0.18.5",
     "markdown-it": "^15.0.1",
     "mdast-util-to-string": "^4.0.0",
     "overlayscrollbars": "^2.13.0",
@@ -74,5 +74,8 @@
     "postcss-import": "^17.0.0",
     "postcss-nesting": "^14.0.1",
     "smol-toml": "^1.7.1"
+  },
+  "overrides": {
+    "katex": "0.18.5"
   }
 }
