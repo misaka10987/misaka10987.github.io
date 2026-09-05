@@ -23,7 +23,13 @@ let links: NavBarLink[] = navBarConfig.links.map(
 	},
 );
 ---
-<div id="navbar" class="z-50 onload-animation">
+<style>
+    nav {
+        animation-delay: 0ms;
+    }
+</style>
+
+<nav class="z-50 onload-animation">
     <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div> <!-- used for onload animation -->
     <Card class={clsx(className, "!overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4")}>
         <Button as="a" variant="plain" scale-animation href={url('/')} class="rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
@@ -50,7 +56,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
             <NavMenu links={links} client:only="solid-js"></NavMenu>
         </div>
     </Card>
-</div>
+</nav>
 
 {import.meta.env.PROD && <script is:inline define:vars={{scriptUrl: url('/pagefind/pagefind.js')}}>
 async function loadPagefind() {

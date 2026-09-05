@@ -30,9 +30,7 @@ html.is-animating .transition-swup-fade {
   animation: 300ms fade-in-up;
   animation-fill-mode: forwards;
 }
-#navbar {
-  animation-delay: 0ms;
-}
+
 #sidebar {
   animation-delay: 100ms;
 }
