@@ -32,13 +32,14 @@ const formatTag = (tagList: string[]) => {
 }
 
 export default (props: {
-  tags: string[]
-  categories: string[]
+  tags?: string[]
+  categories?: string[]
   sortedPosts: Post[]
 }) => {
   const params = new URLSearchParams(window.location.search)
-  const tags = params.has('tag') ? params.getAll('tag') : []
-  const categories = params.has('category') ? params.getAll('category') : []
+  const tags = props.tags ?? params.has('tag') ? params.getAll('tag') : []
+  const categories =
+    props.categories ?? params.has('category') ? params.getAll('category') : []
   const uncategorized = params.get('uncategorized')
 
   const [groups, setGroups] = createSignal<Group[]>([])
