@@ -1,42 +1,55 @@
 .scrollbar-base.os-scrollbar {
-    @apply transition-all;
-    pointer-events: unset;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  pointer-events: unset;
 
-    &.os-scrollbar-horizontal {
-        @apply py-1 px-2 h-4;
-        .os-scrollbar-track .os-scrollbar-handle {
-            @apply rounded-full h-1;
-        }
-        &:hover .os-scrollbar-track .os-scrollbar-handle {
-            @apply h-2;
-        }
-    }
+  &.os-scrollbar-horizontal {
+    padding-top: 0.25rem /* 4px */;
+    padding-bottom: 0.25rem /* 4px */;
+    padding-left: 0.5rem /* 8px */;
+    padding-right: 0.5rem /* 8px */;
+    height: 1rem /* 16px */;
 
-    &.os-scrollbar-vertical {
-        @apply px-1 py-1 w-4;
-        .os-scrollbar-track .os-scrollbar-handle {
-            @apply rounded-full w-1;
-        }
-        &:hover .os-scrollbar-track .os-scrollbar-handle {
-            @apply w-2;
-        }
+    .os-scrollbar-track .os-scrollbar-handle {
+      border-radius: 9999px;
+      height: 0.25rem /* 4px */;
     }
+    &:hover .os-scrollbar-track .os-scrollbar-handle {
+      height: 0.5rem /* 8px */;
+    }
+  }
+
+  &.os-scrollbar-vertical {
+    padding-left: 0.25rem /* 4px */;
+    padding-right: 0.25rem /* 4px */;
+    padding-top: 0.25rem /* 4px */;
+    padding-bottom: 0.25rem /* 4px */;
+    width: 1rem /* 16px */;
+    .os-scrollbar-track .os-scrollbar-handle {
+      border-radius: 9999px;
+      width: 0.25rem /* 4px */;
+    }
+    &:hover .os-scrollbar-track .os-scrollbar-handle {
+      width: 0.5rem /* 8px */;
+    }
+  }
 }
 
 .os-scrollbar {
-    &.scrollbar-auto {
-        --os-handle-bg: var(--scrollbar-bg);
-        --os-handle-bg-hover: var(--scrollbar-bg-hover);
-        --os-handle-bg-active: var(--scrollbar-bg-active);
-    }
-    &.scrollbar-dark {
-        --os-handle-bg: var(--scrollbar-bg-dark);
-        --os-handle-bg-hover: var(--scrollbar-bg-hover-dark);
-        --os-handle-bg-active: var(--scrollbar-bg-active-dark);
-    }
-    &.scrollbar-light {
-        --os-handle-bg: var(--scrollbar-bg-light);
-        --os-handle-bg-hover: var(--scrollbar-bg-hover-light);
-        --os-handle-bg-active: var(--scrollbar-bg-active-light);
-    }
+  &.scrollbar-auto {
+    --os-handle-bg: var(--scrollbar-bg);
+    --os-handle-bg-hover: var(--scrollbar-bg-hover);
+    --os-handle-bg-active: var(--scrollbar-bg-active);
+  }
+  &.scrollbar-dark {
+    --os-handle-bg: var(--scrollbar-bg-dark);
+    --os-handle-bg-hover: var(--scrollbar-bg-hover-dark);
+    --os-handle-bg-active: var(--scrollbar-bg-active-dark);
+  }
+  &.scrollbar-light {
+    --os-handle-bg: var(--scrollbar-bg-light);
+    --os-handle-bg-hover: var(--scrollbar-bg-hover-light);
+    --os-handle-bg-active: var(--scrollbar-bg-active-light);
+  }
 }
