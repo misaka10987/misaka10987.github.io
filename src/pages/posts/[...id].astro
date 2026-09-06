@@ -146,8 +146,13 @@ const jsonLd = {
             id="post-cover"
             src={entry.data.image}
             basePath={path.relative('src', path.dirname(entry.filePath ?? ''))}
-            class="mb-8 rounded-xl banner-container onload-animation"
+            class="post-cover mb-8 rounded-xl banner-container onload-animation"
           />
+          <style>
+            .post-cover img {
+               cursor: zoom-in;
+            }
+          </style>
         )
       }
 

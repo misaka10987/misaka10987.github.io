@@ -33,16 +33,6 @@
     @apply opacity-0 pointer-events-none;
   }
 
-  #toc-inner-wrapper {
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 2rem,
-      black calc(100% - 2rem),
-      transparent 100%
-    );
-  }
-
   .hide-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -73,9 +63,8 @@
   }
 }
 
-.custom-md img,
-#post-cover img {
-  @apply cursor-zoom-in;
+.custom-md img {
+  cursor: zoom-in;
 }
 
 ::selection {
