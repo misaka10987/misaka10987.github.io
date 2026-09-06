@@ -33,14 +33,6 @@
     @apply opacity-0 pointer-events-none;
   }
 
-  .hide-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
   .text-90 {
     @apply text-black/90 dark:text-white/90;
   }

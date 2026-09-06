@@ -167,6 +167,15 @@ const mainPanelTop = siteConfig.banner.enable
               { 'toc-hide': siteConfig.banner.enable },
             ]}
           >
+            <style>
+              .hide-scrollbar {
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+              }
+              .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+              }
+            </style>
             <div
               id="toc-inner-wrapper"
               class="fixed top-14 w-[var(--toc-width)] h-[calc(100vh_-_20rem)] overflow-y-scroll overflow-x-hidden hide-scrollbar"
