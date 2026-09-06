@@ -67,9 +67,30 @@ const jsonLd = {
   <div
     class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4"
   >
+    <style>
+      /* Post content */
+      .post-container :nth-child(1) {
+        animation-delay: calc(var(--content-delay) + 0ms);
+      }
+      .post-container :nth-child(2) {
+        animation-delay: calc(var(--content-delay) + 50ms);
+      }
+      .post-container :nth-child(3) {
+        animation-delay: calc(var(--content-delay) + 100ms);
+      }
+      .post-container :nth-child(4) {
+        animation-delay: calc(var(--content-delay) + 175ms);
+      }
+      .post-container :nth-child(5) {
+        animation-delay: calc(var(--content-delay) + 250ms);
+      }
+      .post-container :nth-child(6) {
+        animation-delay: calc(var(--content-delay) + 325ms);
+      }
+    </style>
+
     <Card
-      id="post-container"
-      class="z-10 px-6 md:px-9 pt-6 pb-4 relative w-full"
+      class="post-container z-10 px-6 md:px-9 pt-6 pb-4 relative w-full"
     >
       <!-- word count and reading time -->
       <div
@@ -146,7 +167,7 @@ const jsonLd = {
             id="post-cover"
             src={entry.data.image}
             basePath={path.relative('src', path.dirname(entry.filePath ?? ''))}
-            class="post-cover mb-8 rounded-xl banner-container onload-animation"
+            class="post-cover mb-8 rounded-xl onload-animation"
           />
           <style>
             .post-cover img {
@@ -156,7 +177,7 @@ const jsonLd = {
         )
       }
 
-      <Markdown class="mb-6 markdown-content onload-animation">
+      <Markdown class="mb-6 onload-animation">
         <Content />
       </Markdown>
 
@@ -165,7 +186,7 @@ const jsonLd = {
           <License
             title={entry.data.title}
             pubDate={entry.data.published}
-            class="mb-6 rounded-xl license-container onload-animation"
+            class="mb-6 rounded-xl onload-animation"
           />
         )
       }
