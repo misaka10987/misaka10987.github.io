@@ -41,6 +41,9 @@ type Variant = CardVariant | PlainVariant | RegularVariant | DarkRegularVariant
 
 type Props = (ButtonProps | AnchorProps) & Variant
 
+export const EXPAND_ANIMATION =
+  'relative before:ease-out before:transition active:bg-none hover:before:bg-[var(--btn-plain-bg-hover)] active:before:bg-[var(--btn-plain-bg-active)] z-0 before:absolute before:rounded-[inherit] before:inset-0 before:scale-[0.85] hover:before:scale-100 before:-z-10'
+
 export const getButtonClass = (variant: Variant): string => {
   switch (variant.variant) {
     case 'card':
@@ -53,7 +56,7 @@ export const getButtonClass = (variant: Variant): string => {
       return clsx(
         'transition relative flex items-center justify-center bg-none text-black/75 hover:text-[var(--primary)] dark:text-white/75 dark:hover:text-[var(--primary)]',
         variant['scale-animation'] ?? false
-          ? 'expand-animation'
+          ? EXPAND_ANIMATION
           : 'hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)]',
       )
 

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { splitProps, type JSX } from 'solid-js'
+import { EXPAND_ANIMATION } from './Button'
 
 interface Props extends JSX.AnchorHTMLAttributes<HTMLAnchorElement> {
   size?: 'md' | 'lg'
@@ -13,7 +14,8 @@ export default (props: Props) => {
   return (
     <a
       class={clsx(
-        'transition rounded-md p-1 -m-1 expand-animation',
+        'transition rounded-md p-1 -m-1',
+        EXPAND_ANIMATION,
         size == 'lg' && 'p-1.5 -m-1.5',
         local.class,
       )}
