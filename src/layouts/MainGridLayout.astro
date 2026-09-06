@@ -13,7 +13,7 @@ import {
 } from '../constants/constants'
 import Layout from './Layout.astro'
 import Banner from '@components/Banner.astro'
-import clsx from 'clsx'
+import NavbarWrapper from './NavbarWrapper'
 
 interface Props {
   title?: string
@@ -50,68 +50,9 @@ const mainPanelTop = siteConfig.banner.enable
 >
   <!-- Navbar -->
   <slot slot="head" name="head" />
-
-  <div
-    id="top-row"
-    class={clsx(
-      "z-50 pointer-events-none relative transition-all duration-700 max-w-[var(--page-width)] px-0 md:px-4 mx-auto",
-      siteConfig.banner.enable && 'h-[calc(var(--banner-height-home)_-_4.5rem)] duration-300'
-    )}
-  >
-    <div
-      id="navbar-wrapper"
-      class="pointer-events-auto sticky top-0 transition-all"
-    >
-      <Navbar />
-    </div>
-    <script>
-      import { BANNER_HEIGHT, BANNER_HEIGHT_HOME, MAIN_PANEL_OVERLAPS_BANNER_HEIGHT } from "@constants/constants"
-
-      const setup = () => {
-        window.swup.hooks.on('link:click', () => {
-          const navbar = document.querySelector('#navbar-wrapper')
-          const threshold = window.innerHeight * (BANNER_HEIGHT / 100) - 72 - 16
-
-          if (!navbar || !document.body.classList.contains('lg:is-home')) {
-			      return
-		      }
-
-          if (document.body.scrollTop >= threshold || document.documentElement.scrollTop >= threshold) {
-			      navbar.classList.add('opacity-0', '-translate-y-16')
-		      }
-        })
-      }
-
-      if (window?.swup?.hooks) {
-        setup()
-      } else {
-        document.addEventListener('swup:enable', setup)
-      }
-
-      const onscroll = () => {
-        const navbar = document.querySelector('#navbar-wrapper')
-        if (!navbar) return
-
-        const NAVBAR_HEIGHT = 72
-        const MAIN_PANEL_EXCESS_HEIGHT = MAIN_PANEL_OVERLAPS_BANNER_HEIGHT * 16			// The height the main panel overlaps the banner
-
-        let bannerHeight = BANNER_HEIGHT
-        if (document.body.classList.contains('lg:is-home') && window.innerWidth >= 1024) {
-          bannerHeight = BANNER_HEIGHT_HOME
-        }
-
-        const threshold = window.innerHeight * (bannerHeight / 100) - NAVBAR_HEIGHT - MAIN_PANEL_EXCESS_HEIGHT - 16
-
-        if (document.body.scrollTop >= threshold || document.documentElement.scrollTop >= threshold) {
-          navbar.classList.add('opacity-0', '-translate-y-16')
-        } else {
-          navbar.classList.remove('opacity-0', '-translate-y-16')
-        }
-      }
-
-      window.addEventListener('scroll', onscroll, { passive: true })
-    </script>
-  </div>
+  <NavbarWrapper client:load>
+    <Navbar />
+  </NavbarWrapper>
 
   <!-- Banner -->
   <Banner />
