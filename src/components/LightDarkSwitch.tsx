@@ -56,7 +56,6 @@ export default () => {
   return (
     <div
       class="relative z-50"
-      role="menu"
       tabindex="-1"
       id={toggleId}
       onmouseleave={() => setPanelActive(false)}
@@ -65,7 +64,6 @@ export default () => {
         variant="plain"
         scale-animation
         aria-label="Light/Dark Mode"
-        role="menuitem"
         class="relative rounded-lg h-11 w-11 active:scale-90"
         onclick={toggleScheme}
         onmouseenter={() => setPanelActive(true)}
