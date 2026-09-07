@@ -15,36 +15,41 @@ export const createFloatPanel = (
   Accessor<boolean>,
   Setter<boolean>,
 ] => {
-  const id = crypto.randomUUID()
+  let ref!: HTMLDivElement
 
   const [active, setActive] = createSignal(false)
-
-  onMount(() => {
-    document.addEventListener('click', (evt) => {
-      const panelDom = document.getElementById(id)
-      if (panelDom === null) return
-
-      const targetDom = evt.target
-      if (!(targetDom instanceof Node)) return
-
-      for (const friend of [id, ...friends]) {
-        const friendDom = document.getElementById(friend)
-        if (friendDom === null) continue
-
-        if (friendDom === targetDom || friendDom.contains(targetDom)) return
-      }
-
-      setActive(false)
-    })
-  })
 
   return [
     (props) => {
       const [local, others] = splitProps(props, ['class', 'children'])
 
+      onMount(() => {
+        document.addEventListener('click', (evt) => {
+          if (!active()) return
+
+          const targetDom = evt.target
+          if (!(targetDom instanceof Node)) return
+
+          for (const friend of friends) {
+            const friendDom = document.getElementById(friend)
+            if (friendDom === null) continue
+
+            if (
+              friendDom === targetDom ||
+              friendDom.contains(targetDom) ||
+              targetDom === ref ||
+              ref.contains(targetDom)
+            )
+              return
+          }
+
+          setActive(false)
+        })
+      })
+
       return (
         <div
-          id={id}
+          ref={ref}
           class={clsx(
             !active() && '-translate-y-1 opacity-0 pointer-events-none',
             local.class,

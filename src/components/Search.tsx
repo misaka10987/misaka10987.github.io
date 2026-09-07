@@ -54,7 +54,7 @@ export default () => {
       return
     }
 
-    if (!initialized) {
+    if (!initialized()) {
       return
     }
 
@@ -130,7 +130,7 @@ export default () => {
 
       // Fallback in case events are not caught or pagefind is already loaded by the time this script runs
       setTimeout(() => {
-        if (!initialized) {
+        if (!initialized()) {
           console.log('Fallback: Initializing search after timeout.')
           initializeSearch()
         }
