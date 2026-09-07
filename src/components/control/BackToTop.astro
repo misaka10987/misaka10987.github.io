@@ -4,11 +4,17 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <!-- There can't be a filter on parent element, or it will break `fixed` -->
-<div class="back-to-top-wrapper hidden lg:block">
+<div
+  class="hidden lg:block w-[3.75rem] h-[3.75rem] absolute right-0 top-0 pointer-events-none"
+>
   <div
     id="back-to-top-btn"
-    class="back-to-top-btn hide flex items-center rounded-2xl overflow-hidden transition"
-    onclick="backToTop()"
+    class="hide flex items-center rounded-2xl overflow-hidden transition
+    fixed bottom-[10rem] opacity-100 cursor-pointer translate-x-20 pointer-events-auto
+    [&_i]:text-[1.75rem] [&.hide]:translate-x-20 [&.hide]:scale-90 [&.hide]:opacity-0 [&.hide]:pointer-events-none
+    [&:active]:translate-x-20 [&:active]:scale-90
+    [color:var(--primary)] [font-size:2.25rem] [font-weight:bold] border-none"
+    onclick="window.scroll({ top: 0, behavior: 'smooth' })"
   >
     <Button
       variant="card"
@@ -19,40 +25,3 @@ import { Icon } from 'astro-icon/components'
     </Button>
   </div>
 </div>
-
-<style lang="stylus">
-.back-to-top-wrapper
-    width: 3.75rem
-    height: 3.75rem
-    position: absolute
-    right: 0
-    top: 0
-    pointer-events: none
-
-.back-to-top-btn
-    color: var(--primary)
-    font-size: 2.25rem
-    font-weight: bold
-    border: none
-    position: fixed
-    bottom: 10rem
-    opacity: 1
-    cursor: pointer
-    transform: translateX(5rem)
-    pointer-events: auto
-    i
-        font-size: 1.75rem
-    &.hide
-        transform: translateX(5rem) scale(0.9)
-        opacity: 0
-        pointer-events: none
-    &:active
-      transform: translateX(5rem) scale(0.9)
-
-</style>
-
-<script is:raw is:inline>
-  function backToTop() {
-    window.scroll({ top: 0, behavior: 'smooth' })
-  }
-</script>
