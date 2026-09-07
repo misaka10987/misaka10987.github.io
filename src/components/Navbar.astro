@@ -52,7 +52,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
         <div class="flex">
             <Search client:load></Search>
             {!siteConfig.themeColor.fixed &&  <DisplaySettings client:load></DisplaySettings>}
-            <LightDarkSwitch client:only="solid-js"></LightDarkSwitch>
+            <LightDarkSwitch client:load></LightDarkSwitch>
             <NavMenu links={links} client:only="solid-js"></NavMenu>
         </div>
     </Card>

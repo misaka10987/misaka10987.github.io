@@ -7,7 +7,7 @@ import {
   setTheme,
 } from '@utils/setting-utils.ts'
 import type { LIGHT_DARK_MODE } from '@/types/config.ts'
-import { createSignal, onMount } from 'solid-js'
+import { createSignal, createUniqueId, onMount } from 'solid-js'
 import { Icon } from '@iconify-icon/solid'
 import clsx from 'clsx'
 import { createFloatPanel } from './float-panel'
@@ -17,7 +17,7 @@ import Button from './Button'
 const seq = [LIGHT_MODE, DARK_MODE, AUTO_MODE] as LIGHT_DARK_MODE[]
 
 export default () => {
-  const toggleId = crypto.randomUUID()
+  const toggleId = createUniqueId()
 
   const [mode, setMode] = createSignal<LIGHT_DARK_MODE>(AUTO_MODE)
 
