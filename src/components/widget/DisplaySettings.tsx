@@ -3,24 +3,31 @@ import { i18n } from '@i18n/translation'
 import { Icon } from '@iconify-icon/solid'
 import { getDefaultHue, getHue, setHue } from '@utils/setting-utils'
 import clsx from 'clsx'
-import { createEffect, createSignal, type JSX } from 'solid-js'
+import { createEffect, createSignal, createUniqueId, onMount } from 'solid-js'
 import './display-setting.css'
 import { createFloatPanel } from '@components/float-panel'
 import Button from '@components/Button'
+import { siteConfig } from '@/config'
 
 export default () => {
-  const toggleId = crypto.randomUUID()
+  const toggleId = createUniqueId()
 
   const [Panel, panelActive, setPanelActive] = createFloatPanel([toggleId])
 
-  let [currHue, setCurrHue] = createSignal(getHue())
-  const defaultHue = getDefaultHue()
+  const defaultHue = siteConfig.themeColor.hue
 
-  function resetHue() {
+  const [currHue, setCurrHue] = createSignal(defaultHue)
+
+  onMount(() => {
+    setCurrHue(getHue())
+  })
+
+  const resetHue = () => {
     setCurrHue(getDefaultHue())
   }
 
   createEffect(() => {
+    // stupid tautology to add reactive dependency
     if (currHue() !== 0 || currHue() === 0) {
       setHue(currHue())
     }
