@@ -3,16 +3,16 @@ import { type NavBarLink } from '../../types/config'
 import { url } from '../../utils/url-utils'
 import { Icon } from '@iconify-icon/solid'
 import Button from '@components/Button'
+import { createUniqueId } from 'solid-js'
 
 interface Props {
   links: NavBarLink[]
 }
 
 export default ({ links }: Props) => {
-  const [Panel, panelActive, setPanelActive] = createFloatPanel([
-    'nav-menu-panel',
-    'nav-menu-switch',
-  ])
+  const toggleId = createUniqueId()
+
+  const [Panel, panelActive, setPanelActive] = createFloatPanel([toggleId])
 
   return (
     <>
@@ -22,13 +22,10 @@ export default ({ links }: Props) => {
         aria-label="Menu"
         name="Nav Menu"
         class="rounded-lg w-11 h-11 active:scale-90 md:!hidden"
-        id="nav-menu-switch"
+        id={toggleId}
         onclick={() => setPanelActive(!panelActive())}
       >
-        <Icon
-          icon="material-symbols:menu-rounded"
-          class="text-[1.25rem]"
-        ></Icon>
+        <Icon icon="material-symbols:menu-rounded" class="text-[1.25rem]" />
       </Button>
       <Panel class="top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] shadow-xl dark:shadow-none transition-all fixed right-4 px-2 py-2">
         {links.map((link) => (
@@ -46,13 +43,13 @@ export default ({ links }: Props) => {
               <Icon
                 icon="material-symbols:chevron-right-rounded"
                 class="transition text-[1.25rem] text-[var(--primary)]"
-              ></Icon>
+              />
             )}
             {link.external && (
               <Icon
                 icon="fa6-solid:arrow-up-right-from-square"
                 class="transition text-[0.75rem] text-black/25 dark:text-white/25 -translate-x-1"
-              ></Icon>
+              />
             )}
           </a>
         ))}
