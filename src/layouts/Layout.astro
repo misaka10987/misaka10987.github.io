@@ -462,22 +462,10 @@ function disableAnimation() {
     document.addEventListener('swup:enable', setup)
   }
 
-  let backToTopBtn = document.getElementById('back-to-top-btn')
   let toc = document.getElementById('toc-wrapper')
 
   function scrollFunction() {
     let bannerHeight = window.innerHeight * (BANNER_HEIGHT / 100)
-
-    if (backToTopBtn) {
-      if (
-        document.body.scrollTop > bannerHeight ||
-        document.documentElement.scrollTop > bannerHeight
-      ) {
-        backToTopBtn.classList.remove('hide')
-      } else {
-        backToTopBtn.classList.add('hide')
-      }
-    }
 
     if (bannerEnabled && toc) {
       if (

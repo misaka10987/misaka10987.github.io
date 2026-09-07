@@ -1,5 +1,4 @@
 ---
-import BackToTop from '@components/control/BackToTop.astro'
 import Footer from '@components/Footer.astro'
 import Navbar from '@components/Navbar.astro'
 import SideBar from '@components/widget/SideBar.astro'
@@ -14,6 +13,7 @@ import {
 import Layout from './Layout.astro'
 import Banner from '@components/Banner.astro'
 import NavbarWrapper from './NavbarWrapper'
+import BackToTop from '@components/control/BackToTop'
 
 interface Props {
   title?: string
@@ -123,7 +123,7 @@ const mainPanelTop = siteConfig.banner.enable
         <Footer class="col-span-2 onload-animation block lg:hidden" />
       </div>
 
-      <BackToTop />
+      <BackToTop client:visible />
     </div>
   </div>
 
