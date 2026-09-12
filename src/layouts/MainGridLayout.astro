@@ -3,7 +3,6 @@ import Footer from '@components/Footer.astro'
 import Navbar from '@components/Navbar.astro'
 import SideBar from '@components/widget/SideBar.astro'
 import type { MarkdownHeading } from 'astro'
-import { Icon } from 'astro-icon/components'
 import TOC from '../components/widget/TOC.astro'
 import { siteConfig } from '../config'
 import {
@@ -33,9 +32,6 @@ const {
   setOGTypeArticle,
   headings = [],
 } = Astro.props
-const hasBannerCredit =
-  siteConfig.banner.enable && siteConfig.banner.credit.enable
-const hasBannerLink = !!siteConfig.banner.credit.url
 
 const mainPanelTop = siteConfig.banner.enable
   ? `calc(${BANNER_HEIGHT}vh - ${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem)`
