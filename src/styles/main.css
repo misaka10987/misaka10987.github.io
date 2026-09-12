@@ -57,7 +57,3 @@
 ::selection {
   background-color: var(--selection-bg);
 }
-
-.collapsed {
-  height: var(--collapsedHeight);
-}
