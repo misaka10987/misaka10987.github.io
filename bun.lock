@@ -67,6 +67,9 @@
       },
     },
   },
+  "patchedDependencies": {
+    "astro@7.1.1": "patches/astro@7.1.1.patch",
+  },
   "overrides": {
     "katex": "0.18.5",
   },
