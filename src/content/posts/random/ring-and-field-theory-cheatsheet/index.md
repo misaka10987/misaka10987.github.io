@@ -158,6 +158,8 @@ $$
 
 > **定义** 整环 $D$ 中，如果 $\forall a, b \in D$ 都存在 $d \in D$ 满足最大公因数公理，则 $D$ 称为 **最大公因数整环** 。
 
+> UFD 是 GCD 整环。
+
 需要注意，我们并没有指定 $\gcd(a, b)$ 的 ***唯一性*** 。但我们由定义可以得出任意两个最大公因数都互相整除，所以在相伴意义下唯一。
 
 可以证明 $\operatorname{lcm}(a, b) := \frac{ab}{\gcd(a, b)}$ 是一个满足要求的最小公倍数。
@@ -180,8 +182,34 @@ $$
 
 同时注意一下 $\langle a \rangle \cap \langle b \rangle$ 本身就始终是理想，而 $\langle a \rangle \cup \langle b \rangle$ 则不一定，需要 $\langle a, b \rangle = \langle \langle a \rangle \cup \langle b \rangle \rangle$ 才行。
 
+最大公因数的存在允许了推广版本的 Euclid 引理 ( $n \mid ab \land \gcd(n, a) = 1 \implies n \mid b$ ). 由此可以证明 GCD 整环中的不可约元就是素元。
+
+#### 有限 + 唯一
+
+Noetherian 条件可以保证不可约分解存在且有限，GCD 整环可以保证不可约元是素元，进而保证不可约分解是唯一的（在相伴意义下）。
+
+> Noetherian 的 GCD 整环是 UFD.
+
 ## 主理想整环 (PID)
 
-$\Z$ 上，任意两个元素 $a$ 和 $b$ 的线性组合 $\left\{ ax+by \mid x, y \in \Z \right\}$ [恰好就是最大公因数 $\gcd(a, b)$ 的倍数](https://zh.wikipedia.org/wiki/%E8%B2%9D%E7%A5%96%E7%AD%89%E5%BC%8F) 。对应到环论的语言，就是说理想 $\langle a, b \rangle = \langle \gcd(a, b) \rangle$ . 不是所有的环中的所有理想都能用一个元素表示（比如 $\langle 2, x \rangle \subseteq \Z[x]$ ）。像 $\Z$ 这样能够「取最大公因数」把每个理想都用一个元素生成的环叫做 **主理想整环 (PID)**（ $\langle a \rangle$ 这样由一个元素生成的理想叫做 **主理想** ）。
+### Bézout 整环
 
-TODO
+$\Z$ 上，任意两个元素 $a$ 和 $b$ 的线性组合 $\left\{ ax+by \mid x, y \in \Z \right\}$ [恰好就是最大公因数 $\gcd(a, b)$ 的倍数](https://zh.wikipedia.org/wiki/%E8%B2%9D%E7%A5%96%E7%AD%89%E5%BC%8F) 。书接上回，就是说虽然 $\gcd(a, b) \mid n \ne a \mid n \lor b \mid n$ , 但理想 $\langle a, b \rangle = \langle \gcd(a, b) \rangle$ . 可并不是所有环中的理想都能用一个元素表示（比如 $\langle 2, x \rangle \subseteq \Z[x]$ ）, 更多的情况下 $\langle a, b \rangle \subset \langle \gcd(a, b) \rangle$ .
+
+我们发现这里取等的条件是 $\gcd(a, b) \in \langle a, b \rangle$ , 考虑 $\langle a, b \rangle$ 定义为 $a$ 和 $b$ 的线性组合，就是 Bézout 等式 $\gcd(a, b) = ax+by$ .
+
+> **Bézout 整环** $D$ 等价定义为以下两者之一：
+> 
+> - $\exist a, b \in D$ s.t. $\gcd(a, b) = ax + by$ $\forall a, b \in D$ ;
+> 
+> - $\exist d \in D$ s.t. $\langle a, b \rangle = \langle d \rangle$ $\forall a, b, \in D$ .
+
+Bézout 整环给我们带来一个很好的工具：我们可以把任意两个元素生成的理想压缩为一个主理想。利用数学归纳法，我们发现，所有有限生成的理想都可以被压缩为一个主理想！
+
+> **定义** 所有理想都是主理想的整环称为 **主理想整环 (PID)** .
+
+> PID 等价于 Noetherian Bézout 整环。
+
+### 示意图
+
+![Sketch Map](./gcd-to-pid.svg)
