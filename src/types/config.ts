@@ -42,6 +42,8 @@ export type SiteConfig = {
   favicon: Favicon[]
 
   navBar: NavBarConfig
+
+  profile : ProfileConfig
 }
 
 export type Favicon = {

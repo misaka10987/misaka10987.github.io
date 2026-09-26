@@ -1,12 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components'
-import { profileConfig } from '../../config'
+import { siteConfig } from '../../config'
 import { url } from '../../utils/url-utils'
 import ImageWrapper from '../misc/ImageWrapper.astro'
 import Card from '@components/Card'
 import Button from '@components/Button'
 
-const config = profileConfig
+const config = siteConfig.profile
 ---
 
 <Card class="p-3">
@@ -63,7 +63,7 @@ const config = profileConfig
           ))
       }
       {
-        config.links.length == 1 && (
+        config.links.length === 1 && (
           <Button
             as="a"
             variant="regular"

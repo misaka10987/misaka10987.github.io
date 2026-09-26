@@ -4,7 +4,7 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 
 import ConfigCarrier from '@components/ConfigCarrier.astro'
-import { profileConfig, siteConfig } from '@/config'
+import { siteConfig } from '@/config'
 import {
   AUTO_MODE,
   BANNER_HEIGHT,
@@ -20,6 +20,8 @@ import type { Favicon } from '../types/config'
 import { pathsEqual, url } from '../utils/url-utils'
 import 'katex/dist/katex.css'
 import 'katex/dist/katex-swap.css'
+
+const profileConfig = siteConfig.profile
 
 interface Props {
   title?: string

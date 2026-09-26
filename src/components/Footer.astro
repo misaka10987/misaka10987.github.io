@@ -1,5 +1,5 @@
 ---
-import { profileConfig } from '../config'
+import { siteConfig } from '../config'
 import { url } from '../utils/url-utils'
 import Link from './Link'
 
@@ -30,7 +30,7 @@ const { class: className } = Astro.props
   >
     <div class="transition text-50 text-sm text-center">
       &copy; <span id="copyright-year">{currentYear}</span>
-      {' '}{profileConfig.name}. All Rights Reserved. /{' '}
+      {' '}{siteConfig.profile.name}. All Rights Reserved. /{' '}
       <Link
         class="transition text-[var(--primary)] font-medium"
         href={url('rss.xml')}>RSS</Link

@@ -1,10 +1,12 @@
 import type {
   ExpressiveCodeConfig,
   LicenseConfig,
-  ProfileConfig,
   SiteConfig,
 } from './types/config'
 import { LinkPreset } from './types/config'
+
+const getAvatar = (size: number) =>
+  `https://misaka10987-avatar.pages.dev/dist/avatar-square-${size}.webp`
 
 export const siteConfig: SiteConfig = {
   title: 'Daydream',
@@ -52,74 +54,71 @@ export const siteConfig: SiteConfig = {
       },
     ],
   },
-}
 
-const getAvatar = (size: number) =>
-  `https://misaka10987-avatar.pages.dev/dist/avatar-square-${size}.webp`
-
-export const profileConfig: ProfileConfig = {
-  avatar: 'https://misaka10987-avatar.pages.dev/dist/avatar-square-1000.webp', // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-  avatarSet: {
-    [getAvatar(250)]: 250,
-    [getAvatar(500)]: 500,
-    [getAvatar(1000)]: 1000,
+  profile: {
+    avatar: 'https://misaka10987-avatar.pages.dev/dist/avatar-square-1000.webp', // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+    avatarSet: {
+      [getAvatar(250)]: 250,
+      [getAvatar(500)]: 500,
+      [getAvatar(1000)]: 1000,
+    },
+    name: 'misaka10987',
+    bio: 'Ex falso',
+    links: [
+      // {
+      //   name: 'Twitter',
+      //   icon: 'fa6-brands:twitter', // Visit https://icones.js.org/ for icon codes
+      //   // You will need to install the corresponding icon set if it's not already included
+      //   // `pnpm add @iconify-json/<icon-set-name>`
+      //   url: 'https://twitter.com',
+      // },
+      {
+        name: 'EMail',
+        icon: 'material-symbols:mail-outline',
+        url: 'mailto:misaka10987@outlook.com',
+      },
+      {
+        name: 'QQ',
+        icon: 'fa6-brands:qq',
+        url: 'http://2208129531.qzone.qq.com',
+      },
+      {
+        name: '微信',
+        icon: 'fa6-brands:weixin',
+        url: '/wechat.jpg',
+      },
+      {
+        name: 'GitHub',
+        icon: 'fa6-brands:github',
+        url: 'https://github.com/misaka10987',
+      },
+      {
+        name: 'Reddit',
+        icon: 'fa6-brands:reddit',
+        url: 'https://www.reddit.com/user/misaka10987/',
+      },
+      {
+        name: '知乎',
+        icon: 'fa6-brands:zhihu',
+        url: 'https://www.zhihu.com/people/misaka10987',
+      },
+      {
+        name: 'lichess.org',
+        icon: 'material-symbols:chess-knight-outline',
+        url: 'https://lichess.org/@/misaka10987',
+      },
+      {
+        name: 'Steam',
+        icon: 'fa6-brands:steam',
+        url: 'https://steamcommunity.com/id/misaka10987/',
+      },
+      {
+        name: 'Diplicity',
+        icon: 'boxicons:globe-europe',
+        url: 'https://www.diplicity.com/player/2985',
+      },
+    ],
   },
-  name: 'misaka10987',
-  bio: 'Ex falso',
-  links: [
-    // {
-    //   name: 'Twitter',
-    //   icon: 'fa6-brands:twitter', // Visit https://icones.js.org/ for icon codes
-    //   // You will need to install the corresponding icon set if it's not already included
-    //   // `pnpm add @iconify-json/<icon-set-name>`
-    //   url: 'https://twitter.com',
-    // },
-    {
-      name: 'EMail',
-      icon: 'material-symbols:mail-outline',
-      url: 'mailto:misaka10987@outlook.com',
-    },
-    {
-      name: 'QQ',
-      icon: 'fa6-brands:qq',
-      url: 'http://2208129531.qzone.qq.com',
-    },
-    {
-      name: '微信',
-      icon: 'fa6-brands:weixin',
-      url: '/wechat.jpg',
-    },
-    {
-      name: 'GitHub',
-      icon: 'fa6-brands:github',
-      url: 'https://github.com/misaka10987',
-    },
-    {
-      name: 'Reddit',
-      icon: 'fa6-brands:reddit',
-      url: 'https://www.reddit.com/user/misaka10987/',
-    },
-    {
-      name: '知乎',
-      icon: 'fa6-brands:zhihu',
-      url: 'https://www.zhihu.com/people/misaka10987',
-    },
-    {
-      name: 'lichess.org',
-      icon: 'material-symbols:chess-knight-outline',
-      url: 'https://lichess.org/@/misaka10987',
-    },
-    {
-      name: 'Steam',
-      icon: 'fa6-brands:steam',
-      url: 'https://steamcommunity.com/id/misaka10987/',
-    },
-    {
-      name: 'Diplicity',
-      icon: 'boxicons:globe-europe',
-      url: 'https://www.diplicity.com/player/2985',
-    },
-  ],
 }
 
 export const licenseConfig: LicenseConfig = {
