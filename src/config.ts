@@ -1,10 +1,10 @@
-import type { SiteConfig } from './types/config'
+import { defineConfig } from './types/config'
 import { LinkPreset } from './types/config'
 
 const getAvatar = (size: number) =>
   `https://misaka10987-avatar.pages.dev/dist/avatar-square-${size}.webp`
 
-export const siteConfig: SiteConfig = {
+export const siteConfig = defineConfig({
   title: 'Daydream',
   subtitle: 'misaka10987',
   lang: 'en', // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
@@ -127,4 +127,4 @@ export const siteConfig: SiteConfig = {
     // Please select a dark theme, as this blog theme currently only supports dark background color
     theme: 'github-dark',
   },
-}
+})

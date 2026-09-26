@@ -12,7 +12,11 @@ type SiteLang =
   | 'tr'
   | 'id'
 
-export type SiteConfig = {
+export const defineConfig = (config: SiteConfig) => {
+  return config
+}
+
+type SiteConfig = {
   title: string
   subtitle: string
 
@@ -104,8 +108,4 @@ export type BlogPostData = {
   prevSlug?: string
   nextTitle?: string
   nextSlug?: string
-}
-
-export type ExpressiveCodeConfig = {
-  theme: string
 }
