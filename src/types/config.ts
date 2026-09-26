@@ -1,25 +1,28 @@
 import type { AUTO_MODE, DARK_MODE, LIGHT_MODE } from '@constants/constants'
 
+type SiteLang =
+  | 'en'
+  | 'zh_CN'
+  | 'zh_TW'
+  | 'ja'
+  | 'ko'
+  | 'es'
+  | 'th'
+  | 'vi'
+  | 'tr'
+  | 'id'
+
 export type SiteConfig = {
   title: string
   subtitle: string
 
-  lang:
-    | 'en'
-    | 'zh_CN'
-    | 'zh_TW'
-    | 'ja'
-    | 'ko'
-    | 'es'
-    | 'th'
-    | 'vi'
-    | 'tr'
-    | 'id'
+  lang: SiteLang
 
   themeColor: {
     hue: number
     fixed: boolean
   }
+
   banner: {
     enable: boolean
     src: string
@@ -30,12 +33,15 @@ export type SiteConfig = {
       url?: string
     }
   }
+
   toc: {
     enable: boolean
     depth: 1 | 2 | 3
   }
 
   favicon: Favicon[]
+
+  navBar: NavBarConfig
 }
 
 export type Favicon = {

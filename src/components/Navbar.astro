@@ -1,46 +1,60 @@
 ---
-import { Icon } from "astro-icon/components";
-import { navBarConfig, siteConfig } from "../config";
-import { LinkPresets } from "../constants/link-presets";
-import { LinkPreset, type NavBarLink } from "../types/config";
-import { url } from "../utils/url-utils";
-import LightDarkSwitch from "./LightDarkSwitch.tsx";
-import Search from "./Search.tsx";
-import DisplaySettings from "./widget/DisplaySettings.tsx";
+import { Icon } from 'astro-icon/components'
+import { siteConfig } from '../config'
+import { LinkPresets } from '../constants/link-presets'
+import type { LinkPreset, NavBarLink } from '../types/config'
+import { url } from '../utils/url-utils'
+import LightDarkSwitch from './LightDarkSwitch.tsx'
+import Search from './Search.tsx'
+import DisplaySettings from './widget/DisplaySettings.tsx'
 import NavMenu from './widget/NavMenu'
-import Card from "./Card";
-import clsx from "clsx";
-import Button from "./Button";
+import Card from './Card'
+import clsx from 'clsx'
+import Button from './Button'
 
-const className = Astro.props.class;
+const className = Astro.props.class
 
-let links: NavBarLink[] = navBarConfig.links.map(
-	(item: NavBarLink | LinkPreset): NavBarLink => {
-		if (typeof item === "number") {
-			return LinkPresets[item];
-		}
-		return item;
-	},
-);
----
-<style>
-    nav {
-        animation-delay: 0ms;
+let links: NavBarLink[] = siteConfig.navBar.links.map(
+  (item: NavBarLink | LinkPreset): NavBarLink => {
+    if (typeof item === 'number') {
+      return LinkPresets[item]
     }
+    return item
+  },
+)
+---
+
+<style>
+nav {
+  animation-delay: 0ms;
+}
 </style>
 
 <nav class="z-50 onload-animation">
-    <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div> <!-- used for onload animation -->
-    <Card class={clsx(className, "!overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4")}>
-        <Button as="a" variant="plain" scale-animation href={url('/')} class="rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
-            <div class="flex flex-row text-[var(--primary)] items-center text-md">
-                <Icon name="material-symbols:home-outline-rounded" class="text-[1.75rem] mb-1 mr-2" />
-                {siteConfig.title}
-            </div>
-        </Button>
+  <div
+    class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"
+  ></div> <!-- used for onload animation -->
+  <Card
+    class={clsx(className, "!overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4")}
+  >
+    <Button
+      as="a"
+      variant="plain"
+      scale-animation
+      href={url('/')}
+      class="rounded-lg h-[3.25rem] px-5 font-bold active:scale-95"
+    >
+      <div class="flex flex-row text-[var(--primary)] items-center text-md">
+        <Icon
+          name="material-symbols:home-outline-rounded"
+          class="text-[1.75rem] mb-1 mr-2"
+        />
+        {siteConfig.title}
+      </div>
+    </Button>
 
-        <div class="hidden md:flex">
-            {links.map((l) =>
+    <div class="hidden md:flex">
+      {links.map((l) =>
                 <Button as="a" variant="plain" scale-animation aria-label={l.name} href={l.external ? l.url : url(l.url)} target={l.external ? "_blank" : undefined} class="rounded-lg h-11 font-bold px-5 active:scale-95">
                     <div class="flex items-center">
                         {l.name}
@@ -48,14 +62,14 @@ let links: NavBarLink[] = navBarConfig.links.map(
                     </div>
                 </Button>
             )}
-        </div>
-        <div class="flex">
-            <Search client:load></Search>
-            {!siteConfig.themeColor.fixed &&  <DisplaySettings client:load></DisplaySettings>}
-            <LightDarkSwitch client:load></LightDarkSwitch>
-            <NavMenu links={links} client:load></NavMenu>
-        </div>
-    </Card>
+    </div>
+    <div class="flex">
+      <Search client:load></Search>
+      {!siteConfig.themeColor.fixed &&  <DisplaySettings client:load></DisplaySettings>}
+      <LightDarkSwitch client:load></LightDarkSwitch>
+      <NavMenu links={links} client:load></NavMenu>
+    </div>
+  </Card>
 </nav>
 
 {import.meta.env.PROD && <script is:inline define:vars={{scriptUrl: url('/pagefind/pagefind.js')}}>

@@ -1,7 +1,6 @@
 import type {
   ExpressiveCodeConfig,
   LicenseConfig,
-  NavBarConfig,
   ProfileConfig,
   SiteConfig,
 } from './types/config'
@@ -40,19 +39,19 @@ export const siteConfig: SiteConfig = {
     //   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
     // }
   ],
-}
 
-export const navBarConfig: NavBarConfig = {
-  links: [
-    LinkPreset.Home,
-    LinkPreset.Archive,
-    LinkPreset.About,
-    {
-      name: 'GitHub',
-      url: 'https://github.com/misaka10987/misaka10987.github.io', // Internal links should not include the base path, as it is automatically added
-      external: true, // Show an external link icon and will open in a new tab
-    },
-  ],
+  navBar: {
+    links: [
+      LinkPreset.Home,
+      LinkPreset.Archive,
+      LinkPreset.About,
+      {
+        name: 'GitHub',
+        url: 'https://github.com/misaka10987/misaka10987.github.io', // Internal links should not include the base path, as it is automatically added
+        external: true, // Show an external link icon and will open in a new tab
+      },
+    ],
+  },
 }
 
 const getAvatar = (size: number) =>
