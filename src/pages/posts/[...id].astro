@@ -8,10 +8,9 @@ import MainGridLayout from '@layouts/MainGridLayout.astro'
 import { getSortedPosts } from '@utils/content-utils'
 import { getPostUrl } from '@/utils/url-utils'
 import { Icon } from 'astro-icon/components'
-import { licenseConfig } from '@/config'
+import { siteConfig } from '@/config'
 import ImageWrapper from '../../components/misc/ImageWrapper.astro'
 import PostMetadata from '../../components/PostMeta.astro'
-import { siteConfig } from '../../config'
 import { formatDateToYYYYMMDD } from '../../utils/date-utils'
 import Card from '@components/Card'
 import clsx from 'clsx'
@@ -182,7 +181,7 @@ const jsonLd = {
       </Markdown>
 
       {
-        licenseConfig.enable && (
+        siteConfig.license.enable && (
           <License
             title={entry.data.title}
             pubDate={entry.data.published}

@@ -41,9 +41,23 @@ export type SiteConfig = {
 
   favicon: Favicon[]
 
-  navBar: NavBarConfig
+  navBar: {
+    links: (NavBarLink | LinkPreset)[]
+  }
 
-  profile : ProfileConfig
+  profile: {
+    avatar?: string
+    avatarSet?: Record<string, number>
+    name: string
+    bio?: string
+    links: {
+      name: string
+      url: string
+      icon: string
+    }[]
+  }
+
+  license : LicenseConfig,
 }
 
 export type Favicon = {
@@ -62,22 +76,6 @@ export type NavBarLink = {
   name: string
   url: string
   external?: boolean
-}
-
-export type NavBarConfig = {
-  links: (NavBarLink | LinkPreset)[]
-}
-
-export type ProfileConfig = {
-  avatar?: string
-  avatarSet?: Record<string, number>
-  name: string
-  bio?: string
-  links: {
-    name: string
-    url: string
-    icon: string
-  }[]
 }
 
 export type LicenseConfig = {

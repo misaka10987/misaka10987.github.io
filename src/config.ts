@@ -1,8 +1,4 @@
-import type {
-  ExpressiveCodeConfig,
-  LicenseConfig,
-  SiteConfig,
-} from './types/config'
+import type { ExpressiveCodeConfig, SiteConfig } from './types/config'
 import { LinkPreset } from './types/config'
 
 const getAvatar = (size: number) =>
@@ -119,12 +115,12 @@ export const siteConfig: SiteConfig = {
       },
     ],
   },
-}
 
-export const licenseConfig: LicenseConfig = {
-  enable: true,
-  name: 'CC BY-NC-ND 4.0',
-  url: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
+  license: {
+    enable: true,
+    name: 'CC BY-NC-ND 4.0',
+    url: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
+  },
 }
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
