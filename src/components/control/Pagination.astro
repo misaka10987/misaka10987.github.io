@@ -1,8 +1,4 @@
 ---
-function clsx(arg0: string, arg1: string | boolean): string | undefined {
-  throw new Error('Function not implemented.')
-}
-
 import type { Page } from 'astro'
 import { Icon } from 'astro-icon/components'
 import { url } from '../../utils/url-utils'
@@ -73,11 +69,10 @@ const getPageUrl = (p: number) => {
   <div
     class="bg-[var(--card-bg)] flex flex-row rounded-lg items-center text-neutral-700 dark:text-neutral-300 font-bold"
   >
-    {
-      pages.map((p) => {
-        if (p == HIDDEN)
+    {pages.map((p) => {
+        if (p === HIDDEN)
           return <Icon name="material-symbols:more-horiz" class="mx-1" />
-        if (p == page.currentPage)
+        if (p === page.currentPage)
           return (
             <div
               class="h-11 w-11 rounded-lg bg-[var(--primary)] flex items-center justify-center
@@ -97,8 +92,7 @@ const getPageUrl = (p: number) => {
             {p}
           </Button>
         )
-      })
-    }
+      })}
   </div>
   <Button
     as="a"

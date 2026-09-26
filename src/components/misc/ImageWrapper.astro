@@ -64,10 +64,8 @@ const srcsetAttr = Object.entries(srcset ?? {})
 <div id={id} class:list={[className, 'overflow-hidden relative']}>
   <div
     class="transition absolute inset-0 dark:bg-black/10 bg-opacity-50 pointer-events-none"
-  >
-  </div>
-  {
-    isLocal && img && (
+  ></div>
+  {isLocal && img && (
       <Image
         src={img}
         alt={alt || ''}
@@ -75,10 +73,8 @@ const srcsetAttr = Object.entries(srcset ?? {})
         style={imageStyle}
         sizes="auto"
       />
-    )
-  }
-  {
-    !isLocal && (
+    )}
+  {!isLocal && (
       <img
         src={isPublic ? url(src) : src}
         alt={alt || ''}
@@ -88,6 +84,5 @@ const srcsetAttr = Object.entries(srcset ?? {})
         srcset={srcset ? srcsetAttr : undefined}
         sizes={srcset ? 'auto' : undefined}
       />
-    )
-  }
+    )}
 </div>

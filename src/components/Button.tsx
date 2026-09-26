@@ -55,7 +55,7 @@ export const getButtonClass = (variant: Variant): string => {
     case 'plain':
       return clsx(
         'transition relative flex items-center justify-center bg-none text-black/75 hover:text-[var(--primary)] dark:text-white/75 dark:hover:text-[var(--primary)]',
-        variant['scale-animation'] ?? false
+        (variant['scale-animation'] ?? false)
           ? EXPAND_ANIMATION
           : 'hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)]',
       )

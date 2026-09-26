@@ -29,8 +29,7 @@ const style = Astro.props.style
   class={className}
   style={style}
 >
-  {
-    categories.map((c) => (
+  {categories.map((c) => (
       <ButtonLink
         url={c.url}
         badge={String(c.count)}
@@ -38,6 +37,5 @@ const style = Astro.props.style
       >
         {c.name.trim()}
       </ButtonLink>
-    ))
-  }
+    ))}
 </WidgetLayout>

@@ -27,7 +27,7 @@ export default () => {
   }
 
   const toggleScheme = () => {
-    const idx = seq.findIndex((x) => x == mode())
+    const idx = seq.indexOf(mode())
 
     switchScheme(seq[(idx + 1) % seq.length])
   }

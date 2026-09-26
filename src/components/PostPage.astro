@@ -11,8 +11,7 @@ const interval = 50
 <div
   class="transition flex flex-col rounded-[var(--radius-large)] bg-[var(--card-bg)] py-1 md:py-0 md:bg-transparent md:gap-4 mb-4"
 >
-  {
-    page.data.map((entry: any) => (
+  {page.data.map((entry: any) => (
       <PostCard
         entry={entry}
         title={entry.data.title}
@@ -27,6 +26,5 @@ const interval = 50
         class:list="onload-animation"
         style={`animation-delay: calc(var(--content-delay) + ${delay++ * interval}ms);`}
       />
-    ))
-  }
+    ))}
 </div>

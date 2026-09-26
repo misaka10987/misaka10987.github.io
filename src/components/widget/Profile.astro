@@ -40,14 +40,12 @@ const config = siteConfig.profile
     </div>
     <div
       class="h-1 w-5 bg-[var(--primary)] mx-auto rounded-full mb-2 transition"
-    >
-    </div>
+    ></div>
     <div class="text-center text-neutral-400 mb-2.5 transition">
       {config.bio}
     </div>
     <div class="flex flex-wrap gap-2 justify-center mb-1">
-      {
-        config.links.length > 1 &&
+      {config.links.length > 1 &&
           config.links.map((item) => (
             <Button
               as="a"
@@ -60,10 +58,8 @@ const config = siteConfig.profile
             >
               <Icon name={item.icon} class="text-[1.5rem]" />
             </Button>
-          ))
-      }
-      {
-        config.links.length === 1 && (
+          ))}
+      {config.links.length === 1 && (
           <Button
             as="a"
             variant="regular"
@@ -76,8 +72,7 @@ const config = siteConfig.profile
             <Icon name={config.links[0].icon} class="text-[1.5rem]" />
             {config.links[0].name}
           </Button>
-        )
-      }
+        )}
     </div>
   </div>
 </Card>

@@ -1,5 +1,5 @@
 import { createFloatPanel } from '@components/float-panel'
-import { type NavBarLink } from '../../types/config'
+import type { NavBarLink } from '../../types/config'
 import { url } from '../../utils/url-utils'
 import { Icon } from '@iconify-icon/solid'
 import Button from '@components/Button'

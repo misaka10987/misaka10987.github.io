@@ -30,15 +30,13 @@ const style = Astro.props.style
   style={style}
 >
   <div class="flex gap-2 flex-wrap">
-    {
-      tags.map((t) => (
+    {tags.map((t) => (
         <ButtonTag
           href={getTagUrl(t.name)}
           label={`View all posts with the ${t.name.trim()} tag`}
         >
           {t.name.trim()}
         </ButtonTag>
-      ))
-    }
+      ))}
   </div>
 </WidgetLayout>

@@ -16,7 +16,7 @@ export default (props: Props) => {
       class={clsx(
         'transition rounded-md p-1 -m-1',
         EXPAND_ANIMATION,
-        size == 'lg' && 'p-1.5 -m-1.5',
+        size === 'lg' && 'p-1.5 -m-1.5',
         local.class,
       )}
       {...others}

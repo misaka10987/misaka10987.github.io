@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
-import {  siteConfig } from '../../config'
+import { siteConfig } from '../../config'
 import I18nKey from '../../i18n/i18nKey'
 import { i18n } from '../../i18n/translation'
 import { formatDateToYYYYMMDD } from '../../utils/date-utils'
@@ -52,7 +52,8 @@ const postUrl = decodeURIComponent(Astro.url.toString())
       <Link
         href={licenseConf.url}
         target="_blank"
-        class="text-[var(--primary)] line-clamp-2">{licenseConf.name}</Link
+        class="text-[var(--primary)] line-clamp-2"
+        >{licenseConf.name}</Link
       >
     </div>
   </div>

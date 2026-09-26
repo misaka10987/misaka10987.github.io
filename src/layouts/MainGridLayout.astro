@@ -67,7 +67,7 @@ const mainPanelTop = siteConfig.banner.enable
     mx-auto gap-4 px-0 md:px-4"
       >
         <!-- Banner image credit -->
-        <BannerCredit / >
+        <BannerCredit />
 
         <SideBar
           class="mb-4 row-start-2 row-end-3 col-span-2 lg:row-start-1 lg:row-end-2 lg:col-span-1 lg:max-w-[17.5rem] onload-animation"
@@ -98,8 +98,7 @@ const mainPanelTop = siteConfig.banner.enable
   <div class="absolute w-full z-0 hidden 2xl:block">
     <div class="relative max-w-[var(--page-width)] mx-auto">
       <!-- TOC component -->
-      {
-        siteConfig.toc.enable && (
+      {siteConfig.toc.enable && (
           <div
             id="toc-wrapper"
             class:list={[
@@ -138,8 +137,7 @@ const mainPanelTop = siteConfig.banner.enable
               );
             }
           </style>
-        )
-      }
+        )}
 
       <!-- #toc needs to exist for Swup to work normally -->
       {!siteConfig.toc.enable && <div id="toc" />}

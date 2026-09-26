@@ -4,8 +4,7 @@ import { BANNER_HEIGHT_EXTEND } from '@constants/constants'
 import ImageWrapper from './misc/ImageWrapper.astro'
 ---
 
-{
-  siteConfig.banner.enable && (
+{siteConfig.banner.enable && (
     <div
       id="banner-wrapper"
       class={`absolute z-10 w-full transition duration-700 overflow-hidden`}
@@ -21,5 +20,4 @@ import ImageWrapper from './misc/ImageWrapper.astro'
         position={siteConfig.banner.position}
       />
     </div>
-  )
-}
+  )}

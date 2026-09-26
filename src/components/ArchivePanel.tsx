@@ -37,9 +37,11 @@ export default (props: {
   sortedPosts: Post[]
 }) => {
   const params = new URLSearchParams(window.location.search)
-  const tags = props.tags ?? params.has('tag') ? params.getAll('tag') : []
+  const tags = (props.tags ?? params.has('tag')) ? params.getAll('tag') : []
   const categories =
-    props.categories ?? params.has('category') ? params.getAll('category') : []
+    (props.categories ?? params.has('category'))
+      ? params.getAll('category')
+      : []
   const uncategorized = params.get('uncategorized')
 
   const [groups, setGroups] = createSignal<Group[]>([])
@@ -65,14 +67,17 @@ export default (props: {
       filteredPosts = filteredPosts.filter((post) => !post.data.category)
     }
 
-    const grouped = filteredPosts.reduce((acc, post) => {
-      const year = post.data.published.getFullYear()
-      if (!acc[year]) {
-        acc[year] = []
-      }
-      acc[year].push(post)
-      return acc
-    }, {} as Record<number, Post[]>)
+    const grouped = filteredPosts.reduce(
+      (acc, post) => {
+        const year = post.data.published.getFullYear()
+        if (!acc[year]) {
+          acc[year] = []
+        }
+        acc[year].push(post)
+        return acc
+      },
+      {} as Record<number, Post[]>,
+    )
 
     const groupedPostsArray = Object.keys(grouped).map((yearStr) => ({
       year: Number.parseInt(yearStr),

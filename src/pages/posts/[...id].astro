@@ -67,30 +67,28 @@ const jsonLd = {
     class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4"
   >
     <style>
-      /* Post content */
-      .post-container :nth-child(1) {
-        animation-delay: calc(var(--content-delay) + 0ms);
-      }
-      .post-container :nth-child(2) {
-        animation-delay: calc(var(--content-delay) + 50ms);
-      }
-      .post-container :nth-child(3) {
-        animation-delay: calc(var(--content-delay) + 100ms);
-      }
-      .post-container :nth-child(4) {
-        animation-delay: calc(var(--content-delay) + 175ms);
-      }
-      .post-container :nth-child(5) {
-        animation-delay: calc(var(--content-delay) + 250ms);
-      }
-      .post-container :nth-child(6) {
-        animation-delay: calc(var(--content-delay) + 325ms);
-      }
+    /* Post content */
+    .post-container :nth-child(1) {
+      animation-delay: calc(var(--content-delay) + 0ms);
+    }
+    .post-container :nth-child(2) {
+      animation-delay: calc(var(--content-delay) + 50ms);
+    }
+    .post-container :nth-child(3) {
+      animation-delay: calc(var(--content-delay) + 100ms);
+    }
+    .post-container :nth-child(4) {
+      animation-delay: calc(var(--content-delay) + 175ms);
+    }
+    .post-container :nth-child(5) {
+      animation-delay: calc(var(--content-delay) + 250ms);
+    }
+    .post-container :nth-child(6) {
+      animation-delay: calc(var(--content-delay) + 325ms);
+    }
     </style>
 
-    <Card
-      class="post-container z-10 px-6 md:px-9 pt-6 pb-4 relative w-full"
-    >
+    <Card class="post-container z-10 px-6 md:px-9 pt-6 pb-4 relative w-full">
       <!-- word count and reading time -->
       <div
         class="flex flex-row text-black/30 dark:text-white/30 gap-5 mb-3 transition onload-animation"
@@ -114,14 +112,12 @@ const jsonLd = {
           </div>
           <div class="text-sm">
             {remarkPluginFrontmatter.minutes}
-            {
-              ' ' +
+            {' ' +
                 i18n(
                   remarkPluginFrontmatter.minutes === 1
                     ? I18nKey.minuteCount
                     : I18nKey.minutesCount,
-                )
-            }
+                )}
           </div>
         </div>
       </div>
@@ -151,17 +147,14 @@ const jsonLd = {
           tags={entry.data.tags}
           category={entry.data.category}
         />
-        {
-          !entry.data.image && (
+        {!entry.data.image && (
             <div class="border-[var(--line-divider)] border-dashed border-b-[1px] mb-5" />
-          )
-        }
+          )}
       </div>
 
       <!-- always show cover as long as it has one -->
 
-      {
-        entry.data.image && (
+      {entry.data.image && (
           <ImageWrapper
             id="post-cover"
             src={entry.data.image}
@@ -173,22 +166,19 @@ const jsonLd = {
                cursor: zoom-in;
             }
           </style>
-        )
-      }
+        )}
 
       <Markdown class="mb-6 onload-animation">
         <Content />
       </Markdown>
 
-      {
-        siteConfig.license.enable && (
+      {siteConfig.license.enable && (
           <License
             title={entry.data.title}
             pubDate={entry.data.published}
             class="mb-6 rounded-xl onload-animation"
           />
-        )
-      }
+        )}
     </Card>
   </div>
 
@@ -202,8 +192,7 @@ const jsonLd = {
         { 'pointer-events-none': !entry.data.nextId },
       ]}
     >
-      {
-        entry.data.nextId && (
+      {entry.data.nextId && (
           <div
             class={clsx(
               getButtonClass({ variant: 'card' }),
@@ -218,8 +207,7 @@ const jsonLd = {
               {entry.data.nextTitle}
             </div>
           </div>
-        )
-      }
+        )}
     </a>
 
     <a
@@ -229,8 +217,7 @@ const jsonLd = {
         { 'pointer-events-none': !entry.data.prevId },
       ]}
     >
-      {
-        entry.data.prevId && (
+      {entry.data.prevId && (
           <div
             class={clsx(
               getButtonClass({ variant: 'card' }),
@@ -245,8 +232,7 @@ const jsonLd = {
               class="text-[2rem] text-[var(--primary)]"
             />
           </div>
-        )
-      }
+        )}
     </a>
   </div>
 </MainGridLayout>
