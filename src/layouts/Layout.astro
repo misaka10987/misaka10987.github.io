@@ -226,9 +226,6 @@ const bannerOffset =
   import 'overlayscrollbars/overlayscrollbars.css'
   import {
     OverlayScrollbars,
-    // ScrollbarsHidingPlugin,
-    // SizeObserverPlugin,
-    // ClickScrollPlugin
   } from 'overlayscrollbars'
   import {
     getHue,
@@ -239,9 +236,7 @@ const bannerOffset =
   import { pathsEqual, url } from '../utils/url-utils'
   import {
     BANNER_HEIGHT,
-    BANNER_HEIGHT_HOME,
     BANNER_HEIGHT_EXTEND,
-    MAIN_PANEL_OVERLAPS_BANNER_HEIGHT,
   } from '../constants/constants'
   import config from '@/config'
 
@@ -257,37 +252,6 @@ const bannerOffset =
   // 		console.log("Failed to load fonts:", error);
   // 	}
   // })();
-
-  /* TODO This is a temporary solution for style flicker issue when the transition is activated */
-  /* issue link: https://github.com/withastro/astro/issues/8711, the solution get from here too */
-  /* update: fixed in Astro 3.2.4 */
-  /*
-function disableAnimation() {
-	const css = document.createElement('style')
-	css.appendChild(
-		document.createTextNode(
-			`*{
-              -webkit-transition:none!important;
-              -moz-transition:none!important;
-              -o-transition:none!important;
-              -ms-transition:none!important;
-              transition:none!important
-              }`
-		)
-	)
-	document.head.appendChild(css)
-
-	return () => {
-		// Force restyle
-		;(() => window.getComputedStyle(document.body))()
-
-		// Wait for next tick before removing
-		setTimeout(() => {
-			document.head.removeChild(css)
-		}, 1)
-	}
-}
-*/
 
   const bannerEnabled = !!document.getElementById('banner-wrapper')
 
