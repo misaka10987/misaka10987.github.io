@@ -30,7 +30,7 @@ export default defineConfig({
   image: {
     layout: 'constrained',
   },
-  site: 'https://misaka10987.github.io',
+  site: 'https://misaka10987.pages.dev',
   base: '/',
   trailingSlash: 'always',
   integrations: [
