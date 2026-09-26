@@ -7,35 +7,29 @@ const getAvatar = (size: number) =>
 export const siteConfig = defineConfig({
   title: 'Daydream',
   subtitle: 'misaka10987',
-  lang: 'en', // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
+  lang: 'en',
   themeColor: {
-    hue: 200, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
-    fixed: false, // Hide the theme color picker for visitors
+    hue: 200,
+    fixed: false,
   },
   banner: {
     enable: true,
-    src: 'assets/images/banner.jpg', // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-    position: 'top', // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
+    src: 'assets/images/banner.jpg',
+    position: 'top',
     credit: {
-      enable: true, // Display the credit text of the banner image
-      text: 'baek_hyang / Furina & Rafale', // Credit text to be displayed
-      url: 'https://www.pixiv.net/artworks/128209639', // (Optional) URL link to the original artwork or artist's page
+      enable: true,
+      text: 'baek_hyang / Furina & Rafale',
+      url: 'https://www.pixiv.net/artworks/128209639',
     },
   },
   toc: {
-    enable: true, // Display the table of contents on the right side of the post
-    depth: 2, // Maximum heading depth to show in the table, from 1 to 3
+    enable: true,
+    depth: 2,
   },
   favicon: [
     {
       src: '/favicon.png',
     },
-    // Leave this array empty to use the default favicon
-    // {
-    //   src: '/favicon/icon.png',    // Path of the favicon, relative to the /public directory
-    //   theme: 'light',              // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
-    //   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
-    // }
   ],
 
   navBar: {
@@ -45,14 +39,14 @@ export const siteConfig = defineConfig({
       LinkPreset.About,
       {
         name: 'GitHub',
-        url: 'https://github.com/misaka10987/misaka10987.github.io', // Internal links should not include the base path, as it is automatically added
-        external: true, // Show an external link icon and will open in a new tab
+        url: 'https://github.com/misaka10987/misaka10987.github.io',
+        external: true,
       },
     ],
   },
 
   profile: {
-    avatar: 'https://misaka10987-avatar.pages.dev/dist/avatar-square-1000.webp', // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+    avatar: 'https://misaka10987-avatar.pages.dev/dist/avatar-square-1000.webp',
     avatarSet: {
       [getAvatar(250)]: 250,
       [getAvatar(500)]: 500,
@@ -61,13 +55,6 @@ export const siteConfig = defineConfig({
     name: 'misaka10987',
     bio: 'Ex falso',
     links: [
-      // {
-      //   name: 'Twitter',
-      //   icon: 'fa6-brands:twitter', // Visit https://icones.js.org/ for icon codes
-      //   // You will need to install the corresponding icon set if it's not already included
-      //   // `pnpm add @iconify-json/<icon-set-name>`
-      //   url: 'https://twitter.com',
-      // },
       {
         name: 'EMail',
         icon: 'material-symbols:mail-outline',
@@ -123,8 +110,6 @@ export const siteConfig = defineConfig({
   },
 
   expressiveCode: {
-    // Note: Some styles (such as background color) are being overridden, see the astro.config.mjs file.
-    // Please select a dark theme, as this blog theme currently only supports dark background color
     theme: 'github-dark',
   },
 })
