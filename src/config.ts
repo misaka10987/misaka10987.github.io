@@ -1,4 +1,4 @@
-import type { ExpressiveCodeConfig, SiteConfig } from './types/config'
+import type { SiteConfig } from './types/config'
 import { LinkPreset } from './types/config'
 
 const getAvatar = (size: number) =>
@@ -121,10 +121,10 @@ export const siteConfig: SiteConfig = {
     name: 'CC BY-NC-ND 4.0',
     url: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
   },
-}
 
-export const expressiveCodeConfig: ExpressiveCodeConfig = {
-  // Note: Some styles (such as background color) are being overridden, see the astro.config.mjs file.
-  // Please select a dark theme, as this blog theme currently only supports dark background color
-  theme: 'github-dark',
+  expressiveCode: {
+    // Note: Some styles (such as background color) are being overridden, see the astro.config.mjs file.
+    // Please select a dark theme, as this blog theme currently only supports dark background color
+    theme: 'github-dark',
+  },
 }

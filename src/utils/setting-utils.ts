@@ -4,7 +4,7 @@ import {
 	DEFAULT_THEME,
 	LIGHT_MODE,
 } from "@constants/constants.ts";
-import { expressiveCodeConfig } from "@/config";
+import {  siteConfig} from "@/config";
 import type { LIGHT_DARK_MODE } from "@/types/config";
 
 export function getDefaultHue(): number {
@@ -47,7 +47,7 @@ export function applyThemeToDocument(theme: LIGHT_DARK_MODE) {
 	// Set the theme for Expressive Code
 	document.documentElement.setAttribute(
 		"data-theme",
-		expressiveCodeConfig.theme,
+		siteConfig.expressiveCode.theme,
 	);
 }
 

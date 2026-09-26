@@ -57,7 +57,15 @@ export type SiteConfig = {
     }[]
   }
 
-  license : LicenseConfig,
+  license: {
+    enable: boolean
+    name: string
+    url: string
+  }
+
+  expressiveCode: {
+    theme: string
+  }
 }
 
 export type Favicon = {
@@ -76,12 +84,6 @@ export type NavBarLink = {
   name: string
   url: string
   external?: boolean
-}
-
-export type LicenseConfig = {
-  enable: boolean
-  name: string
-  url: string
 }
 
 export type LIGHT_DARK_MODE =
