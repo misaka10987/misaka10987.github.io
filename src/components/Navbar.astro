@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
-import { siteConfig } from '../config'
+import config from '../config'
 import { LinkPresets } from '../constants/link-presets'
 import type { LinkPreset, NavBarLink } from '../types/config'
 import { url } from '../utils/url-utils'
@@ -14,7 +14,7 @@ import Button from './Button'
 
 const className = Astro.props.class
 
-let links: NavBarLink[] = siteConfig.navBar.links.map(
+let links: NavBarLink[] = config.navBar.links.map(
   (item: NavBarLink | LinkPreset): NavBarLink => {
     if (typeof item === 'number') {
       return LinkPresets[item]
@@ -49,7 +49,7 @@ nav {
           name="material-symbols:home-outline-rounded"
           class="text-[1.75rem] mb-1 mr-2"
         />
-        {siteConfig.title}
+        {config.title}
       </div>
     </Button>
 
@@ -65,7 +65,7 @@ nav {
     </div>
     <div class="flex">
       <Search client:load></Search>
-      {!siteConfig.themeColor.fixed &&  <DisplaySettings client:load></DisplaySettings>}
+      {!config.themeColor.fixed &&  <DisplaySettings client:load></DisplaySettings>}
       <LightDarkSwitch client:load></LightDarkSwitch>
       <NavMenu links={links} client:load></NavMenu>
     </div>

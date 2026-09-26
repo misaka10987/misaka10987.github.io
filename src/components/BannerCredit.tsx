@@ -1,10 +1,9 @@
-import { siteConfig } from '@/config'
+import config from '@/config'
 import { Icon } from '@iconify-icon/solid'
 import clsx from 'clsx'
 
-const hasBannerCredit =
-  siteConfig.banner.enable && siteConfig.banner.credit.enable
-const hasBannerLink = !!siteConfig.banner.credit.url
+const hasBannerCredit = config.banner.enable && config.banner.credit.enable
+const hasBannerLink = !!config.banner.credit.url
 
 /**
  * Banner image credit component.
@@ -15,7 +14,7 @@ export default () => {
   return (
     hasBannerCredit && (
       <a
-        href={siteConfig.banner.credit.url}
+        href={config.banner.credit.url}
         id="banner-credit"
         target="_blank"
         rel="noopener"
@@ -29,7 +28,7 @@ export default () => {
           icon="material-symbols:copyright-outline-rounded"
           class="text-white/75 text-[1.25rem] mr-1"
         />
-        <div class="text-white/75 text-xs">{siteConfig.banner.credit.text}</div>
+        <div class="text-white/75 text-xs">{config.banner.credit.text}</div>
         <Icon
           icon="fa6-solid:arrow-up-right-from-square"
           class={clsx(

@@ -1,6 +1,6 @@
 ---
 import type { MarkdownHeading } from 'astro'
-import { siteConfig } from '../../config'
+import config from '../../config'
 import { url } from '../../utils/url-utils'
 
 interface Props {
@@ -33,7 +33,7 @@ const removeTailingHash = (text: string) => {
 
 let heading1Count = 1
 
-const maxLevel = siteConfig.toc.depth
+const maxLevel = config.toc.depth
 ---
 
 {

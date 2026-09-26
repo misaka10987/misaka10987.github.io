@@ -14,7 +14,7 @@ import remarkDirective from 'remark-directive' /* Handle directives */
 import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-directives'
 import remarkMath from 'remark-math'
 import remarkSectionize from 'remark-sectionize'
-import { siteConfig } from './src/config.ts'
+import config from './src/config.ts'
 import { pluginLanguageBadge } from './src/plugins/expressive-code/language-badge.ts'
 import { AdmonitionComponent } from './src/plugins/rehype-component-admonition.mjs'
 import { GithubCardComponent } from './src/plugins/rehype-component-github-card.mjs'
@@ -61,8 +61,8 @@ export default defineConfig({
     }),
     expressiveCode({
       themes: [
-        siteConfig.expressiveCode.theme as any,
-        siteConfig.expressiveCode.theme as any,
+        config.expressiveCode.theme as any,
+        config.expressiveCode.theme as any,
       ],
       plugins: [
         pluginCollapsibleSections(),

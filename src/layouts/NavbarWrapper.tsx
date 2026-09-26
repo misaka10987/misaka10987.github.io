@@ -1,4 +1,4 @@
-import { siteConfig } from '@/config'
+import config from '@/config'
 import {
   BANNER_HEIGHT,
   BANNER_HEIGHT_HOME,
@@ -68,7 +68,7 @@ export default (props: Props) => {
     <div
       class={clsx(
         'z-50 pointer-events-none relative transition-all duration-700 max-w-[var(--page-width)] px-0 md:px-4 mx-auto',
-        siteConfig.banner.enable &&
+        config.banner.enable &&
           'h-[calc(var(--banner-height-home)_-_4.5rem)] duration-300',
         local.class,
       )}

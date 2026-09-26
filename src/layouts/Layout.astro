@@ -4,7 +4,7 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 
 import ConfigCarrier from '@components/ConfigCarrier.astro'
-import { siteConfig } from '@/config'
+import config from '@/config'
 import {
   AUTO_MODE,
   BANNER_HEIGHT,
@@ -21,7 +21,7 @@ import { pathsEqual, url } from '../utils/url-utils'
 import 'katex/dist/katex.css'
 import 'katex/dist/katex-swap.css'
 
-const profileConfig = siteConfig.profile
+const profileConfig = config.profile
 
 interface Props {
   title?: string
@@ -40,29 +40,29 @@ const isHomePage = pathsEqual(Astro.url.pathname, url('/'))
 
 // defines global css variables
 // why doing this in Layout instead of GlobalStyles: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
-const configHue = siteConfig.themeColor.hue
+const configHue = config.themeColor.hue
 if (!banner || typeof banner !== 'string' || banner.trim() === '') {
-  banner = siteConfig.banner.src
+  banner = config.banner.src
 }
 
 // TODO don't use post cover as banner for now
-banner = siteConfig.banner.src
+banner = config.banner.src
 
-const enableBanner = siteConfig.banner.enable
+const enableBanner = config.banner.enable
 
 let pageTitle: string
 if (title) {
-  pageTitle = `${title} - ${siteConfig.title}`
+  pageTitle = `${title} - ${config.title}`
 } else {
-  pageTitle = `${siteConfig.title} - ${siteConfig.subtitle}`
+  pageTitle = `${config.title} - ${config.subtitle}`
 }
 
 const favicons: Favicon[] =
-  siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons
+  config.favicon.length > 0 ? config.favicon : defaultFavicons
 
 // const siteLang = siteConfig.lang.replace('_', '-')
 if (!lang) {
-  lang = `${siteConfig.lang}`
+  lang = `${config.lang}`
 }
 const siteLang = lang.replace('_', '-')
 
@@ -72,7 +72,7 @@ const bannerOffsetByPosition = {
   bottom: '0',
 }
 const bannerOffset =
-  bannerOffsetByPosition[siteConfig.banner.position || 'center']
+  bannerOffsetByPosition[config.banner.position || 'center']
 ---
 
 <!doctype html>
@@ -88,7 +88,7 @@ const bannerOffset =
     <meta name="description" content={description || pageTitle} />
     <meta name="author" content={profileConfig.name} />
 
-    <meta property="og:site_name" content={siteConfig.title} />
+    <meta property="og:site_name" content={config.title} />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description || pageTitle} />
@@ -243,7 +243,7 @@ const bannerOffset =
     BANNER_HEIGHT_EXTEND,
     MAIN_PANEL_OVERLAPS_BANNER_HEIGHT,
   } from '../constants/constants'
-  import { siteConfig } from '../config'
+  import config from '../config'
 
   /* Preload fonts */
   // (async function() {
@@ -370,7 +370,7 @@ function disableAnimation() {
   }
 
   function showBanner() {
-    if (!siteConfig.banner.enable) return
+    if (!config.banner.enable) return
 
     const banner = document.getElementById('banner')
     if (!banner) {

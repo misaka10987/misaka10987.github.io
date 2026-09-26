@@ -4,7 +4,7 @@ import Navbar from '@components/Navbar.astro'
 import SideBar from '@components/widget/SideBar.astro'
 import type { MarkdownHeading } from 'astro'
 import TOC from '../components/widget/TOC.astro'
-import { siteConfig } from '../config'
+import config from '../config'
 import {
   BANNER_HEIGHT,
   MAIN_PANEL_OVERLAPS_BANNER_HEIGHT,
@@ -33,7 +33,7 @@ const {
   headings = [],
 } = Astro.props
 
-const mainPanelTop = siteConfig.banner.enable
+const mainPanelTop = config.banner.enable
   ? `calc(${BANNER_HEIGHT}vh - ${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem)`
   : '5.5rem'
 ---
@@ -98,12 +98,12 @@ const mainPanelTop = siteConfig.banner.enable
   <div class="absolute w-full z-0 hidden 2xl:block">
     <div class="relative max-w-[var(--page-width)] mx-auto">
       <!-- TOC component -->
-      {siteConfig.toc.enable && (
+      {config.toc.enable && (
           <div
             id="toc-wrapper"
             class:list={[
               'hidden lg:block transition absolute top-0 -right-[var(--toc-width)] w-[var(--toc-width)] items-center',
-              { 'toc-hide': siteConfig.banner.enable },
+              { 'toc-hide': config.banner.enable },
             ]}
           >
             <style>
@@ -140,7 +140,7 @@ const mainPanelTop = siteConfig.banner.enable
         )}
 
       <!-- #toc needs to exist for Swup to work normally -->
-      {!siteConfig.toc.enable && <div id="toc" />}
+      {!config.toc.enable && <div id="toc" />}
     </div>
   </div>
 </Layout>

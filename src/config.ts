@@ -4,7 +4,7 @@ import { LinkPreset } from './types/config'
 const getAvatar = (size: number) =>
   `https://misaka10987-avatar.pages.dev/dist/avatar-square-${size}.webp`
 
-export const siteConfig = defineConfig({
+export default defineConfig({
   title: 'Daydream',
   subtitle: 'misaka10987',
   lang: 'en',

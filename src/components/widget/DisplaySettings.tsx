@@ -7,14 +7,14 @@ import { createEffect, createSignal, createUniqueId, onMount } from 'solid-js'
 import './display-setting.css'
 import { createFloatPanel } from '@components/float-panel'
 import Button from '@components/Button'
-import { siteConfig } from '@/config'
+import config from '@/config'
 
 export default () => {
   const toggleId = createUniqueId()
 
   const [Panel, panelActive, setPanelActive] = createFloatPanel([toggleId])
 
-  const defaultHue = siteConfig.themeColor.hue
+  const defaultHue = config.themeColor.hue
 
   const [currHue, setCurrHue] = createSignal(defaultHue)
 
