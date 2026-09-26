@@ -1,4 +1,4 @@
-import config from '../config'
+import config from '@/config'
 import type I18nKey from './i18nKey'
 import { en } from './languages/en'
 import { es } from './languages/es'
