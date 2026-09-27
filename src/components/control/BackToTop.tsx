@@ -33,12 +33,12 @@ export default () => {
             ? 'scale-90 opacity-0 pointer-events-none'
             : 'opacity-100 pointer-events-auto',
         )}
-        onclick={() => window.scroll({ top: 0, behavior: 'smooth' })}
       >
         <Button
           variant="card"
           aria-label="Back to Top"
           class="h-[3.75rem] w-[3.75rem]"
+          onclick={() => window.scroll({ top: 0, behavior: 'smooth' })}
         >
           <Icon
             icon="material-symbols:keyboard-arrow-up-rounded"
