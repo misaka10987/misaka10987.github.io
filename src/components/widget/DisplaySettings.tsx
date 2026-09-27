@@ -64,7 +64,7 @@ export default () => {
                 'w-7 h-7 rounded-md active:scale-90',
                 currHue() === defaultHue && 'opacity-0 pointer-events-none',
               )}
-              on:click={resetHue}
+              onclick={resetHue}
             >
               <div class="text-[var(--btn-content)]">
                 <Icon
@@ -76,7 +76,6 @@ export default () => {
           </div>
           <div class="flex gap-1">
             <div
-              id="hueValue"
               class="transition bg-[var(--btn-regular-bg)] w-10 h-7 rounded-md flex justify-center
             font-bold text-sm items-center text-[var(--btn-content)]"
             >
@@ -88,12 +87,11 @@ export default () => {
           <input
             aria-label={i18n(I18nKey.themeColor)}
             type="range"
-            min="0"
-            max="360"
+            min={0}
+            max={360}
             value={currHue()}
-            oninput={(e) => setCurrHue(parseInt(e.currentTarget.value))}
-            class="slider w-full"
-            id="colorSlider"
+            oninput={(e) => setCurrHue(parseInt(e.currentTarget.value, 10))}
+            class="w-full"
             step="5"
           />
         </div>
