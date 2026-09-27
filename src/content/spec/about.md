@@ -1,6 +1,30 @@
 # About
 
-我是 **苏健坤 (a.k.a. misaka10987)** , 来自 [上海](https://zh.wikipedia.org/wiki/%E4%B8%8A%E6%B5%B7%E5%B8%82) 。我在 [牛津大学](https://www.ox.ac.uk/) [St Hugh's 学院](https://www.st-hughs.ox.ac.uk/) 学习数学。你应该可以在这个网站的边栏上找到更多与我有关的链接。
+我是 **苏健坤** (a.k.a. **misaka10987** ), 来自 [上海](https://zh.wikipedia.org/wiki/%E4%B8%8A%E6%B5%B7%E5%B8%82) 。我在 [牛津大学](https://www.ox.ac.uk/) [St Hugh's 学院](https://www.st-hughs.ox.ac.uk/) 学习数学。你应该可以在这个网站的边栏上找到更多与我有关的链接。
+
+我 ( [misaka10987@outlook.com](mailto:misaka10987@outlook.com) ) 的 PGP 公钥是：
+
+```txt showLineNumbers=false
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+mDMEarjYPxYJKwYBBAHaRw8BAQdAgbiPn+WGtQtQCAjWOX6mI5NzfnWUVSmzoOvk
+0N4oNI20MW1pc2FrYTEwOTg3ICgyMDI1LTIwMzApIDxtaXNha2ExMDk4N0BvdXRs
+b29rLmNvbT6IlgQTFgoAPhYhBPJc8vM/9bBMusberbGyC7PbydUJBQJquNg/AhsD
+BQkJZgGABQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJELGyC7PbydUJT64A/AjF
+md9xXcuoyuRdjf/SyCEckMTQlEc23F0PJeW1tJVFAP9mff2rV1czFZmmeltLr0Gs
+B2Gg/tMjT/2DXSz1jk5mDrg4BGq42D8SCisGAQQBl1UBBQEBB0CB0Bl+dSy/7gpP
+yQWhuiBqfalG/ZoqAb6W+oF+iRVMMQMBCAeIfgQYFgoAJhYhBPJc8vM/9bBMusbe
+rbGyC7PbydUJBQJquNg/AhsMBQkJZgGAAAoJELGyC7PbydUJnsoBANahCeQQvzVs
+dOoNxaCAywg0F/7eEefrPMTeSxaoSJETAP9KtuSyn+8CuNMLoCD1apu2UMIkOshG
+5qvjNboCQ80KBA==
+=Ovbo
+-----END PGP PUBLIC KEY BLOCK-----
+```
+
+指纹：
+
+```txt showLineNumbers=false
+F25CF2F33FF5B04CBAC6DEADB1B20BB3DBC9D509
+```
 
 ## 关于 10987
 
