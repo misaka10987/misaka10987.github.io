@@ -5,13 +5,19 @@ const getAvatar = (size: number) =>
   `https://misaka10987-avatar.pages.dev/dist/avatar-square-${size}.webp`
 
 export default defineConfig({
+  site: 'https://misaka10987.pages.dev',
+  base: '/',
+
   title: 'Daydream',
   subtitle: 'misaka10987',
+
   lang: 'en',
+
   themeColor: {
     hue: 200,
     fixed: false,
   },
+
   banner: {
     enable: true,
     src: 'assets/images/banner.jpg',
@@ -22,10 +28,12 @@ export default defineConfig({
       url: 'https://www.pixiv.net/artworks/128209639',
     },
   },
+
   toc: {
     enable: true,
     depth: 2,
   },
+
   favicon: [
     {
       src: '/favicon.png',

@@ -17,6 +17,9 @@ export const defineConfig = (config: AphrosConfig) => {
 }
 
 type AphrosConfig = {
+  site: string
+  base: string
+
   title: string
   subtitle: string
 

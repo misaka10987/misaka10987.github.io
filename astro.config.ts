@@ -1,3 +1,5 @@
+// biome-ignore-all lint/suspicious/noExplicitAny : ignore
+
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections'
@@ -27,11 +29,11 @@ import solidJs from '@astrojs/solid-js'
 
 // https://astro.build/config
 export default defineConfig({
+  site: config.site,
+  base: config.base,
   image: {
     layout: 'constrained',
   },
-  site: 'https://misaka10987.pages.dev',
-  base: '/',
   trailingSlash: 'always',
   integrations: [
     tailwind({
