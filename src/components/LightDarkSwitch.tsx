@@ -54,6 +54,7 @@ export default () => {
   })
 
   return (
+    // biome-ignore lint/a11y/noStaticElementInteractions : ignore
     <div
       class="relative z-50"
       tabindex="-1"
