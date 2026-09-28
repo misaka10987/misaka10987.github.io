@@ -1,5 +1,3 @@
-// biome-ignore-all lint/suspicious/noExplicitAny : ignore
-
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections'
@@ -18,7 +16,7 @@ import remarkMath from 'remark-math'
 import remarkSectionize from 'remark-sectionize'
 import config from './src/config.ts'
 import { pluginLanguageBadge } from './src/plugins/expressive-code/language-badge.ts'
-import { AdmonitionComponent } from './src/plugins/rehype-component-admonition.mjs'
+import { admonitionComponent } from './src/plugins/rehype-component-admonition.tsx'
 import { GithubCardComponent } from './src/plugins/rehype-component-github-card.mjs'
 import { parseDirectiveNode } from './src/plugins/remark-directive-rehype.js'
 import { remarkExcerpt } from './src/plugins/remark-excerpt.js'
@@ -131,17 +129,18 @@ export default defineConfig({
           {
             components: {
               github: GithubCardComponent,
-              note: (x: any, y: any) => AdmonitionComponent(x, y, 'note'),
-              tip: (x: any, y: any) => AdmonitionComponent(x, y, 'tip'),
-              important: (x: any, y: any) =>
-                AdmonitionComponent(x, y, 'important'),
-              caution: (x: any, y: any) => AdmonitionComponent(x, y, 'caution'),
-              warning: (x: any, y: any) => AdmonitionComponent(x, y, 'warning'),
+
+              note: admonitionComponent('note'),
+              tip: admonitionComponent('tip'),
+              important: admonitionComponent('important'),
+              caution: admonitionComponent('caution'),
+              warning: admonitionComponent('warning'),
+
               // the `remarkGithubAdmonitionsToDirectives` plugin generates
               // `:::info` directives for `> [!IMPORTANT]` and `:::danger`s for `> [!CAUTION]`
               // make it happy
-              info: (x: any, y: any) => AdmonitionComponent(x, y, 'important'),
-              danger: (x: any, y: any) => AdmonitionComponent(x, y, 'caution'),
+              info: admonitionComponent('important'),
+              danger: admonitionComponent('caution'),
             },
           },
         ],
