@@ -1,10 +1,10 @@
 # About
 
-我是 **苏健坤** (a.k.a. **misaka10987** ), 来自 [上海](https://zh.wikipedia.org/wiki/%E4%B8%8A%E6%B5%B7%E5%B8%82) 。我在 [牛津大学](https://www.ox.ac.uk/) [St Hugh's 学院](https://www.st-hughs.ox.ac.uk/) 学习数学。你应该可以在这个网站的边栏上找到更多与我有关的链接。
+我是 **苏健坤**（a.k.a. **misaka10987** , 无线电呼号 `BI4BXE` ）, 来自 [上海](https://zh.wikipedia.org/wiki/%E4%B8%8A%E6%B5%B7%E5%B8%82) 。我在 [牛津大学](https://www.ox.ac.uk/) [St Hugh's 学院](https://www.st-hughs.ox.ac.uk/) 学习数学。你应该可以在这个网站的边栏上找到更多与我有关的链接。
 
 我 ( [misaka10987@outlook.com](mailto:misaka10987@outlook.com) ) 的 PGP 公钥是：
 
-```txt showLineNumbers=false
+```txt
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 mDMEarjYPxYJKwYBBAHaRw8BAQdAgbiPn+WGtQtQCAjWOX6mI5NzfnWUVSmzoOvk
 0N4oNI20MW1pc2FrYTEwOTg3ICgyMDI1LTIwMzApIDxtaXNha2ExMDk4N0BvdXRs
@@ -22,7 +22,7 @@ dOoNxaCAywg0F/7eEefrPMTeSxaoSJETAP9KtuSyn+8CuNMLoCD1apu2UMIkOshG
 
 指纹：
 
-```txt showLineNumbers=false
+```txt
 F25CF2F33FF5B04CBAC6DEADB1B20BB3DBC9D509
 ```
 
@@ -60,7 +60,7 @@ $10987$ 是一个素数，十进制下的数位也是 $\Z_{10}$ 下的一个等�
 
 - **编程语言：**[TypeScript](https://www.typescriptlang.org/) / [Rust](https://rust-lang.org/) / [Lean 4](https://lean-lang.org/) 
 
-- 业余无线电（中国 A 证，尚未办理呼号）
+- 业余无线电：A 类操作证（中国大陆）
 
 ## 关于本站
 
