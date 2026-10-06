@@ -89,6 +89,11 @@ export default defineConfig({
         url: 'https://www.reddit.com/user/misaka10987/',
       },
       {
+        name: 'Instagram',
+        icon: 'fa6-brands:instagram',
+        url: 'https://www.instagram.com/misaka10987/',
+      },
+      {
         name: '知乎',
         icon: 'fa6-brands:zhihu',
         url: 'https://www.zhihu.com/people/misaka10987',
@@ -107,6 +112,11 @@ export default defineConfig({
         name: 'Diplicity',
         icon: 'boxicons:globe-europe',
         url: 'https://www.diplicity.com/player/2985',
+      },
+      {
+        name: 'QRZ',
+        icon: 'material-symbols:radio-outline-rounded',
+        url: 'https://www.qrz.com/db/BI4BXE',
       },
     ],
   },
