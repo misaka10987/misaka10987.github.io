@@ -48,7 +48,7 @@ export default (props: Props) => {
         {local.children}
       </div>
       {collapsed() && (
-        <div class={clsx('px-4 -mb-2', !collapsed() && 'hidden')}>
+        <div class={clsx('px-4 -mb-2 select-none', !collapsed() && 'hidden')}>
           <Button
             variant="plain"
             class="rounded-lg w-full h-9"
