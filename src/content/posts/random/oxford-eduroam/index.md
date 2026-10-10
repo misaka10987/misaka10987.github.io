@@ -3,7 +3,7 @@ title = "Connect to Oxford Eduroam on Linux"
 published = 2026-10-07
 description = ""
 image = ""
-tags = []
+tags = ["Unix", "Oxford"]
 category = ""
 draft = false
 lang = ""
@@ -11,7 +11,7 @@ lang = ""
 
 # Connect to Oxford Eduroam on Linux
 
-The [official guide](https://www.ox.ac.uk/staff/it/services/wifi/eduroam) and [cat.eduroam.org](https://cat.eduroam.org/) both fails to provide a working Wi-Fi configuration on Linux and it took me a couple of ours to make it.
+The [official guide](https://www.ox.ac.uk/staff/it/services/wifi/eduroam) and [cat.eduroam.org](https://cat.eduroam.org/) both fails to provide a working Wi-Fi configuration on Linux and it took me a couple of hours to make it.
 
 This guide assumes NetworkManager. It should work on any linux but I only did this with NixOS 26 KDE.
 
