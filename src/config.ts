@@ -69,6 +69,11 @@ export default defineConfig({
         url: 'mailto:misaka10987@outlook.com',
       },
       {
+        name: 'Telegram',
+        icon: 'fa6-brands:telegram',
+        url: 'https://t.me/misaka10987',
+      },
+      {
         name: 'QQ',
         icon: 'fa6-brands:qq',
         url: 'http://2208129531.qzone.qq.com',
