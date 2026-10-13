@@ -1,9 +1,9 @@
 #!/usr/bin/env -S bun run
 
-import { mkdir, writeFile, access } from 'fs/promises'
-import path from 'path'
-import { exec } from 'child_process'
-import { promisify } from 'util'
+import { mkdir, writeFile, access } from 'node:fs/promises'
+import path from 'node:path'
+import { exec } from 'node:child_process'
+import { promisify } from 'node:util'
 import TOML from 'smol-toml'
 
 const main = async () => {
