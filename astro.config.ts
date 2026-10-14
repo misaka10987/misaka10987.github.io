@@ -17,7 +17,7 @@ import remarkSectionize from 'remark-sectionize'
 import config from './src/config.ts'
 import { pluginLanguageBadge } from './src/plugins/expressive-code/language-badge.ts'
 import { admonitionComponent } from './src/plugins/rehype-component-admonition.tsx'
-import { GithubCardComponent } from './src/plugins/rehype-component-github-card.mjs'
+import { githubCardComponent } from './src/plugins/rehype-component-github-card.tsx'
 import { parseDirectiveNode } from './src/plugins/remark-directive-rehype.js'
 import { remarkExcerpt } from './src/plugins/remark-excerpt.js'
 import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs'
@@ -128,7 +128,7 @@ export default defineConfig({
           rehypeComponents,
           {
             components: {
-              github: GithubCardComponent,
+              github: githubCardComponent,
 
               note: admonitionComponent('note'),
               tip: admonitionComponent('tip'),
