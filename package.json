@@ -73,7 +73,7 @@
     "@types/sanitize-html": "^2.16.1",
     "postcss-import": "^17.0.0",
     "postcss-nesting": "^14.0.1",
-    "smol-toml": "^1.7.1"
+    "smol-toml": "^1.9.0"
   },
   "overrides": {
     "katex": "0.18.5"
