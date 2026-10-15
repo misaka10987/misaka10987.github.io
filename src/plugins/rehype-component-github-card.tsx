@@ -2,6 +2,8 @@
 
 import type { Result } from 'hastscript'
 import type { RootContent } from 'mdast'
+import style from './rehype-component-github-card.module.css'
+import clsx from 'clsx'
 
 interface Props {
   repo: string
@@ -67,35 +69,35 @@ export const GithubCard = (
       target="_blank"
       rel="noopener noreferrer"
       repo={repo}
-      class="card-github fetch-waiting no-styling"
+      class={clsx(style['card-github'], 'fetch-waiting no-styling')}
     >
       {/* title */}
-      <div class="gc-titlebar">
-        <div class="gc-titlebar-left">
-          <div class="gc-owner">
-            <div id={`${cardUuid}-avatar`} class="gc-avatar" />
-            <div class="gc-user">{repo.split('/')[0]}</div>
+      <div class={style['gc-titlebar']}>
+        <div class={style['gc-titlebar-left']}>
+          <div class={style['gc-owner']}>
+            <div id={`${cardUuid}-avatar`} class={style['gc-avatar']} />
+            <div class={style['gc-user']}>{repo.split('/')[0]}</div>
           </div>
-          <div class="gc-divider">/</div>
-          <div class="gc-repo">{repo.split('/')[1]}</div>
+          <div class={style['gc-divider']}>/</div>
+          <div class={style['gc-repo']}>{repo.split('/')[1]}</div>
         </div>
-        <div class="github-logo" />
+        <div class={style['github-logo']} />
       </div>
       {/* description */}
-      <div id={`${cardUuid}-description`} class="gc-description">
+      <div id={`${cardUuid}-description`} class={style['gc-description']}>
         Waiting for api.github.com...
       </div>
-      <div class="gc-infobar">
-        <div id={`${cardUuid}-stars`} class="gc-stars">
+      <div class={style['gc-infobar']}>
+        <div id={`${cardUuid}-stars`} class={style['gc-stars']}>
           00K
         </div>
-        <div id={`${cardUuid}-forks`} class="gc-forks">
+        <div id={`${cardUuid}-forks`} class={style['gc-forks']}>
           0K
         </div>
-        <div id={`${cardUuid}-license`} class="gc-license">
+        <div id={`${cardUuid}-license`} class={style['gc-license']}>
           0K
         </div>
-        <span id={`${cardUuid}-language`} class="gc-language">
+        <span id={`${cardUuid}-language`} class={style['gc-language']}>
           Waiting...
         </span>
       </div>
