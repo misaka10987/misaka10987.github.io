@@ -2,7 +2,7 @@
 title = "回形针"
 published = 2026-10-17
 description = ""
-image = ""
+image = "cover.png"
 tags = []
 category = ""
 draft = false
