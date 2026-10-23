@@ -123,6 +123,16 @@ export default defineConfig({
         icon: 'material-symbols:radio-outline-rounded',
         url: 'https://www.qrz.com/db/BI4BXE',
       },
+      {
+        name: 'Discord',
+        icon: 'fa6-brands:discord',
+        url: 'https://discord.com/users/1369618676126584902',
+      },
+      {
+        name: 'LinkedIn',
+        icon: 'fa6-brands:linkedin',
+        url: 'https://www.linkedin.com/in/jiankun-su-a85459444/',
+      },
     ],
   },
 
