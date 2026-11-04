@@ -20,7 +20,7 @@ const minDepth = headings
   .reduce((a, b) => Math.min(a, b), 10)
 
 const className = Astro.props.class
-const isPostsRoute = Astro.url.pathname.startsWith(url('/posts/'))
+const isPostsRoute = Astro.url.pathname.startsWith(url('/p/'))
 
 const removeTailingHash = (text: string) => {
   let lastIndexOfHash = text.lastIndexOf('#')

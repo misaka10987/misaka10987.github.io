@@ -13,7 +13,7 @@ function joinUrl(...parts: string[]): string {
 }
 
 export const getPostUrl = (id: string) => {
-  return url(`/posts/${id}/`)
+  return url(`/p/${id}/`)
 }
 
 export function getTagUrl(tag: string): string {

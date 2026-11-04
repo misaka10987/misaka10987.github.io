@@ -18,7 +18,7 @@ const main = async () => {
     return
   }
 
-  const folder = path.join(root, 'src/content/posts', post)
+  const folder = path.join(root, 'src/content/post', post)
 
   const exists = (path: string) =>
     access(path)
