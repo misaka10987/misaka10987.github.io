@@ -7,18 +7,18 @@ import {
 import config from '@/config'
 import type { LIGHT_DARK_MODE } from '@/types/config'
 
-export function getDefaultHue(): number {
+export const getDefaultHue = (): number => {
   const fallback = '250'
   const configCarrier = document.getElementById('config-carrier')
-  return Number.parseInt(configCarrier?.dataset.hue || fallback)
+  return Number.parseInt(configCarrier?.dataset.hue || fallback, 10)
 }
 
-export function getHue(): number {
+export const getHue = (): number => {
   const stored = localStorage.getItem('hue')
-  return stored ? Number.parseInt(stored) : getDefaultHue()
+  return stored ? Number.parseInt(stored, 10) : getDefaultHue()
 }
 
-export function setHue(hue: number): void {
+export const setHue = (hue: number): void => {
   localStorage.setItem('hue', String(hue))
   const r = document.querySelector(':root') as HTMLElement
   if (!r) {
@@ -27,7 +27,7 @@ export function setHue(hue: number): void {
   r.style.setProperty('--hue', String(hue))
 }
 
-export function applyThemeToDocument(theme: LIGHT_DARK_MODE) {
+export const applyThemeToDocument = (theme: LIGHT_DARK_MODE) => {
   switch (theme) {
     case LIGHT_MODE:
       document.documentElement.classList.remove('dark')
@@ -51,11 +51,11 @@ export function applyThemeToDocument(theme: LIGHT_DARK_MODE) {
   )
 }
 
-export function setTheme(theme: LIGHT_DARK_MODE): void {
+export const setTheme = (theme: LIGHT_DARK_MODE): void => {
   localStorage.setItem('theme', theme)
   applyThemeToDocument(theme)
 }
 
-export function getStoredTheme(): LIGHT_DARK_MODE {
+export const getStoredTheme = (): LIGHT_DARK_MODE => {
   return (localStorage.getItem('theme') as LIGHT_DARK_MODE) || DEFAULT_THEME
 }

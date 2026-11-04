@@ -1,3 +1,3 @@
-export function formatDateToYYYYMMDD(date: Date): string {
+export const formatDateToYYYYMMDD = (date: Date): string => {
   return date.toISOString().substring(0, 10)
 }
