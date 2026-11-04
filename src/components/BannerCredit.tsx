@@ -15,12 +15,12 @@ export default () => {
     hasBannerCredit && (
       <a
         href={config.banner.credit.url}
-        id="banner-credit"
         target="_blank"
         rel="noopener"
         aria-label="Visit image source"
         class={clsx(
-          'group onload-animation transition-all absolute flex justify-center items-center rounded-full px-3 right-4 -top-[3.25rem] bg-black/60 hover:bg-black/70 h-9',
+          // `[animation-delay:400ms]` is `!important` to override `onload-animation`
+          'group onload-animation ![animation-delay:400ms] transition-all absolute flex justify-center items-center rounded-full px-3 right-4 -top-[3.25rem] bg-black/60 hover:bg-black/70 h-9',
           hasBannerLink && 'hover:pr-9 active:bg-black/80',
         )}
       >
