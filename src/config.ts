@@ -145,4 +145,6 @@ export default defineConfig({
   expressiveCode: {
     theme: 'github-dark',
   },
+
+  specialPage: ['about', 'collection'],
 })

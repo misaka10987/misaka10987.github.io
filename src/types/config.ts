@@ -139,6 +139,8 @@ type AphrosConfig = {
      */
     theme: string
   }
+
+  specialPage: string[]
 }
 
 export type Favicon = {
