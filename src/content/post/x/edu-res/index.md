@@ -136,10 +136,10 @@ lang = ""
 > 假设你每多花 $x$ 金钱就能平均减少 $m(x)$ 个矿工工亡，但是会造成煤炭价格上涨 $p(x)$ 金钱。同时煤炭价格如果上涨 $x$ , 平均就会多 $f(x)$ 个人冻死。非常简单的数学告诉我们，最珍惜生命的情况是
 > 
 > $$
-> \frac{\mathrm d}{\mathrm dx} m(x)  x_0 x_a= \frac{\mathrm d}{\mathrm dx} fp(x)
+> \frac{\mathrm d}{\mathrm dx} m(x)= \frac{\mathrm d}{\mathrm dx} fp(x)
 > $$
 > 
-> 但这会让你解出一个 $x$ ! 这难道不正是把矿工的生命按照 $\frac{x}{m(x)}$ ***明码标价*** 了吗？
+> 但这会让你解出一个 $x_0$ ! 这难道不正是把矿工的生命按照 $\frac{x_0}{m(x_0)}$ ***明码标价*** 了吗？
 
 TODO
 
