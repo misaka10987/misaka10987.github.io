@@ -30,13 +30,3 @@ html.is-animating .transition-swup-fade {
   animation: 300ms fade-in-up;
   animation-fill-mode: forwards;
 }
-
-#sidebar {
-  animation-delay: 100ms;
-}
-#swup-container {
-  outline: none;
-}
-#content-wrapper {
-  animation-delay: var(--content-delay);
-}

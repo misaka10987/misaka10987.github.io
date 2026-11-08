@@ -75,10 +75,9 @@ const mainPanelTop = config.banner.enable
         />
 
         <main
-          id="swup-container"
-          class="transition-swup-fade col-span-2 lg:col-span-1 overflow-hidden"
+          class="transition-swup-fade col-span-2 lg:col-span-1 overflow-hidden [outline:none]"
         >
-          <div id="content-wrapper" class="onload-animation">
+          <div data-content-wrapper class="onload-animation ![animation-delay:var(--content-delay)]">
             <!-- the overflow-hidden here prevent long text break the layout-->
             <!-- make id different from windows.swup global property -->
             <slot />
