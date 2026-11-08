@@ -2,6 +2,8 @@
 
 import type { RootContent } from 'mdast'
 import type { Result } from 'hastscript'
+import style from './rehype-component-admonition.module.css'
+import { clsx } from 'clsx'
 
 export type AdmonitionType =
   | 'tip'
@@ -30,8 +32,13 @@ export const Admonition = (props: Props): Result => {
     : [props['admonition-type'].toUpperCase(), props.children]
 
   return (
-    <blockquote class={`admonition bdm-${props['admonition-type']}`}>
-      <span class="bdm-title">{label}</span>
+    <blockquote
+      class={clsx(
+        style['admonition'],
+        style[`bdm-${props['admonition-type']}`],
+      )}
+    >
+      <span class={style['bdm-title']}>{label}</span>
       {children as any}
     </blockquote>
   )
