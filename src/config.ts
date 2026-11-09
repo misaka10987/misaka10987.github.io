@@ -56,9 +56,9 @@ export default defineConfig({
   profile: {
     avatar: 'https://misaka10987-avatar.pages.dev/dist/avatar-square-1000.webp',
     avatarSet: {
-      [getAvatar(250)]: 250,
-      [getAvatar(500)]: 500,
-      [getAvatar(1000)]: 1000,
+      [getAvatar(256)]: 256,
+      [getAvatar(512)]: 512,
+      [getAvatar(1024)]: 1024,
     },
     name: 'misaka10987',
     bio: 'Ex falso',
