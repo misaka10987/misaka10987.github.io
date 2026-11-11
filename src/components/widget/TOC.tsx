@@ -38,7 +38,7 @@ export default (props: Props) => {
         id="toc-wrapper"
         class={clsx(
           'hidden lg:block transition absolute top-0 -right-[var(--toc-width)] w-[var(--toc-width)] items-center',
-          config.banner.enable && 'toc-hide',
+          config.banner.enable && 'opacity-0 pointer-events-none',
         )}
         {...others}
       >

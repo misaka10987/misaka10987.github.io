@@ -23,11 +23,6 @@
     @apply transition;
   }
 
-  .toc-hide,
-  .toc-not-ready {
-    @apply opacity-0 pointer-events-none;
-  }
-
   .text-90 {
     @apply text-black/90 dark:text-white/90;
   }

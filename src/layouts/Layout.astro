@@ -397,7 +397,7 @@ const bannerOffset =
       // Hide the TOC while scrolling back to top
       const toc = document.getElementById('toc-wrapper')
       if (toc) {
-        toc.classList.add('toc-not-ready')
+        toc.classList.add('opacity-0', 'pointer-events-none')
       }
     })
     window.swup.hooks.on('page:view', () => {
@@ -417,7 +417,7 @@ const bannerOffset =
         // Just make the transition looks better
         const toc = document.getElementById('toc-wrapper')
         if (toc) {
-          toc.classList.remove('toc-not-ready')
+          toc.classList.remove('opacity-0', 'pointer-events-none')
         }
       }, 200)
     })
@@ -438,9 +438,9 @@ const bannerOffset =
         document.body.scrollTop > bannerHeight ||
         document.documentElement.scrollTop > bannerHeight
       ) {
-        toc.classList.remove('toc-hide')
+        toc.classList.remove('opacity-0', 'pointer-events-none')
       } else {
-        toc.classList.add('toc-hide')
+        toc.classList.add('opacity-0', 'pointer-events-none')
       }
     }
   }

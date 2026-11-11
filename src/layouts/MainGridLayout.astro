@@ -77,7 +77,10 @@ const mainPanelTop = config.banner.enable
         <main
           class="transition-swup-fade col-span-2 lg:col-span-1 overflow-hidden [outline:none]"
         >
-          <div data-content-wrapper class="onload-animation ![animation-delay:var(--content-delay)]">
+          <div
+            data-content-wrapper
+            class="onload-animation ![animation-delay:var(--content-delay)]"
+          >
             <!-- the overflow-hidden here prevent long text break the layout-->
             <!-- make id different from windows.swup global property -->
             <slot />
@@ -102,17 +105,12 @@ const mainPanelTop = config.banner.enable
             id="toc-wrapper"
             class:list={[
               'hidden lg:block transition absolute top-0 -right-[var(--toc-width)] w-[var(--toc-width)] items-center',
-              { 'toc-hide': config.banner.enable },
+              { 'opacity-0 pointer-events-none': config.banner.enable },
             ]}
           >
             <style>
-              .hide-scrollbar {
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-              }
-              .hide-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
+              .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none;
+              } .hide-scrollbar::-webkit-scrollbar { display: none; }
             </style>
             <div
               id="toc-inner-wrapper"
@@ -126,17 +124,11 @@ const mainPanelTop = config.banner.enable
             </div>
           </div>
           <style>
-            #toc-inner-wrapper {
-              mask-image: linear-gradient(
-                to bottom,
-                transparent 0%,
-              black 2rem,
-              black calc(100% - 2rem),
-                transparent 100%
-              );
-            }
+            #toc-inner-wrapper { mask-image: linear-gradient( to bottom,
+            transparent 0%, black 2rem, black calc(100% - 2rem), transparent
+            100% ); }
           </style>
-        )}
+      )}
 
       <!-- #toc needs to exist for Swup to work normally -->
       {!config.toc.enable && <div id="toc" />}
