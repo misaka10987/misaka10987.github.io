@@ -96,11 +96,7 @@
 
     .expressive-code {
         @apply my-4;
-        ::selection {
-            @apply bg-[var(--codeblock-selection)];
-        }
     }
-
 
     ul, ol {
         li::marker {

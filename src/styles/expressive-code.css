@@ -1,9 +1,21 @@
-.expressive-code {
-    .frame {
-        @apply !shadow-none;
-    }
+/** biome-ignore-all lint/complexity/noImportantStyles: TODO */
 
-    .title {
-        font-family: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
+.expressive-code {
+  .frame {
+    --tw-shadow: 0 0 #0000 !important;
+    --tw-shadow-colored: 0 0 #0000 !important;
+    box-shadow:
+      var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+      var(--tw-shadow) !important;
+  }
+
+  .title {
+    font-family:
+      "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco,
+      Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  ::selection {
+    background-color: var(--codeblock-selection);
+  }
 }
