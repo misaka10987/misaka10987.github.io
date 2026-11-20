@@ -143,7 +143,7 @@ export default () => {
       {/* <!-- search bar for desktop view --> */}
       <div
         id="search-bar"
-        class="hidden lg:flex transition-all items-center h-11 mr-2 rounded-lg
+        class="z-10 hidden lg:flex transition-all items-center h-11 mr-2 rounded-lg
       bg-black/[0.04] hover:bg-black/[0.06] focus-within:bg-black/[0.06]
       dark:bg-white/5 dark:hover:bg-white/10 dark:focus-within:bg-white/10"
       >
@@ -174,7 +174,7 @@ export default () => {
         <Icon icon="material-symbols:search" class="text-[1.25rem]"></Icon>
       </Button>
 
-      <Panel class="overflow-hidden bg-[var(--float-panel-bg)] transition dark:shadow-none max-h-[calc(100vh-100px)] overflow-y-auto absolute md:w-[30rem] top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2 [&_mark]:bg-transparent [&_mark]:text-[var(--primary)]">
+      <Panel class="overflow-hidden bg-white/75 dark:bg-black/75 backdrop-blur-xl transition dark:shadow-none max-h-[calc(100vh-100px)] overflow-y-auto absolute md:w-[30rem] top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2 [&_mark]:bg-transparent [&_mark]:text-[var(--primary)]">
         {/* <!-- search bar inside panel for phone/tablet --> */}
         <div
           id="search-bar-inside"
@@ -200,7 +200,7 @@ export default () => {
           <a
             href={item.url}
             class="transition first-of-type:mt-2 lg:first-of-type:mt-0 group block
-            rounded-xl text-lg px-3 py-2 hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)]"
+            rounded-xl text-lg px-3 py-2 active:scale-95"
           >
             <div class="transition text-90 inline-flex font-bold group-hover:text-[var(--primary)]">
               {item.meta.title}

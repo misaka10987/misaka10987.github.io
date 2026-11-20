@@ -13,6 +13,7 @@ import clsx from 'clsx'
 import { createFloatPanel } from './float-panel'
 import Card from './Card'
 import Button from './Button'
+import FiberglassButton from '@/components/fiberglass/Button'
 
 const seq = [LIGHT_MODE, DARK_MODE, AUTO_MODE] as LIGHT_DARK_MODE[]
 
@@ -61,11 +62,11 @@ export default () => {
       id={toggleId}
       onmouseleave={() => setPanelActive(false)}
     >
-      <Button
-        variant="plain"
+      <FiberglassButton
+        // variant="plain"
         scale-animation
         aria-label="Light/Dark Mode"
-        class="relative rounded-lg h-11 w-11 active:scale-90"
+        class="relative h-8 w-8"
         onclick={toggleScheme}
         onmouseenter={() => setPanelActive(true)}
       >
@@ -102,7 +103,7 @@ export default () => {
             class="text-[1.25rem]"
           ></Icon>
         </div>
-      </Button>
+      </FiberglassButton>
 
       <Panel class="lg:block absolute transition top-11 -right-2 pt-5">
         <Card class="top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] transition shadow-xl dark:shadow-none p-2">
