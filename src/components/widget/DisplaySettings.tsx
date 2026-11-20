@@ -7,6 +7,7 @@ import { createEffect, createSignal, createUniqueId, onMount } from 'solid-js'
 import './display-setting.css'
 import { createFloatPanel } from '@components/float-panel'
 import Button from '@components/Button'
+import FiberglassButton from '@components/fiberglass/Button'
 import config from '@/config'
 
 export default () => {
@@ -35,21 +36,21 @@ export default () => {
 
   return (
     <>
-      <Button
-        variant="plain"
+      <FiberglassButton
+        // variant="plain"
         scale-animation
         id={toggleId}
         aria-label="Display Settings"
-        class="rounded-lg h-11 w-11 active:scale-90"
+        class="h-8 w-8"
         onclick={() => setPanelActive(!panelActive())}
       >
         <Icon
           icon="material-symbols:palette-outline"
           class="text-[1.25rem]"
         ></Icon>
-      </Button>
+      </FiberglassButton>
 
-      <Panel class="top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-[var(--float-panel-bg)] shadow-xl dark:shadow-none absolute transition-all w-80 right-4 px-4 py-4 display-setting-panel">
+      <Panel class="top-[5.25rem] rounded-[var(--radius-large)] overflow-hidden bg-white/75 dark:bg-black/75 backdrop-blur-xl shadow-xl dark:shadow-none absolute transition-all w-80 right-4 px-4 py-4 display-setting-panel">
         <div class="flex flex-row gap-2 mb-3 items-center justify-between">
           <div
             class="flex gap-2 font-bold text-lg text-neutral-900 dark:text-neutral-100 transition relative ml-3
