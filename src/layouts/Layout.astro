@@ -4,6 +4,7 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 
 import ConfigCarrier from '@components/ConfigCarrier.astro'
+import NeedleOrbit from '@components/NeedleOrbit.astro'
 import config from '@/config'
 import {
   AUTO_MODE,
@@ -182,6 +183,7 @@ const bannerOffset =
     class:list={[{ 'lg:is-home': isHomePage, 'enable-banner': enableBanner }]}
     data-overlayscrollbars-initialize
   >
+    <NeedleOrbit />
     <ConfigCarrier />
     <slot />
 

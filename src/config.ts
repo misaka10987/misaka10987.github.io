@@ -18,6 +18,11 @@ export default defineConfig({
     fixed: false,
   },
 
+  needleSignal: {
+    message: 'CQ WEST FORD',
+    dotMilliseconds: 700,
+  },
+
   banner: {
     enable: true,
     src: 'assets/images/banner.jpg',

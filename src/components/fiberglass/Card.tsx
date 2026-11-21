@@ -23,7 +23,7 @@ export default (props: Props) => {
     <div
       class={clsx(
         opacityClass,
-        'relative before:rounded-[var(--radius-large)] overflow-hidden before:absolute before:inset-0 before:backdrop-blur-xl before:-z-10 transition',
+        'relative before:rounded-[var(--radius-large)] overflow-hidden before:absolute before:inset-0 before:backdrop-blur-lg before:-z-10 transition',
         local.class,
       )}
       {...others}
