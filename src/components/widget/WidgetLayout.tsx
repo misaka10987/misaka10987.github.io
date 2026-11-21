@@ -26,7 +26,9 @@ export default (props: Props) => {
   return (
     <div
       class={clsx(
-        'pb-4 rounded-[var(--radius-large)] overflow-hidden bg-[var(--card-bg)] transition',
+        // copied from `@/components/fiberglass/Card.tsx`
+        'relative before:rounded-[var(--radius-large)] overflow-hidden before:absolute before:inset-0 before:bg-white/75 before:dark:bg-black/75 before:backdrop-blur-xl transition before:-z-10',
+        'pb-4 flex flex-col gap-2',
         local.class,
       )}
       {...others}

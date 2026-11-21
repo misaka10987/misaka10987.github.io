@@ -3,13 +3,13 @@ import { Icon } from 'astro-icon/components'
 import config from '@/config'
 import { url } from '../../utils/url-utils'
 import ImageWrapper from '../misc/ImageWrapper.astro'
-import Card from '@components/Card'
+import FiberglassCard from '@components/fiberglass/Card'
 import Button from '@components/Button'
 
 const profile = config.profile
 ---
 
-<Card class="p-3">
+<FiberglassCard class="p-3">
   <a
     aria-label="Go to About Page"
     href={url('/about/')}
@@ -46,33 +46,33 @@ const profile = config.profile
     </div>
     <div class="flex flex-wrap gap-2 justify-center mb-1">
       {profile.links.length > 1 &&
-          profile.links.map((item) => (
-            <Button
-              as="a"
-              variant="regular"
-              rel="me"
-              aria-label={item.name}
-              href={item.url}
-              target="_blank"
-              class="rounded-lg h-10 w-10 active:scale-90"
-            >
-              <Icon name={item.icon} class="text-[1.5rem]" />
-            </Button>
-          ))}
-      {profile.links.length === 1 && (
+        profile.links.map((item) => (
           <Button
             as="a"
             variant="regular"
             rel="me"
-            aria-label={profile.links[0].name}
-            href={profile.links[0].url}
+            aria-label={item.name}
+            href={item.url}
             target="_blank"
-            class="rounded-lg h-10 gap-2 px-3 font-bold active:scale-95"
+            class="rounded-lg h-10 w-10 active:scale-90"
           >
-            <Icon name={profile.links[0].icon} class="text-[1.5rem]" />
-            {profile.links[0].name}
+            <Icon name={item.icon} class="text-[1.5rem]" />
           </Button>
-        )}
+        ))}
+      {profile.links.length === 1 && (
+        <Button
+          as="a"
+          variant="regular"
+          rel="me"
+          aria-label={profile.links[0].name}
+          href={profile.links[0].url}
+          target="_blank"
+          class="rounded-lg h-10 gap-2 px-3 font-bold active:scale-95"
+        >
+          <Icon name={profile.links[0].icon} class="text-[1.5rem]" />
+          {profile.links[0].name}
+        </Button>
+      )}
     </div>
   </div>
-</Card>
+</FiberglassCard>

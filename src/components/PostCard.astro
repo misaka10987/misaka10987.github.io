@@ -6,9 +6,9 @@ import I18nKey from '../i18n/i18nKey'
 import { i18n } from '../i18n/translation'
 import ImageWrapper from './misc/ImageWrapper.astro'
 import PostMetadata from './PostMeta.astro'
-import Card from './Card'
 import clsx from 'clsx'
 import Button from './Button'
+import FiberglassCard from '@/components/fiberglass/Card'
 
 interface Props {
   class?: string
@@ -45,7 +45,7 @@ const coverWidth = '28%'
 const { remarkPluginFrontmatter } = await render(entry)
 ---
 
-<Card
+<FiberglassCard
   class={clsx(
     'flex flex-col-reverse md:flex-col w-full rounded-[var(--radius-large)] overflow-hidden relative',
     className,
@@ -165,7 +165,7 @@ const { remarkPluginFrontmatter } = await render(entry)
         />
       </Button>
     )}
-</Card>
+</FiberglassCard>
 
 <div
   class="transition border-t-[1px] border-dashed mx-6 border-black/10 dark:border-white/[0.15] last:border-t-0 md:hidden"

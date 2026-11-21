@@ -1,5 +1,5 @@
 ---
-import Button from '@components/Button'
+import FiberglassButton from '@components/fiberglass/Button'
 
 interface Props {
   size?: string
@@ -10,15 +10,15 @@ interface Props {
 const { dot, href, label }: Props = Astro.props
 ---
 
-<Button
+<FiberglassButton
   as="a"
   variant="regular"
   href={href}
   aria-label={label}
-  class="h-8 text-sm px-3 rounded-lg"
+  class="h-6 text-sm font-bold px-3"
 >
   {dot && (
       <div class="h-1 w-1 bg-[var(--btn-content)] dark:bg-[var(--card-bg)] transition rounded-md mr-2" />
     )}
   <slot />
-</Button>
+</FiberglassButton>
