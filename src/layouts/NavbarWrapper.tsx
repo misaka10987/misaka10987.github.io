@@ -67,7 +67,7 @@ export default (props: Props) => {
   return (
     <div
       class={clsx(
-        'z-50 pointer-events-none relative transition-all duration-700 max-w-[var(--page-width)] px-0 md:px-4 mx-auto',
+        'fixed inset-x-0 top-0 z-50 pointer-events-none transition-all duration-700 max-w-[var(--page-width)] px-0 md:px-4 mx-auto',
         config.banner.enable &&
           'h-[calc(var(--banner-height-home)_-_4.5rem)] duration-300',
         local.class,
@@ -76,7 +76,7 @@ export default (props: Props) => {
     >
       <div
         class={clsx(
-          'pointer-events-auto sticky top-0 transition-all',
+          'pointer-events-auto transition-all',
           hidden() && 'opacity-0 -translate-y-16',
         )}
       >
