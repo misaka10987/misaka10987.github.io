@@ -1,8 +1,8 @@
-import Button from '@components/Button'
 import { BANNER_HEIGHT } from '@constants/constants'
 import { Icon } from '@iconify-icon/solid'
 import clsx from 'clsx'
 import { createSignal, onMount } from 'solid-js'
+import FiberglassButton from '@/components/fiberglass/Button'
 
 export default () => {
   const [hidden, setHidden] = createSignal(true)
@@ -34,7 +34,7 @@ export default () => {
             : 'opacity-100 pointer-events-auto',
         )}
       >
-        <Button
+        <FiberglassButton
           variant="card"
           aria-label="Back to Top"
           class="h-[3.75rem] w-[3.75rem]"
@@ -44,7 +44,7 @@ export default () => {
             icon="material-symbols:keyboard-arrow-up-rounded"
             class="mx-auto"
           />
-        </Button>
+        </FiberglassButton>
       </div>
     </div>
   )
