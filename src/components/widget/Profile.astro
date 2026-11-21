@@ -3,13 +3,13 @@ import { Icon } from 'astro-icon/components'
 import config from '@/config'
 import { url } from '../../utils/url-utils'
 import ImageWrapper from '../misc/ImageWrapper.astro'
-import FiberglassCard from '@components/fiberglass/Card'
+import Card from '@components/fiberglass/Card'
 import Button from '@components/Button'
 
 const profile = config.profile
 ---
 
-<FiberglassCard class="p-3">
+<Card class="p-3">
   <a
     aria-label="Go to About Page"
     href={url('/about/')}
@@ -75,4 +75,4 @@ const profile = config.profile
       )}
     </div>
   </div>
-</FiberglassCard>
+</Card>

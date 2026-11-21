@@ -2,7 +2,8 @@
 import type { Page } from 'astro'
 import { Icon } from 'astro-icon/components'
 import { url } from '../../utils/url-utils'
-import Button from '@components/Button'
+import Button from '@components/fiberglass/Button'
+import { Card } from '@components/fiberglass/Card'
 
 interface Props {
   page: Page
@@ -62,45 +63,46 @@ const getPageUrl = (p: number) => {
     disabled={page.url.prev === undefined}
     href={page.url.prev}
     aria-label={page.url.prev ? 'Previous Page' : undefined}
-    class="overflow-hidden rounded-lg text-[var(--primary)] w-11 h-11"
+    class="overflow-hidden rounded-lg text-[var(--primary)] w-12 h-12"
   >
     <Icon name="material-symbols:chevron-left-rounded" class="text-[1.75rem]" />
   </Button>
-  <div
-    class="bg-[var(--card-bg)] flex flex-row rounded-lg items-center text-neutral-700 dark:text-neutral-300 font-bold"
+  <Card
+    class="flex flex-row items-center text-neutral-700 dark:text-neutral-300 font-bold px-1"
   >
     {pages.map((p) => {
-        if (p === HIDDEN)
-          return <Icon name="material-symbols:more-horiz" class="mx-1" />
-        if (p === page.currentPage)
-          return (
-            <div
-              class="h-11 w-11 rounded-lg bg-[var(--primary)] flex items-center justify-center
-                    font-bold text-white dark:text-black/70"
-            >
-              {p}
-            </div>
-          )
+      if (p === HIDDEN)
+        return <Icon name="material-symbols:more-horiz" class="mx-1" />
+      if (p === page.currentPage) {
         return (
           <Button
             as="a"
-            variant="card"
-            href={url(getPageUrl(p))}
-            aria-label={`Page ${p}`}
-            class="w-11 h-11 rounded-lg overflow-hidden active:scale-[0.85]"
+            class="h-10 w-10 bg-[var(--primary)] flex items-center justify-center font-bold text-white dark:text-black/70"
           >
             {p}
           </Button>
         )
-      })}
-  </div>
+      }
+      return (
+        <Button
+          as="a"
+          variant="card"
+          href={url(getPageUrl(p))}
+          aria-label={`Page ${p}`}
+          class="w-12 h-12 rounded-lg overflow-hidden active:scale-[0.85] hover:underline hover:underline-offset-4 hover:text-[var(--primary)] text-lg"
+        >
+          {p}
+        </Button>
+      )
+    })}
+  </Card>
   <Button
     as="a"
     variant="card"
     disabled={page.url.next === undefined}
     href={page.url.next}
     aria-label={page.url.next ? 'Next Page' : undefined}
-    class="overflow-hidden rounded-lg text-[var(--primary)] w-11 h-11"
+    class="overflow-hidden rounded-lg text-[var(--primary)] w-12 h-12"
   >
     <Icon
       name="material-symbols:chevron-right-rounded"

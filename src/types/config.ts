@@ -46,6 +46,12 @@ type AphrosConfig = {
     fixed: boolean
   }
 
+  needleSignal: {
+    /** International Morse text. An empty message leaves the needles steady. */
+    message: string
+    dotMilliseconds: number
+  }
+
   banner: {
     enable: boolean
 
