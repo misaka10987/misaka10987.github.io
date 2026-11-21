@@ -39,34 +39,60 @@ const keyframes = units ? frames.map(({time, opacity}) =>
   `${100 * time / units}%{opacity:${opacity}}`).join('') : ''
 ---
 <style is:inline set:html={`@keyframes needle-cw{${keyframes}100%{opacity:.55}}`} />
-<svg class="needle-field" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice"
+<svg class="needle-field transition-transform duration-700"
   style={units && dotMilliseconds > 0 ? `--period:${units * dotMilliseconds}ms` : undefined}
   aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round">
   <path stroke-width="4" opacity=".55" />
   <path stroke-width="6" />
 </svg>
 <script is:inline>
-  // Run once when the document loads, including on a static production build.
-  for (const path of document.currentScript.previousElementSibling.children) {
-    const segments = Array.from({ length: 16 }, () => {
-      const cx = Math.random() * 1200
-      const cy = Math.random() * 800
-      const angle = Math.random() * Math.PI
-      const length = 320 + Math.random() * 360
-      const dx = length * Math.cos(angle)
-      const dy = length * Math.sin(angle)
-      return `M${(cx - dx / 2).toFixed(1)} ${(cy - dy / 2).toFixed(1)}l${dx.toFixed(1)} ${dy.toFixed(1)}`
-    })
-    path.setAttribute('d', segments.join(''))
-  }
+  (() => {
+    const field = document.currentScript.previousElementSibling
+    const groups = []
+    function render() {
+      if (!field.isConnected) {
+        observer.disconnect()
+        window.removeEventListener('resize', render)
+        return
+      }
+      const width = field.clientWidth
+      const screen = Math.max(1, window.innerHeight)
+      const count = Math.ceil(field.clientHeight / screen)
+      while (groups.length < count) {
+        groups.push(Array.from({ length: 32 }, () => ({
+          x: Math.random(), y: Math.random(),
+          angle: Math.random() * Math.PI, length: 320 + Math.random() * 360,
+        })))
+      }
+      const scale = Math.max(width / 1200, screen / 800)
+      const paths = [[], []]
+      for (let group = 0; group < count; group++) {
+        groups[group].forEach((needle, i) => {
+          const dx = needle.length * scale * Math.cos(needle.angle)
+          const dy = needle.length * scale * Math.sin(needle.angle)
+          const x = needle.x * width - dx / 2
+          const y = (group + needle.y) * screen - dy / 2
+          paths[i % 2].push(`M${x.toFixed(1)} ${y.toFixed(1)}l${dx.toFixed(1)} ${dy.toFixed(1)}`)
+        })
+      }
+      paths.forEach((segments, i) => {
+        field.children[i].setAttribute('d', segments.join(''))
+        field.children[i].setAttribute('stroke-width', (i ? 6 : 4) * scale)
+      })
+    }
+    const observer = new ResizeObserver(render)
+    observer.observe(field)
+    window.addEventListener('resize', render)
+  })()
 </script>
 
 <style>
   .needle-field {
-    position: fixed;
-    inset: 0;
+    position: absolute;
+    inset: var(--needle-start) 0 auto;
     width: 100%;
-    height: 100%;
+    height: calc(100% - var(--needle-start));
+    overflow: hidden;
     pointer-events: none;
     z-index: -1;
     color: color-mix(in oklab, var(--primary), var(--page-bg));

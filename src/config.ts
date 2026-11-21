@@ -19,8 +19,8 @@ export default defineConfig({
   },
 
   needleSignal: {
-    message: 'CQ WEST FORD',
-    dotMilliseconds: 700,
+    message: 'BI4BXE',
+    dotMilliseconds: 500,
   },
 
   banner: {

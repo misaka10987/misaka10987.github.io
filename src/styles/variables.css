@@ -113,7 +113,7 @@
 
 :root.dark {
   --primary: oklch(0.75 0.07 var(--hue));
-  --page-bg: oklch(0.25 0.007 var(--hue));
+  --page-bg: oklch(0.20 0.007 var(--hue));
   --card-bg: oklch(0.23 0.0075 var(--hue));
 
   --btn-content: oklch(0.75 0.05 var(--hue));
