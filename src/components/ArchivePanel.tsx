@@ -3,7 +3,7 @@ import { createSignal, onMount } from 'solid-js'
 import I18nKey from '../i18n/i18nKey'
 import { i18n } from '../i18n/translation'
 import { getPostUrl } from '../utils/url-utils'
-import Card from './Card'
+import Card from '@components/fiberglass/Card'
 import Button from './Button'
 
 interface Post {
