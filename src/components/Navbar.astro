@@ -35,13 +35,12 @@ nav {
     class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"
   ></div> <!-- used for onload animation -->
   <Card
-    class={clsx(className, "before:rounded-t-none !overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4 before:shadow-xl")}
+    class={clsx(
+      className,
+      'before:rounded-t-none !overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4 before:shadow-xl',
+    )}
   >
-    <FiberglassButton
-      as="a"
-      href={url('/')}
-      class="h-10 px-5 font-bold"
-    >
+    <FiberglassButton as="a" href={url('/')} class="h-10 px-5 font-bold">
       <div class="flex flex-row items-center text-md">
         <Icon
           name="material-symbols:home-outline-rounded"
@@ -52,26 +51,41 @@ nav {
     </FiberglassButton>
 
     <div class="hidden md:flex gap-10">
-      {links.map((l) =>
-                <FiberglassButton as="a" variant="link" aria-label={l.name} href={l.external ? l.url : url(l.url)} target={l.external ? "_blank" : undefined} class="font-bold">
-                    <div class="flex items-center">
-                        {l.name}
-                        {l.external && <Icon name="fa6-solid:arrow-up-right-from-square" class="text-[0.875rem] transition -translate-y-[1px] ml-1 text-black/[0.2] dark:text-white/[0.2]"></Icon>}
-                    </div>
-                </FiberglassButton>
+      {links.map((l) => (
+        <FiberglassButton
+          as="a"
+          variant="link"
+          aria-label={l.name}
+          href={l.external ? l.url : url(l.url)}
+          target={l.external ? '_blank' : undefined}
+          class="font-bold"
+        >
+          <div class="flex items-center">
+            {l.name}
+            {l.external && (
+              <Icon
+                name="fa6-solid:arrow-up-right-from-square"
+                class="text-[0.875rem] transition -translate-y-[1px] ml-1 text-black/[0.2] dark:text-white/[0.2]"
+              ></Icon>
             )}
+          </div>
+        </FiberglassButton>
+      ))}
     </div>
     <div class="flex items-center gap-2">
       <Search client:load></Search>
-      {!config.themeColor.fixed &&  <DisplaySettings client:load></DisplaySettings>}
+      {!config.themeColor.fixed && (
+        <DisplaySettings client:load></DisplaySettings>
+      )}
       <LightDarkSwitch client:load></LightDarkSwitch>
       <NavMenu links={links} client:load></NavMenu>
     </div>
   </Card>
 </nav>
 
+<!-- biome-ignore format : bug-->
 {import.meta.env.PROD && <script is:inline define:vars={{scriptUrl: url('/pagefind/pagefind.js')}}>
-async function loadPagefind() {
+const loadPagefind = async () => {
     try {
         const response = await fetch(scriptUrl, { method: 'HEAD' });
         if (!response.ok) {
