@@ -68,7 +68,7 @@ const getPageUrl = (p: number) => {
     <Icon name="material-symbols:chevron-left-rounded" class="text-[1.75rem]" />
   </Button>
   <Card
-    class="flex flex-row items-center text-neutral-700 dark:text-neutral-300 font-bold px-1"
+    class="flex flex-row items-center text-neutral-700 dark:text-neutral-300 font-bold px-2"
   >
     {pages.map((p) => {
       if (p === HIDDEN)
@@ -77,7 +77,7 @@ const getPageUrl = (p: number) => {
         return (
           <Button
             as="a"
-            class="h-10 w-10 bg-[var(--primary)] flex items-center justify-center font-bold text-white dark:text-black/70"
+            class="h-8 w-8 bg-[var(--primary)] flex items-center justify-center font-bold text-white dark:text-black/70"
           >
             {p}
           </Button>
