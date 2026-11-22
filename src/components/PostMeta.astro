@@ -5,6 +5,7 @@ import { i18n } from '../i18n/translation'
 import { formatDateToYYYYMMDD } from '../utils/date-utils'
 import { getCategoryUrl, getTagUrl } from '../utils/url-utils'
 import Link from './Link'
+import Inlay from '@/components/fiberglass/Inlay'
 
 interface Props {
   class: string
@@ -27,7 +28,10 @@ const className = Astro.props.class
 ---
 
 <div
-  class:list={["flex flex-wrap text-neutral-500 dark:text-neutral-400 items-center gap-4 gap-x-4 gap-y-2", className]}
+  class:list={[
+    'flex flex-wrap text-neutral-500 dark:text-neutral-400 items-center gap-4 gap-x-4 gap-y-2',
+    className,
+  ]}
 >
   <!-- publish date -->
   <div class="flex items-center">
@@ -46,25 +50,24 @@ const className = Astro.props.class
 
   <!-- update date -->
   {!hideUpdateDate && updated && updated.getTime() !== published.getTime() && (
-        <div class="flex items-center">
-            <div class="w-8 h-8 transition rounded-md flex items-center justify-center bg-[var(--btn-regular-bg)] text-[var(--btn-content)] mr-2"
-            >
-                <Icon name="material-symbols:edit-calendar-outline-rounded" class="text-xl"></Icon>
-            </div>
-            <span class="text-50 text-sm font-medium">{formatDateToYYYYMMDD(updated)}</span>
-        </div>
-    )}
+    <div class="flex items-center">
+      <div class="w-8 h-8 transition rounded-md flex items-center justify-center bg-[var(--btn-regular-bg)] text-[var(--btn-content)] mr-2">
+        <Icon
+          name="material-symbols:edit-calendar-outline-rounded"
+          class="text-xl"
+        ></Icon>
+      </div>
+      <span class="text-50 text-sm font-medium">
+        {formatDateToYYYYMMDD(updated)}
+      </span>
+    </div>
+  )}
 
   <!-- categories -->
   <div class="flex items-center">
-    <div
-      class="w-8 h-8 transition rounded-md flex items-center justify-center bg-[var(--btn-regular-bg)] text-[var(--btn-content)] mr-2"
-    >
-      <Icon
-        name="material-symbols:book-2-outline-rounded"
-        class="text-xl"
-      ></Icon>
-    </div>
+    <Inlay class="w-8 h-8 mr-2">
+      <Icon name="material-symbols:book-2-outline-rounded" class="text-xl" />
+    </Inlay>
     <div class="flex flex-row flex-nowrap items-center">
       <Link
         size="lg"
@@ -79,22 +82,40 @@ const className = Astro.props.class
 
   <!-- tags -->
   <div
-    class:list={["items-center", {"flex": !hideTagsForMobile, "hidden md:flex": hideTagsForMobile}]}
+    class:list={[
+      'items-center',
+      { flex: !hideTagsForMobile, 'hidden md:flex': hideTagsForMobile },
+    ]}
   >
-    <div
-      class="w-8 h-8 transition rounded-md flex items-center justify-center bg-[var(--btn-regular-bg)] text-[var(--btn-content)] mr-2"
-    >
+    <Inlay class="w-8 h-8 mr-2">
       <Icon name="material-symbols:tag-rounded" class="text-xl"></Icon>
-    </div>
+    </Inlay>
     <div class="flex flex-row flex-nowrap items-center">
-      {(tags && tags.length > 0) && tags.map((tag, i) => (
-                <div class:list={[{"hidden": i === 0}, "mx-1.5 text-[var(--meta-divider)] text-sm"]}>/</div>
-                <Link size="lg" href={getTagUrl(tag)} aria-label={`View all posts with the ${tag.trim()} tag`}
-                   class="transition text-50 text-sm font-medium hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap">
-                    {tag.trim()}
-                </Link>
-            ))}
-      {!(tags && tags.length > 0) && <div class="transition text-50 text-sm font-medium">{i18n(I18nKey.noTags)}</div>}
+      {tags &&
+        tags.length > 0 &&
+        tags.map((tag, i) => (
+            <div
+              class:list={[
+                { hidden: i === 0 },
+                'mx-1.5 text-[var(--meta-divider)] text-sm',
+              ]}
+            >
+              /
+            </div>
+            <Link
+              size="lg"
+              href={getTagUrl(tag)}
+              aria-label={`View all posts with the ${tag.trim()} tag`}
+              class="transition text-50 text-sm font-medium hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
+            >
+              {tag.trim()}
+            </Link>
+        ))}
+      {!(tags && tags.length > 0) && (
+        <div class="transition text-50 text-sm font-medium">
+          {i18n(I18nKey.noTags)}
+        </div>
+      )}
     </div>
   </div>
 </div>
