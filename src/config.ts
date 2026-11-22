@@ -18,6 +18,11 @@ export default defineConfig({
     fixed: false,
   },
 
+  needleSignal: {
+    message: 'BI4BXE',
+    dotMilliseconds: 500,
+  },
+
   banner: {
     enable: true,
     src: 'assets/images/banner.jpg',

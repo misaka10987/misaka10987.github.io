@@ -1,8 +1,8 @@
-import Button from '@components/Button'
 import { BANNER_HEIGHT } from '@constants/constants'
 import { Icon } from '@iconify-icon/solid'
 import clsx from 'clsx'
 import { createSignal, onMount } from 'solid-js'
+import FiberglassButton from '@/components/fiberglass/Button'
 
 export default () => {
   const [hidden, setHidden] = createSignal(true)
@@ -28,23 +28,22 @@ export default () => {
     <div class="hidden lg:block w-[3.75rem] h-[3.75rem] absolute right-0 top-0 pointer-events-none">
       <div
         class={clsx(
-          'flex items-center rounded-2xl overflow-hidden transition fixed bottom-[10rem] cursor-pointer translate-x-20 [&_i]:text-[1.75rem] [&:active]:scale-90 [color:var(--primary)] [font-size:2.25rem] [font-weight:bold] border-none',
+          'flex items-center rounded-2xl overflow-hidden transition fixed bottom-[10rem] cursor-pointer translate-x-20 [&_i]:text-[1.75rem] [&:active]:scale-90 [color:var(--primary)] [font-size:2.25rem] [font-weight:bold] border-none p-1',
           hidden()
             ? 'scale-90 opacity-0 pointer-events-none'
             : 'opacity-100 pointer-events-auto',
         )}
       >
-        <Button
-          variant="card"
+        <FiberglassButton
           aria-label="Back to Top"
-          class="h-[3.75rem] w-[3.75rem]"
+          class="h-12 w-12"
           onclick={() => window.scroll({ top: 0, behavior: 'smooth' })}
         >
           <Icon
             icon="material-symbols:keyboard-arrow-up-rounded"
             class="mx-auto"
           />
-        </Button>
+        </FiberglassButton>
       </div>
     </div>
   )

@@ -12,10 +12,10 @@ import config from '@/config'
 import ImageWrapper from '../../components/misc/ImageWrapper.astro'
 import PostMetadata from '../../components/PostMeta.astro'
 import { formatDateToYYYYMMDD } from '../../utils/date-utils'
-import Card from '@components/Card'
 import clsx from 'clsx'
-import { getButtonClass } from '@components/Button'
+import Card from '@/components/fiberglass/Card'
 import { render } from 'astro:content'
+import { getButtonClass } from '@components/fiberglass/Button'
 
 export async function getStaticPaths() {
   const blogEntries = await getSortedPosts()
@@ -113,11 +113,11 @@ const jsonLd = {
           <div class="text-sm">
             {remarkPluginFrontmatter.minutes}
             {' ' +
-                i18n(
-                  remarkPluginFrontmatter.minutes === 1
-                    ? I18nKey.minuteCount
-                    : I18nKey.minutesCount,
-                )}
+              i18n(
+                remarkPluginFrontmatter.minutes === 1
+                  ? I18nKey.minuteCount
+                  : I18nKey.minutesCount,
+              )}
           </div>
         </div>
       </div>
@@ -148,8 +148,8 @@ const jsonLd = {
           category={entry.data.category}
         />
         {!entry.data.image && (
-            <div class="border-[var(--line-divider)] border-dashed border-b-[1px] mb-5" />
-          )}
+          <div class="border-[var(--line-divider)] border-dashed border-b-[1px] mb-5" />
+        )}
       </div>
 
       <!-- always show cover as long as it has one -->
@@ -161,24 +161,20 @@ const jsonLd = {
             basePath={path.relative('src', path.dirname(entry.filePath ?? ''))}
             class="post-cover mb-8 rounded-xl onload-animation"
           />
-          <style>
-            .post-cover img {
-               cursor: zoom-in;
-            }
-          </style>
-        )}
+          <style>.post-cover img { cursor: zoom-in; }</style>
+      )}
 
       <Markdown class="mb-6 onload-animation">
         <Content />
       </Markdown>
 
       {config.license.enable && (
-          <License
-            title={entry.data.title}
-            pubDate={entry.data.published}
-            class="mb-6 rounded-xl onload-animation"
-          />
-        )}
+        <License
+          title={entry.data.title}
+          pubDate={entry.data.published}
+          class="mb-6 rounded-xl onload-animation"
+        />
+      )}
     </Card>
   </div>
 
@@ -193,21 +189,21 @@ const jsonLd = {
       ]}
     >
       {entry.data.nextId && (
-          <div
-            class={clsx(
-              getButtonClass({ variant: 'card' }),
-              'rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-start gap-4',
-            )}
-          >
-            <Icon
-              name="material-symbols:chevron-left-rounded"
-              class="text-[2rem] text-[var(--primary)]"
-            />
-            <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75">
-              {entry.data.nextTitle}
-            </div>
+        <div
+          class={clsx(
+            getButtonClass({ variant: 'card' }),
+            'rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-start gap-4 group',
+          )}
+        >
+          <Icon
+            name="material-symbols:chevron-left-rounded"
+            class="text-[2rem] text-[var(--primary)]"
+          />
+          <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75 group-hover:text-[var(--primary)] group-hover:underline group-hover:underline-offset-4">
+            {entry.data.nextTitle}
           </div>
-        )}
+        </div>
+      )}
     </a>
 
     <a
@@ -218,21 +214,21 @@ const jsonLd = {
       ]}
     >
       {entry.data.prevId && (
-          <div
-            class={clsx(
-              getButtonClass({ variant: 'card' }),
-              'rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-end gap-4',
-            )}
-          >
-            <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75">
-              {entry.data.prevTitle}
-            </div>
-            <Icon
-              name="material-symbols:chevron-right-rounded"
-              class="text-[2rem] text-[var(--primary)]"
-            />
+        <div
+          class={clsx(
+            getButtonClass({ variant: 'card' }),
+            'rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-end gap-4 group',
+          )}
+        >
+          <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75 group-hover:text-[var(--primary)] group-hover:underline group-hover:underline-offset-4">
+            {entry.data.prevTitle}
           </div>
-        )}
+          <Icon
+            name="material-symbols:chevron-right-rounded"
+            class="text-[2rem] text-[var(--primary)]"
+          />
+        </div>
+      )}
     </a>
   </div>
 </MainGridLayout>
