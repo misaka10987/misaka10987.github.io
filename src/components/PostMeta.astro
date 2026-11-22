@@ -4,8 +4,8 @@ import I18nKey from '../i18n/i18nKey'
 import { i18n } from '../i18n/translation'
 import { formatDateToYYYYMMDD } from '../utils/date-utils'
 import { getCategoryUrl, getTagUrl } from '../utils/url-utils'
-import Link from './Link'
 import Inlay from '@/components/fiberglass/Inlay'
+import Button from './fiberglass/Button'
 
 interface Props {
   class: string
@@ -69,14 +69,14 @@ const className = Astro.props.class
       <Icon name="material-symbols:book-2-outline-rounded" class="text-xl" />
     </Inlay>
     <div class="flex flex-row flex-nowrap items-center">
-      <Link
-        size="lg"
+      <Button
+        as="a"
         href={getCategoryUrl(category)}
         aria-label={`View all posts in the ${category} category`}
-        class="transition text-50 text-sm font-medium hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
+        class="transition px-3 h-6 text-sm font-bold whitespace-nowrap"
       >
         {category || i18n(I18nKey.uncategorized)}
-      </Link>
+      </Button>
     </div>
   </div>
 
@@ -90,26 +90,18 @@ const className = Astro.props.class
     <Inlay class="w-8 h-8 mr-2">
       <Icon name="material-symbols:tag-rounded" class="text-xl"></Icon>
     </Inlay>
-    <div class="flex flex-row flex-nowrap items-center">
+    <div class="flex flex-row flex-nowrap items-center gap-1">
       {tags &&
         tags.length > 0 &&
-        tags.map((tag, i) => (
-            <div
-              class:list={[
-                { hidden: i === 0 },
-                'mx-1.5 text-[var(--meta-divider)] text-sm',
-              ]}
-            >
-              /
-            </div>
-            <Link
-              size="lg"
-              href={getTagUrl(tag)}
-              aria-label={`View all posts with the ${tag.trim()} tag`}
-              class="transition text-50 text-sm font-medium hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
-            >
-              {tag.trim()}
-            </Link>
+        tags.map((tag) => (
+          <Button
+            as="a"
+            href={getTagUrl(tag)}
+            aria-label={`View all posts with the ${tag.trim()} tag`}
+            class="transition px-3 h-6 text-sm font-bold whitespace-nowrap"
+          >
+            {tag.trim()}
+          </Button>
         ))}
       {!(tags && tags.length > 0) && (
         <div class="transition text-50 text-sm font-medium">
