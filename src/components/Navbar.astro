@@ -24,20 +24,14 @@ let links: NavBarLink[] = config.navBar.links.map(
 )
 ---
 
-<style>
-nav {
-  animation-delay: 0ms;
-}
-</style>
-
-<nav class="z-50 onload-animation">
+<nav class="z-50 onload-animation ![animation-delay:0ms]">
   <div
     class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"
   ></div> <!-- used for onload animation -->
   <Card
     class={clsx(
+      'before:rounded-t-none overflow-visible max-w-[var(--page-width)] h-16 mx-auto flex items-center justify-between px-4 before:shadow-xl',
       className,
-      'before:rounded-t-none !overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4 before:shadow-xl',
     )}
   >
     <FiberglassButton as="a" href={url('/')} class="h-10 px-5 font-bold">
