@@ -192,14 +192,14 @@ const jsonLd = {
         <div
           class={clsx(
             getButtonClass({ variant: 'card' }),
-            'rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-start gap-4',
+            'rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-start gap-4 group',
           )}
         >
           <Icon
             name="material-symbols:chevron-left-rounded"
             class="text-[2rem] text-[var(--primary)]"
           />
-          <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75">
+          <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75 group-hover:text-[var(--primary)] group-hover:underline group-hover:underline-offset-4">
             {entry.data.nextTitle}
           </div>
         </div>
@@ -217,10 +217,10 @@ const jsonLd = {
         <div
           class={clsx(
             getButtonClass({ variant: 'card' }),
-            'rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-end gap-4',
+            'rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-end gap-4 group',
           )}
         >
-          <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75">
+          <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75 group-hover:text-[var(--primary)] group-hover:underline group-hover:underline-offset-4">
             {entry.data.prevTitle}
           </div>
           <Icon
