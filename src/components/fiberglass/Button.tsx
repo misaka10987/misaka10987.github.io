@@ -17,6 +17,10 @@ type RegularVariant = {
   variant?: 'regular'
 }
 
+type LinkVariant = {
+  variant: 'link'
+}
+
 type GhostLinkVariant = {
   variant: 'ghost-link'
 }
@@ -26,12 +30,17 @@ type CardVariant = {
   disabled?: boolean
 } & CardProps
 
-type Variant = RegularVariant | GhostLinkVariant | CardVariant
+type Variant = RegularVariant | GhostLinkVariant | CardVariant | LinkVariant
 
 type Props = (ButtonProps | AnchorProps) & Variant
 
 export const getButtonClass = (variant: Variant): string => {
   switch (variant.variant) {
+    case 'link':
+      return clsx(
+        'transition relative flex items-center justify-center',
+        'bg-none rounded-lg text-black/75 hover:text-[var(--primary)] dark:text-white/75 dark:hover:text-[var(--primary)] z-0 active:scale-95 hover:underline hover:underline-offset-4',
+      )
     case 'ghost-link':
       return clsx(
         'transition relative flex items-center justify-center',
