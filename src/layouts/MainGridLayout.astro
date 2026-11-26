@@ -1,5 +1,5 @@
 ---
-import NeedleOrbit from '@components/NeedleOrbit.astro'
+import WestFord from '@components/WestFord.astro'
 import Footer from '@components/Footer.astro'
 import Navbar from '@components/Navbar.astro'
 import SideBar from '@components/widget/SideBar.astro'
@@ -60,7 +60,7 @@ const mainPanelTop = config.banner.enable
     class="absolute w-full z-30 pointer-events-none"
     style={`--needle-start: ${config.banner.enable ? `${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem` : `calc(0px - ${mainPanelTop})`}; top: ${mainPanelTop}`}
   >
-    <NeedleOrbit />
+    <WestFord />
     <!-- The pointer-events-none here prevent blocking the click event of the TOC -->
     <div class="relative max-w-[var(--page-width)] mx-auto pointer-events-auto">
       <div
