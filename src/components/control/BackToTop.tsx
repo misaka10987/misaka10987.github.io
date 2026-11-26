@@ -36,7 +36,7 @@ export default () => {
       >
         <FiberglassButton
           aria-label="Back to Top"
-          class="h-12 w-12"
+          class="h-12 w-12 shadow-2xl"
           onclick={() => window.scroll({ top: 0, behavior: 'smooth' })}
         >
           <Icon
