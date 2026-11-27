@@ -24,6 +24,7 @@ import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs'
 import { pluginCustomCopyButton } from './src/plugins/expressive-code/custom-copy-button.tsx'
 import { unified } from '@astrojs/markdown-remark'
 import solidJs from '@astrojs/solid-js'
+import solidSvg from 'vite-plugin-solid-svg'
 
 // https://astro.build/config
 export default defineConfig({
@@ -186,5 +187,6 @@ export default defineConfig({
         },
       },
     },
+    plugins: [solidSvg({ defaultAsComponent: false })],
   },
 })
